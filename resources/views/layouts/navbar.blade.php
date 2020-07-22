@@ -4,7 +4,7 @@
 
     <!-- Brand -->
     <a id="logoLink" data-placement="bottom" data-toggle="tooltip" title="Home Page" class="navbar-brand" href="{{  url('/') }}">
-      <img id="bookLogo" src=" {{ asset('/mdb/img/blue-book-transparent.png') }}" alt="book" width="50" height="50">
+      <img id="bookLogo" src=" {{ asset('public/mdb/img/blue-book-transparent.png') }}" alt="book" width="50" height="50">
     </a>
 
     <!-- Search -->
