@@ -1,99 +1,67 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.main')
+@section('content')
 
-        <title>Backpack for Laravel</title>
+<div id="mainBody">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <h1 style="color: #3061e2;display:flex; justify-content:center">Home page</h1>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-            .full-height {
-                height: 100vh;
-            }
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-            .position-ref {
-                position: relative;
-            }
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-            .content {
-                text-align: center;
-            }
-            .title {
-                font-size: 84px;
-                color: #467fd0;
-            }
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-            .m-t-lg {
-                margin-top: 60px;
-            }
-            a:hover {
-                color: #7C69EF;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+    <!-- Modal -->
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+    <div class="modal fade" id="advancedSearchModal" tabindex="-1" role="dialog" aria-labelledby="advancedSearchModalLabel" aria-hidden="true">
+        <div id="advancedSearchModalDialog" class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div id="advancedSearchModalContent" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalHeaderTitle">Advanced Search</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    <img src="https://backpackforlaravel.com/presentation/img/backpack/logos/backpack_logo_color.png" alt="Backpack for Laravel">
+                <div class="modal-body">
+                    ...<br>
+                    ...<br>
+                    ...<br>
+                    ...<br>
+                    ...<br>
+                    Coming soon...<br>
+                    ...<br>
+                    ...<br>
+                    ...<br>
+                    ...<br>
+                    ...<br>
                 </div>
-
-                <div class="links">
-                    <a href="{{ backpack_url() }}">Login</a>
-                    <a target="_blank" href="https://backpackforlaravel.com/docs">Docs</a>
-                    <a target="_blank" href="https://github.com/laravel-backpack/crud">GitHub</a>
-                    <a target="_blank" href="https://backpackforlaravel.com/contact">Contact</a>
-                </div>
-
-                <div class="m-t-lg">
-                    * No front-end pages are provided in this demo. Only the admin panel.
+                <div class="modal-footer d-flex justify-content-between">
+                    <button id="modalCancelButton" type="button" class="btn" data-dismiss="modal">Cancel</button>
+                    <button id="modalSearchButton" type="button" class="btn">Search</button>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+
+    <!-- End-Modal -
+
+</div>
+@endsection

@@ -1,0 +1,15 @@
+#mainBody {
+  margin-top: 100px;
+}
+
+footer {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+footer.page-footer {
+  background: linear-gradient(to right, #3ab9eb, #d647d8);
+  background: -webkit-linear-gradient(to right, #3ab9eb, #d647d8);
+  background: -moz-linear-gradient(to right, #3ab9eb, #d647d8);
+  background: -o-linear-gradient(to right, #3ab9eb, #d647d8);
+}

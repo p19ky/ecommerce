@@ -1,0 +1,55 @@
+h5#modalHeaderTitle {
+  position: relative;
+}
+
+button.close {
+  position: relative;
+}
+
+div#advancedSearchModalDialog {
+  color: #fff;
+}
+
+div#advancedSearchModalContent {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background: transparent;
+  position: relative;
+  opacity: 1;
+}
+
+div#advancedSearchModalContent:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: -webkit-linear-gradient(to right, #3ab9eb 0%, #d647d8 100%);
+  background-image: -moz-linear-gradient(to right, #3ab9eb 0%, #d647d8 100%);
+  background-image: -o-linear-gradient(to right, #3ab9eb 0%, #d647d8 100%);
+  background-image: linear-gradient(to right, #3ab9eb 0%, #d647d8 100%);
+  opacity: 0.9;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#modalCancelButton {
+  border-radius: 50px;
+  background: #d647d8;
+}
+
+#modalCancelButton:hover {
+  color: #fff;
+}
+
+#modalSearchButton {
+  border-radius: 50px;
+  background: #3ab9eb;
+}
+
+#modalSearchButton:hover {
+  color: #fff;
+}
