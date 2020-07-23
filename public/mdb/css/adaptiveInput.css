@@ -1,0 +1,47 @@
+.adaptiveInput input[type="text"] {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(3em + 2px);
+  margin: 0 0 1em;
+  padding: 1em;
+  border: 1px solid #cccccc;
+  border-radius: 1.5em;
+  background: #d2daee;
+  resize: none;
+  outline: none;
+}
+.adaptiveInput input[type="text"]:focus {
+  /* border-color: #00bafa; */
+}
+.adaptiveInput input[type="text"]:focus + label[placeholder]:before {
+  color: red;
+  font-weight: bold;
+  font-size: 30px;
+}
+.adaptiveInput input[type="text"]:focus + label[placeholder]:before {
+  transition-duration: 0.2s;
+  transform: translate(0, -1.5em) scale(0.9, 0.9);
+}
+.adaptiveInput input[type="text"] + label[placeholder][alt]:before {
+  content: attr(alt);
+}
+.adaptiveInput input[type="text"] + label[placeholder] {
+  display: block;
+  pointer-events: none;
+  line-height: 1.25em;
+  margin-top: calc(-3em - 2px);
+  margin-bottom: calc((3em - 1em) + 2px);
+}
+.adaptiveInput input[type="text"] + label[placeholder]:before {
+  content: attr(placeholder);
+  display: inline-block;
+  margin: 0 calc(1em + 2px);
+  padding: 0 2px;
+  color: #898989;
+  white-space: nowrap;
+  transition: 0.3s ease-in-out;
+  /* background-image: linear-gradient(to bottom, #ffffff, #ffffff); */
+  /* background-size: 100% 5px; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+}

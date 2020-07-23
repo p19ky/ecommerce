@@ -21,6 +21,7 @@
   <link href="{{  URL::asset('/mdb/css/style.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/mdb/css/navbar.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/mdb/css/advancedSearch.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/mdb/css/adaptiveInput.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -46,11 +47,11 @@
   <script type="text/javascript" src="{{  URL::asset('/mdb/js/scripts/script.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/mdb/js/scripts/script-1.js') }}"></script>
 
-  <!-- <script type="text/javascript">
+  <script type="text/javascript">
     $(window).on('load', function() {
       $('#advancedSearchModal').modal('toggle');
     });
-  </script> -->
+  </script>
 
 
 </body>
