@@ -43,7 +43,8 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-2"></div>
+                            <div class="col-8">
                                 <form class="text-center" action="#!">
 
                                     <!-- Title -->
@@ -54,12 +55,14 @@
 
                                     <!-- Language -->
                                     <div class="md-form">
-                                        <input type="text" id="languageInput" class="form-control advSearchInput">
+                                        <input data-role="tags-input" type="text" id="languageInput" class="form-control advSearchInput">
                                         <label class="advSearchLabel" for="languageInput">Language</label>
                                     </div>
 
+
                                 </form>
                             </div>
+                            <div class="col-2"></div>
                         </div>
                     </div>
                 </div>
