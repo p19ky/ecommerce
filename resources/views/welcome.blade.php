@@ -41,17 +41,21 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...<br>
-                    ...<br>
-                    ...<br>
-                    ...<br>
-                    ...<br>
-                    Coming soon...<br>
-                    ...<br>
-                    ...<br>
-                    ...<br>
-                    ...<br>
-                    ...<br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <form class="adaptiveInput">
+                                    <input type="text" required><label placeholder="Title" alt="Title"></label>
+                                </form>
+                            </div>
+                            <div class="col-12">
+                                Second Column
+                            </div>
+                            <div class="col-12">
+                                Third Column
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
                     <button id="modalCancelButton" type="button" class="btn" data-dismiss="modal">Cancel</button>
