@@ -52,10 +52,10 @@
                                         <label class="advSearchLabel" for="titleInput">Title</label>
                                     </div>
 
-                                    <!-- Genre -->
+                                    <!-- Language -->
                                     <div class="md-form">
-                                        <input type="text" id="genreInput" class="form-control advSearchInput">
-                                        <label class="advSearchLabel" for="genreInput">Genre</label>
+                                        <input type="text" id="languageInput" class="form-control advSearchInput">
+                                        <label class="advSearchLabel" for="languageInput">Language</label>
                                     </div>
 
                                 </form>
