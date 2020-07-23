@@ -26,10 +26,10 @@ div#advancedSearchModalContent:before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: -webkit-linear-gradient(to right, #3ab9eb 0%, #d647d8 100%);
-  background-image: -moz-linear-gradient(to right, #3ab9eb 0%, #d647d8 100%);
-  background-image: -o-linear-gradient(to right, #3ab9eb 0%, #d647d8 100%);
-  background-image: linear-gradient(to right, #3ab9eb 0%, #d647d8 100%);
+  background-image: -webkit-linear-gradient(to right, #00abad 0%, #ab00ad 100%);
+  background-image: -moz-linear-gradient(to right, #00abad 0%, #ab00ad 100%);
+  background-image: -o-linear-gradient(to right, #00abad 0%, #ab00ad 100%);
+  background-image: linear-gradient(to right, #00abad 0%, #ab00ad 100%);
   opacity: 0.9;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;

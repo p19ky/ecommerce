@@ -8,19 +8,19 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>EmKrAn</title>
   <!-- icon -->
-  <link rel="icon" href="{{ URL::asset('public/mdb/img/blue-diamond-transparent.png') }}" type="image/x-icon" />
+  <link rel="icon" href="{{ URL::asset('/mdb/img/blue-diamond-transparent.png') }}" type="image/x-icon" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <!-- Bootstrap core CSS -->
-  <link href="{{  URL::asset('public/mdb/css/bootstrap.min.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/mdb/css/bootstrap.min.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <!-- Material Design Bootstrap -->
-  <link href="{{  URL::asset('public/mdb/css/mdb.min.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/mdb/css/mdb.min.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <!-- Your custom styles (optional) -->
-  <link href="{{  URL::asset('public/mdb/css/style.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
-  <link href="{{  URL::asset('public/mdb/css/navbar.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
-  <link href="{{  URL::asset('public/mdb/css/advancedSearch.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/mdb/css/style.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/mdb/css/navbar.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/mdb/css/advancedSearch.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -35,16 +35,16 @@
   <!-- End your project here-->
 
   <!-- jQuery -->
-  <script type="text/javascript" src="{{  URL::asset('public/mdb/js/jquery.min.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/jquery.min.js') }}"></script>
   <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="{{  URL::asset('public/mdb/js/popper.min.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/popper.min.js') }}"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="{{  URL::asset('public/mdb/js/bootstrap.min.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/bootstrap.min.js') }}"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="{{  URL::asset('public/mdb/js/mdb.min.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/mdb.min.js') }}"></script>
   <!-- Your custom scripts (optional) -->
-  <script type="text/javascript" src="{{  URL::asset('public/mdb/js/scripts/script.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('public/mdb/js/scripts/script-1.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/scripts/script.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/scripts/script-1.js') }}"></script>
 
   <!-- <script type="text/javascript">
     $(window).on('load', function() {
