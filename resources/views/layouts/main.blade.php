@@ -21,7 +21,7 @@
   <link href="{{  URL::asset('/mdb/css/style.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/mdb/css/navbar.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/mdb/css/advancedSearch.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
-  <link href="{{  URL::asset('/mdb/css/adaptiveInput.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/mdb/css/advSearchInputs.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -46,6 +46,7 @@
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="{{  URL::asset('/mdb/js/scripts/script.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/mdb/js/scripts/script-1.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/scripts/script-2.js') }}"></script>
 
   <script type="text/javascript">
     $(window).on('load', function() {

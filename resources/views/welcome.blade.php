@@ -44,15 +44,21 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
-                                <form class="adaptiveInput">
-                                    <input type="text" required><label placeholder="Title" alt="Title"></label>
+                                <form class="text-center" action="#!">
+
+                                    <!-- Title -->
+                                    <div class="md-form">
+                                        <input type="text" id="titleInput" class="form-control advSearchInput">
+                                        <label class="advSearchLabel" for="titleInput">Title</label>
+                                    </div>
+
+                                    <!-- Genre -->
+                                    <div class="md-form">
+                                        <input type="text" id="genreInput" class="form-control advSearchInput">
+                                        <label class="advSearchLabel" for="genreInput">Genre</label>
+                                    </div>
+
                                 </form>
-                            </div>
-                            <div class="col-12">
-                                Second Column
-                            </div>
-                            <div class="col-12">
-                                Third Column
                             </div>
                         </div>
                     </div>
