@@ -60,19 +60,15 @@
                                     </div>
 
                                     <div class="md-form">
-                                        <input type="text" id="tagsInput" class="main-input form-control advSearchInput">
+                                        <input data-placement="top" data-toggle="tooltip" title="press 'comma' or 'enter' to add tag!" type="text" id="tagsInput" class="main-input form-control advSearchInput">
                                         <label class="advSearchLabel" for="tagsInput">Tags</label>
 
                                         <br>
 
-                                        <div class="tags-input" data-name="tags-input">
-                                            <span class="tag"><span class="tagTextSpan">HTML <i class="closeTagIcon fas fa-times"></i></span></span>
-                                            <span class="tag"><span class="tagTextSpan">CSS <i class="closeTagIcon fas fa-times"></i></span></span>
-                                            <span class="tag"><span class="tagTextSpan">JavaScript <i class="closeTagIcon fas fa-times"></i></span></span>
-                                            <span class="tag"><span class="tagTextSpan">PHP <i class="closeTagIcon fas fa-times"></i></span></span>
+                                        <div id="divTagContainer" class="tags-input" data-name="tags-input">
+                                            <!-- <span class="tag"><span class="tagTextSpan">HTML <i class="closeTagIcon fas fa-times"></i></span></span> -->
                                         </div>
                                     </div>
-
 
                                 </form>
                             </div>

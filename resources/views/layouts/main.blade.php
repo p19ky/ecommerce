@@ -48,7 +48,7 @@
   <script type="text/javascript" src="{{  URL::asset('/assets/js/script.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/script-1.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/script-2.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/tags.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/tag.js') }}"></script>
 
 
   <script type="text/javascript">
