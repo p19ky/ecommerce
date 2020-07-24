@@ -15,7 +15,8 @@
             <input type="text" id="Picture" class="form-control" placeholder="Picture" name="picture">
             <input type="text" id="Price" class="form-control" placeholder="Price" name="price">
             <input type="number" id="Quantity" class="form-control" placeholder="Quantity" name="quantity">
-            <select class="browser-default custom-select">
+            <input type="text" id="Author" class="form-control" placeholder="Author" name="author">
+            <select name="genre" class="browser-default custom-select">
             <option selected>Pick a Genre</option>
                   <option name ="thriller" value="1">Thriller</option>
                  <option name="psych" value="2">Psychological Fiction</option>
