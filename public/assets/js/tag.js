@@ -1,9 +1,9 @@
-// console.log("asd");
-
-// console.log(document.getElementsByClassName("tagTextSpan"));
-
 const mainInput = document.getElementById("tagsInput");
 const tagContainer = document.getElementById("divTagContainer");
+
+let advancedSearchTagsArray = [];
+
+addClickEventForTagCloser();
 
 mainInput.addEventListener("keypress", function (e) {
   if (e.code === "Enter" || e.code === "Comma") {
@@ -18,32 +18,39 @@ mainInput.addEventListener("keypress", function (e) {
     } else {
       message.trim();
 
-      message = message + " ";
+      let lowercaseMessage = message.toLowerCase();
 
-      let firstSpan = document.createElement("span");
-      firstSpan.classList.add("tag");
+      if (!advancedSearchTagsArray.includes(lowercaseMessage)) {
+        advancedSearchTagsArray.push(lowercaseMessage);
 
-      let secondSpan = document.createElement("span");
-      secondSpan.classList.add("tagTextSpan");
-      secondSpan.appendChild(document.createTextNode(message));
+        message = message + " ";
 
-      let closeIcon = document.createElement("i");
-      closeIcon.classList.add("closeTagIcon");
-      closeIcon.classList.add("fas");
-      closeIcon.classList.add("fa-times");
+        let firstSpan = document.createElement("span");
+        firstSpan.classList.add("tag");
 
-      secondSpan.appendChild(closeIcon);
+        let secondSpan = document.createElement("span");
+        secondSpan.classList.add("tagTextSpan");
+        secondSpan.appendChild(document.createTextNode(message));
 
-      firstSpan.appendChild(secondSpan);
+        let closeIcon = document.createElement("i");
+        closeIcon.classList.add("closeTagIcon");
+        closeIcon.classList.add("fas");
+        closeIcon.classList.add("fa-times");
 
-      tagContainer.appendChild(firstSpan);
-      tagContainer.innerHTML += "&nbsp;";
+        secondSpan.appendChild(closeIcon);
 
-      mainInput.value = "";
+        firstSpan.appendChild(secondSpan);
 
-      setTimeout(function () {
+        tagContainer.appendChild(firstSpan);
+
+        addClickEventForTagCloser();
+
         mainInput.value = "";
-      }, 0);
+
+        setTimeout(function () {
+          mainInput.value = "";
+        }, 0);
+      }
     }
   }
 });
@@ -58,3 +65,18 @@ function labelChangerToDefault() {
 }
 
 mainInput.onfocus = labelChanger;
+
+function addClickEventForTagCloser() {
+  document.querySelectorAll(".closeTagIcon").forEach((item) => {
+    item.addEventListener("click", (event) => {
+      let lowCaseMessage = item
+        .closest("span.tag")
+        .innerText.trimEnd()
+        .toLowerCase();
+      let isMessage = (el) => el === lowCaseMessage;
+      let deleteMeIndex = advancedSearchTagsArray.findIndex(isMessage);
+      advancedSearchTagsArray.splice(deleteMeIndex, 1);
+      item.closest("span.tag").remove();
+    });
+  });
+}

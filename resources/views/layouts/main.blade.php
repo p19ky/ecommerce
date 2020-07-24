@@ -23,6 +23,7 @@
   <link href="{{  URL::asset('/assets/css/advancedSearch.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/advSearchInputs.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/tags.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{{  URL::asset('/assets/css/bootstrap-multiselect.css') }}?v=<?php echo time(); ?>" type="text/css" />
 
 </head>
 
@@ -49,11 +50,16 @@
   <script type="text/javascript" src="{{  URL::asset('/assets/js/script-1.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/script-2.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/tag.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/bootstrap-multiselect.js') }}"></script>
 
 
   <!-- <script type="text/javascript">
     $(window).on('load', function() {
       $('#advancedSearchModal').modal('toggle');
+    });
+
+    $(document).ready(function() {
+      $('#example-getting-started').multiselect();
     });
   </script> -->
 

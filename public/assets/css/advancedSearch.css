@@ -53,3 +53,8 @@ div#advancedSearchModalContent:before {
 #modalSearchButton:hover {
   color: #fff;
 }
+
+/* select.example-getting-started {
+  max-height: 50px !important;
+  overflow-y: auto !important;
+} */
