@@ -32,7 +32,7 @@
     <!-- Modal -->
 
     <div class="modal fade" id="advancedSearchModal" tabindex="-1" role="dialog" aria-labelledby="advancedSearchModalLabel" aria-hidden="true">
-        <div id="advancedSearchModalDialog" class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div id="advancedSearchModalDialog" class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div id="advancedSearchModalContent" class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalHeaderTitle">Advanced Search</h5>
@@ -43,8 +43,9 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12">
-                                <form class="text-center" action="#!">
+                            <div class="col-1"></div>
+                            <div class="col-10">
+                                <form class="" action="#!">
 
                                     <!-- Title -->
                                     <div class="md-form">
@@ -52,14 +53,30 @@
                                         <label class="advSearchLabel" for="titleInput">Title</label>
                                     </div>
 
-                                    <!-- Genre -->
+                                    <!-- Language -->
                                     <div class="md-form">
-                                        <input type="text" id="genreInput" class="form-control advSearchInput">
-                                        <label class="advSearchLabel" for="genreInput">Genre</label>
+                                        <input type="text" id="languageInput" class="form-control advSearchInput">
+                                        <label class="advSearchLabel" for="languageInput">Language</label>
                                     </div>
+
+                                    <div class="md-form">
+                                        <input type="text" id="tagsInput" class="main-input form-control advSearchInput">
+                                        <label class="advSearchLabel" for="tagsInput">Tags</label>
+
+                                        <br>
+
+                                        <div class="tags-input" data-name="tags-input">
+                                            <span class="tag"><span class="tagTextSpan">HTML <i class="closeTagIcon fas fa-times"></i></span></span>
+                                            <span class="tag"><span class="tagTextSpan">CSS <i class="closeTagIcon fas fa-times"></i></span></span>
+                                            <span class="tag"><span class="tagTextSpan">JavaScript <i class="closeTagIcon fas fa-times"></i></span></span>
+                                            <span class="tag"><span class="tagTextSpan">PHP <i class="closeTagIcon fas fa-times"></i></span></span>
+                                        </div>
+                                    </div>
+
 
                                 </form>
                             </div>
+                            <div class="col-1"></div>
                         </div>
                     </div>
                 </div>

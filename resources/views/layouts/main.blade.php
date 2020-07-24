@@ -18,10 +18,11 @@
   <!-- Material Design Bootstrap -->
   <link href="{{  URL::asset('/mdb/css/mdb.min.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <!-- Your custom styles (optional) -->
-  <link href="{{  URL::asset('/mdb/css/style.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
-  <link href="{{  URL::asset('/mdb/css/navbar.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
-  <link href="{{  URL::asset('/mdb/css/advancedSearch.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
-  <link href="{{  URL::asset('/mdb/css/advSearchInputs.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/assets/css/style.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/assets/css/navbar.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/assets/css/advancedSearch.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/assets/css/advSearchInputs.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/assets/css/tags.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -44,9 +45,11 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="{{  URL::asset('/mdb/js/mdb.min.js') }}"></script>
   <!-- Your custom scripts (optional) -->
-  <script type="text/javascript" src="{{  URL::asset('/mdb/js/scripts/script.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/mdb/js/scripts/script-1.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/mdb/js/scripts/script-2.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/script.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/script-1.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/script-2.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/tags.js') }}"></script>
+
 
   <script type="text/javascript">
     $(window).on('load', function() {

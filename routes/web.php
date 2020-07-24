@@ -17,8 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'EcommerceController@index')->name('home');
 Route::get('/create', 'BookController@index')->name('create');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('/admin/users','Admin\UsersController',['except' => ['show','create', 'store']]);
+Route::post('/create', 'BookController@store')->name('store');
