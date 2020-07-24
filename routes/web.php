@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'EcommerceController@index')->name('home');
 Route::get('/create', 'BookController@index')->name('create');
+
+Route: post('/create', 'BookController@store')->name('store');
