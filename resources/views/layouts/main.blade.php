@@ -51,11 +51,11 @@
   <script type="text/javascript" src="{{  URL::asset('/assets/js/tag.js') }}"></script>
 
 
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     $(window).on('load', function() {
       $('#advancedSearchModal').modal('toggle');
     });
-  </script>
+  </script> -->
 
 
 </body>

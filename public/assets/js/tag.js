@@ -47,3 +47,14 @@ mainInput.addEventListener("keypress", function (e) {
     }
   }
 });
+
+function labelChanger() {
+  document.getElementById("tagsInputLabel").innerText =
+    "Press 'comma' or 'enter' to add tag!";
+}
+
+function labelChangerToDefault() {
+  document.getElementById("tagsInputLabel").innerText = "Tags";
+}
+
+mainInput.onfocus = labelChanger;

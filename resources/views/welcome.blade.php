@@ -60,8 +60,8 @@
                                     </div>
 
                                     <div class="md-form">
-                                        <input data-placement="top" data-toggle="tooltip" title="press 'comma' or 'enter' to add tag!" type="text" id="tagsInput" class="main-input form-control advSearchInput">
-                                        <label class="advSearchLabel" for="tagsInput">Tags</label>
+                                        <input onfocusout="labelChangerToDefault()" type="text" id="tagsInput" class="main-input form-control advSearchInput">
+                                        <label id="tagsInputLabel" class="advSearchLabel" for="tagsInput">Tags</label>
 
                                         <br>
 
