@@ -58,9 +58,6 @@ div#advancedSearchModalContent:before {
   background: transparent;
   border-radius: 50px;
   border: 1px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #genreSelectContainer .multiselect-container {

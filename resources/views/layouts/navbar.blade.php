@@ -37,26 +37,42 @@
 
       <!-- Right -->
       <ul class="navbar-nav">
+
+        <!-- All Books -->
         <li class="nav-item">
           <a class="nav-link" href="#" target="_blank"><span class="navbarText">All Books</span></a>
         </li>
+
+        <!-- Genres -->
         <li class="nav-item">
           <a class="nav-link" href="{{  url('/genres') }}" target="_blank"><span class="navbarText">Genres</span></a>
         </li>
+
+        <!-- User Login/SignUp -->
         <li class="nav-item">
           <a id="userLogo" class="nav-link" href="{{ backpack_url() }}" target="_blank"><span data-placement="bottom" data-toggle="tooltip" title="My Account" class="navbarText"><i class="fa fa-user"></i></span></a>
         </li>
+
+        <!-- Shopping Cart -->
         <li class="nav-item">
-          <a id="shoppingCart" class="nav-link" href="{{  url('/shoppingCart') }}" target="_blank"><span data-placement="bottom" data-toggle="tooltip" title="Shopping Cart" class="navbarText"><i class="fas fa-shopping-cart"></i></span></a>
+          <a id="shoppingCart" class="nav-link" href="{{  url('/shoppingCart') }}" target="_blank"><span class="navbarText"><i class="fas fa-shopping-cart"></i></span></a>
         </li>
+
+        <!-- More -->
         <li id="moreDropdownListItem" class="nav-item">
           <div class="dropdown">
             <a id="moreDropDownLink" class="nav-link dropdown-toggle caret-off" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="navbarText">More<i id="moreIcon" class="fas fa-arrow-right"></i></span></a>
 
             <div id="moreDropdownMenu" class="dropdown-menu dropdown-primary fade">
+
+              <!-- Advanced Search -->
               <a class="dropdown-item nav-link" data-toggle="modal" data-target="#advancedSearchModal"><span id="advancedSearchSpan">
                   Advanced Search <i class="fas fa-search-plus"></i></span></a>
+
+              <!-- Contact -->
               <a class="dropdown-item nav-link"><span id="contactSpan">Contact <i class="fas fa-phone-square-alt"></i></span></a>
+
+              <!-- Wishlist -->
               <a class="dropdown-item nav-link"><span id="wishlistSpan">Wishlist <i class="fas fa-heart"></i></span></a>
             </div>
           </div>

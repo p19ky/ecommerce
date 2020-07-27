@@ -308,7 +308,6 @@ a > span.navbarText:hover {
 
 #advancedSearchSpan {
   color: #fff;
-  /* font-weight: 500; */
 }
 
 #moreIcon {
@@ -317,12 +316,10 @@ a > span.navbarText:hover {
 
 #contactSpan {
   color: #fff;
-  /* font-weight: 500; */
 }
 
 #wishlistSpan {
   color: #fff;
-  /* font-weight: 500; */
 }
 
 div#moreDropdownMenu {

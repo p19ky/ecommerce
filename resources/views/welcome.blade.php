@@ -12,6 +12,11 @@
     <br><br>
     <br><br>
     <br><br>
+
+    <div class="myTooltip">Hover over me
+        <span class="myTooltiptext">Tooltip text</span>
+    </div>
+
     <br><br>
     <br><br>
     <br><br>

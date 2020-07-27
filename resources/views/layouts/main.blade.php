@@ -46,10 +46,11 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="{{  URL::asset('/mdb/js/mdb.min.js') }}"></script>
   <!-- Your custom scripts (optional) -->
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/script.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/script-1.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/navScript.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/searchModal.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/genreSelect.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/tag.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/scart.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/bootstrap-multiselect.js') }}"></script>
 
 
