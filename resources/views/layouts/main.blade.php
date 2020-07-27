@@ -48,7 +48,7 @@
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript" src="{{  URL::asset('/assets/js/script.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/script-1.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/script-2.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/genreSelect.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/tag.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/bootstrap-multiselect.js') }}"></script>
 
@@ -56,10 +56,6 @@
   <!-- <script type="text/javascript">
     $(window).on('load', function() {
       $('#advancedSearchModal').modal('toggle');
-    });
-
-    $(document).ready(function() {
-      $('#example-getting-started').multiselect();
     });
   </script> -->
 

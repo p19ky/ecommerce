@@ -79,23 +79,32 @@
                                         </div>
                                     </div>
 
-                                    <!-- Build your select: -->
-                                    <!-- <select size="5" id="example-getting-started" multiple="multiple">
-                                        <option value="cheese">Cheese</option>
-                                        <option value="tomatoes">Tomatoes</option>
-                                        <option value="mozarella">Mozzarella</option>
-                                        <option value="mushrooms">Mushrooms</option>
-                                        <option value="pepperoni">Pepperoni</option>
-                                        <option value="onions">Onions</option>
-                                        <option value="onions">Onions</option>
-                                        <option value="onions">Onions</option>
-                                        <option value="onions">Onions</option>
-                                        <option value="onions">Onions</option>
-                                        <option value="onions">Onions</option>
-                                        <option value="onions">Onions</option>
-                                        <option value="onions">Onions</option>
-                                        <option value="onions">Onions</option>
-                                    </select> -->
+
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-4" id="genreSelectContainer">
+                                            <h5>Select Genre(s):</h5>
+                                            <select id="genreSelect" multiple="multiple">
+                                                <option value="cheese">Fantasy</option>
+                                                <option value="tomatoes">Sci-Fi</option>
+                                                <option value="mozarella">Mystery</option>
+                                                <option value="mushrooms">Romance</option>
+                                                <option value="pepperoni">Dystopian</option>
+                                                <option value="onions">Thriller</option>
+                                                <option value="onions">Westerns</option>
+                                                <option value="onions">Contemporary</option>
+                                                <option value="onions">Adventure</option>
+                                                <option value="onions">Horror</option>
+                                                <option value="onions">Paranormal</option>
+                                                <option value="onions">Health</option>
+                                                <option value="onions">Motivational</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4"></div>
+                                    </div>
+
 
                                 </form>
                             </div>

@@ -54,7 +54,15 @@ div#advancedSearchModalContent:before {
   color: #fff;
 }
 
-/* select.example-getting-started {
-  max-height: 50px !important;
-  overflow-y: auto !important;
-} */
+.buttonColorizer {
+  background: transparent;
+  border-radius: 50px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#genreSelectContainer .multiselect-container {
+  width: 200px;
+}
