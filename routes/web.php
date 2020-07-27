@@ -18,6 +18,7 @@ Route::get('/', 'EcommerceController@index')->name('home');
 Route::get('/create', 'BookController@index')->name('create');
 
 Route::post('/create', 'BookController@store')->name('store');
+Route::post('/createGenre', 'GenreController@store')->name('storeG');
 
 Auth::routes();
 
