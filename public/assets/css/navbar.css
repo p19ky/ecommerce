@@ -13,11 +13,11 @@
   transition: all 0.75s;
 }
 
-@media screen and (min-width: 992px) {
+/* @media screen and (min-width: 992px) {
   #shoppingCart:hover {
     transform: rotate(45deg);
   }
-}
+} */
 
 nav.scrolling-navbar {
   border-bottom-right-radius: 20px;

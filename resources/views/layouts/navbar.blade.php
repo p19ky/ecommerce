@@ -55,7 +55,11 @@
 
         <!-- Shopping Cart -->
         <li class="nav-item">
-          <a id="shoppingCart" class="nav-link" href="{{  url('/shoppingCart') }}" target="_blank"><span class="navbarText"><i class="fas fa-shopping-cart"></i></span></a>
+          <a id="shoppingCart" class="nav-link" href="{{  url('/shoppingCart') }}" target="_blank"><span class="navbarText"><i class="myTooltip fas fa-shopping-cart">
+                <div class="myTooltiptext">
+                  Here will be the objects from the Shopping Cart placed.
+                </div>
+              </i></span></a>
         </li>
 
         <!-- More -->
