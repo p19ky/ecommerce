@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Classification;
 
 class GenreController extends Controller
 {
@@ -13,7 +14,9 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return view('genreTest');
+        $genres = Classification::all();  // fetching all the data from the Classification table
+        return view('genres', compact('genres'));
+
     }
 
     /**
@@ -34,7 +37,26 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //validam datele de intrare
+         $this->validate($request, [
+            'genreName' => 'required',
+            'genrePicture' => 'required',
+            'genreDescription' => 'required'
+            
+        ]);          
+
+        $genre = new Classification;
+
+        //inseram valorile corespunzatoare in coloane
+        $genre->name = $request->genreName;
+        $genre->description = $request->genreDescription;
+        $genre->picture= $request->genrePicture;
+
+        $genre->save();
+
+        return redirect(route('home'))->with('successMsg','Genre successfully added to the database');
+        
+
     }
 
     /**

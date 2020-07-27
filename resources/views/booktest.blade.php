@@ -5,7 +5,7 @@
 
 <div class="container">
 <!-- Default form register -->
-<form class="text-center border border-light p-5" method="GET" action="{{ route('store') }}" method = "POST">
+<form class="text-center border border-light p-5" action="{{ route('store') }}" method = "POST">
 
 
     <div class="form-row mb-4">

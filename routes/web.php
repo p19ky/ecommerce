@@ -15,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'EcommerceController@index')->name('home');
-Route::get('/create', 'BookController@index')->name('create');
+Route::get('/create', 'BookController@index')->name('create');              // create book
+Route::get('/createGenre', 'GenreController@index')->name('createG');              // create genre
 
-Route::post('/create', 'BookController@store')->name('store');
-Route::post('/createGenre', 'GenreController@store')->name('storeG');
+Route::post('/create', 'BookController@store')->name('store');              // add book to db
+Route::post('/createGenre', 'GenreController@store')->name('storeG');       // add genre to db
+
+Route::get('/genres', 'GenreController@index')->name('genres');    // genres page
 
 Auth::routes();
 

@@ -4,50 +4,32 @@
 <h3>Add a book genre to the database</h3>
 
 <div class="container">
-<!-- Default form register -->
-<!-- Default form login -->
-<form class="text-center border border-light p-5" action="#!">
 
-    <p class="h4 mb-4">Sign in</p>
+<!-- register genre form -->
 
-    <!-- Email -->
-    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-    <!-- Password -->
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
-    <div class="d-flex justify-content-around">
-        <div>
-            <!-- Remember me -->
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
-            </div>
+<form class="text-center border border-light p-5" action="{{ route('storeG') }}" method = "POST">
+@csrf
+    <div class="form-row mb-4">
+        <div class="col">
+            <!-- Genre name -->
+            <input type="text" id="genreName" class="form-control" placeholder="Name of the genre">
         </div>
-        <div>
-            <!-- Forgot password -->
-            <a href="">Forgot password?</a>
+        <div class="col">
+            <!-- Picture -->
+            <input type="text" id="genrePicture" class="form-control" placeholder="Picture">
         </div>
     </div>
+    <div class="form-row mb-4">
+    <!-- Description -->
+    <textarea rows=3 type="text" id="genreDescription" class="form-control" placeholder="Description" name="description"></textarea>
+    </div>
+    
+    <!-- Add to db button -->
+    <button class="btn btn-info my-4 btn-block" type="submit">Add Genre</button>
 
-    <!-- Sign in button -->
-    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
-
-    <!-- Register -->
-    <p>Not a member?
-        <a href="">Register</a>
-    </p>
-
-    <!-- Social login -->
-    <p>or sign in with:</p>
-
-    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
-    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
-    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
-    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
 
 </form>
-<!-- Default form login -->
+
 
 </div>
 
