@@ -18,13 +18,13 @@
   <!-- Material Design Bootstrap -->
   <link href="{{  URL::asset('/mdb/css/mdb.min.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="{{  URL::asset('/assets/css/bootstrap-multiselect.css') }}?v=<?php echo time(); ?>" type="text/css" />
   <link href="{{  URL::asset('/assets/css/style.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/navbar.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/advancedSearch.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/scart.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/advSearchInputs.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/tags.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="{{  URL::asset('/assets/css/bootstrap-multiselect.css') }}?v=<?php echo time(); ?>" type="text/css" />
 
 </head>
 
@@ -51,7 +51,7 @@
   <script type="text/javascript" src="{{  URL::asset('/assets/js/searchModal.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/genreSelect.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/tag.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/scart.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/shcart.js') }}"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/bootstrap-multiselect.js') }}"></script>
 
 

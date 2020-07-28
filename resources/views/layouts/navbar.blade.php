@@ -55,9 +55,42 @@
 
         <!-- Shopping Cart -->
         <li class="nav-item">
-          <a id="shoppingCart" class="nav-link" href="{{  url('/shoppingCart') }}" target="_blank"><span class="navbarText"><i class="myTooltip fas fa-shopping-cart">
-                <div class="myTooltiptext">
-                  Here will be the objects from the Shopping Cart placed.
+          <a id="shoppingCart" class="nav-link"><span class="navbarLinkColorizer"><i id="shoppingCartIcon" class="shcartTooltip fas fa-shopping-cart">
+                <div class="shcartTooltiptext">
+                  <div class="container">
+                    <div class="shopping-cart">
+                      <div class="shopping-cart-header">
+                        <i class="fas fa-shopping-cart"></i><span class="badge">7</span>
+                        <div class="shopping-cart-total d-flex justify-content-end">
+                          <span class="lighter-text">Total:</span>
+                          <span class="main-color-text">$86.03</span>
+                        </div>
+                      </div>
+                      <ul class="shopping-cart-items">
+                        <li class="clearfix">
+                          <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book1.jpg') }}" alt="soGoodTheyCan'tIgnoreYou">
+                          <span class="item-name">So good they can't ig...</span>
+                          <span class="item-price">$12,99</span>
+                          <span class="item-quantity">Quantity: 02</span>
+                          <span class="remQuan">Quantity-</span><span class="addQuan">Quantity+</span>
+                        </li>
+                        <li class="clearfix">
+                          <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book2.png') }}" alt="soGoodTheyCan'tIgnoreYou">
+                          <span class="item-name">Rich Dad Poor Dad</span>
+                          <span class="item-price">$14,49</span>
+                          <span class="item-quantity">Quantity: 01</span>
+                          <span class="remQuan">Quantity-</span><span class="addQuan">Quantity+</span>
+                        </li>
+                        <li class="clearfix">
+                          <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book3.jpg') }}" alt="soGoodTheyCan'tIgnoreYou">
+                          <span class="item-name">Ego is the enemy</span>
+                          <span class="item-price">$11,39</span>
+                          <span class="item-quantity">Quantity: 04</span>
+                          <span class="remQuan">Quantity-</span><span class="addQuan">Quantity+</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </i></span></a>
         </li>

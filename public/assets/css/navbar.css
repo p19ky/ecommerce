@@ -44,9 +44,17 @@ nav.scrolling-navbar {
   }
 }
 
+.navbar.navbar-dark .navbar-nav .nav-item .nav-link {
+  color: #3061e2;
+}
+
 .navbarText {
   color: #3061e2;
   font-weight: 500;
+}
+
+.navbarLinkColorizer {
+  color: #3061e2;
 }
 
 @media (max-width: 450px) {

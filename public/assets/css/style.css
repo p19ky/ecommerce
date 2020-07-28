@@ -13,3 +13,9 @@ footer.page-footer {
   background: -moz-linear-gradient(to right, #3ab9eb, #d647d8);
   background: -o-linear-gradient(to right, #3ab9eb, #d647d8);
 }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
