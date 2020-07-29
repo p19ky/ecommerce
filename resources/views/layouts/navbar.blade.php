@@ -66,7 +66,7 @@
                           <span id="shcartTotal" class="main-color-text">$86.03</span>
                         </div>
                       </div>
-                      <ul class="shopping-cart-items">
+                      <ul id="shoppingCartItems" class="shopping-cart-items">
                         <li class="shcart-item">
                           <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book1.jpg') }}" alt="soGoodTheyCan'tIgnoreYou">
                           <span class="item-name">So good they can't ig...</span>

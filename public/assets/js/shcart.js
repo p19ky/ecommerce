@@ -26,6 +26,7 @@ const shcartTotal = document.getElementById("shcartTotal");
 const shcartPrices = document.getElementsByClassName("item-price");
 const shcartQuantities = document.getElementsByClassName("item-quantity");
 const shcartBadge = document.getElementById("shcartBadge");
+const shoppingCartItems = document.getElementById("shoppingCartItems");
 
 function CalculateShoppingCartTotal() {
   const shcartPricesArray = [];
@@ -44,15 +45,19 @@ function CalculateShoppingCartTotal() {
   // console.log(shcartPricesArray);
   // console.log(shcartQuantitiesArray);
 
-  let shcartTotalSum = 0;
+  if (!shcartPricesArray.length || !shcartQuantitiesArray.length) {
+    shcartTotal.innerHTML = "$0.00";
+  } else {
+    let shcartTotalSum = 0;
 
-  for (let i = 0; i < shcartPricesArray.length; i++) {
-    shcartTotalSum += shcartPricesArray[i] * shcartQuantitiesArray[i];
+    for (let i = 0; i < shcartPricesArray.length; i++) {
+      shcartTotalSum += shcartPricesArray[i] * shcartQuantitiesArray[i];
+    }
+
+    // console.log(shcartTotalSum);
+    // console.log("$" + shcartTotalSum.toFixed(2).toString());
+    shcartTotal.innerHTML = "$" + shcartTotalSum.toFixed(2).toString();
   }
-
-  // console.log(shcartTotalSum);
-  // console.log("$" + shcartTotalSum.toFixed(2).toString());
-  shcartTotal.innerHTML = "$" + shcartTotalSum.toFixed(2).toString();
 }
 
 CalculateShoppingCartTotal();
@@ -63,18 +68,40 @@ function CalculateShcartBadge() {
     quanArray.push(parseInt(element.innerHTML.match(/\d+/)[0]));
   });
 
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-  let badgeSum = quanArray.reduce(reducer);
-
-  if (badgeSum < 100) {
-    shcartBadge.innerHTML = badgeSum.toString();
+  if (!quanArray.length) {
+    shcartBadge.innerHTML = "0";
   } else {
-    shcartBadge.innerHTML = "99+";
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    let badgeSum = quanArray.reduce(reducer);
+
+    if (badgeSum < 100) {
+      shcartBadge.innerHTML = badgeSum.toString();
+    } else {
+      shcartBadge.innerHTML = "99+";
+    }
   }
 }
 
 CalculateShcartBadge();
+
+function CheckIfShcartEmpty() {
+  if (shcartBadge.innerHTML === "0") {
+    console.log("Shopping Cart empty!");
+    let emptySpan = document.createElement("span");
+    emptySpan.setAttribute("style", "width:250px;");
+    emptySpan.setAttribute("id", "shcartEmptySpan");
+    emptySpan.classList.add("d-flex");
+    emptySpan.classList.add("justify-content-center");
+    emptySpan.innerHTML = " Your Shopping Cart is Empty :( ";
+    shoppingCartItems.appendChild(emptySpan);
+  } else {
+    console.log("Shopping Cart NOT empty!");
+    if (document.body.contains(document.getElementById("shcartEmptySpan"))) {
+      shoppingCartItems.removeChild(document.getElementById("shcartEmptySpan"));
+    }
+  }
+}
 
 shcartQuantities.forEach(function (element) {
   element.addEventListener("change", function () {
@@ -97,6 +124,7 @@ $(".remQuan").click(function (e) {
 
   CalculateShoppingCartTotal();
   CalculateShcartBadge();
+  CheckIfShcartEmpty();
   showShoppingCart();
 });
 
@@ -115,6 +143,7 @@ $(".addQuan").click(function (e) {
 
   CalculateShoppingCartTotal();
   CalculateShcartBadge();
+  CheckIfShcartEmpty();
   showShoppingCart();
 });
 
@@ -125,5 +154,6 @@ $(".bookDeleteTooltip").click(function (e) {
 
   CalculateShoppingCartTotal();
   CalculateShcartBadge();
+  CheckIfShcartEmpty();
   showShoppingCart();
 });
