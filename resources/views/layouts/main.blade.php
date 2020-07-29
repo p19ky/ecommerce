@@ -39,20 +39,21 @@
   <!-- End your project here-->
 
   <!-- jQuery -->
-  <script type="text/javascript" src="{{  URL::asset('/mdb/js/jquery.min.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/jquery.min.js') }}?v=<?php echo time(); ?>"></script>
   <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="{{  URL::asset('/mdb/js/popper.min.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/popper.min.js') }}?v=<?php echo time(); ?>"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="{{  URL::asset('/mdb/js/bootstrap.min.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/bootstrap.min.js') }}?v=<?php echo time(); ?>"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="{{  URL::asset('/mdb/js/mdb.min.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/mdb/js/mdb.min.js') }}?v=<?php echo time(); ?>"></script>
   <!-- Your custom scripts (optional) -->
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/navScript.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/searchModal.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/genreSelect.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/tag.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/shcart.js') }}"></script>
-  <script type="text/javascript" src="{{  URL::asset('/assets/js/bootstrap-multiselect.js') }}"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/navScript.js') }}?v=<?php echo time(); ?>"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/searchModal.js') }}?v=<?php echo time(); ?>"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/genreSelect.js') }}?v=<?php echo time(); ?>"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/tag.js') }}?v=<?php echo time(); ?>"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/shcart.js') }}?v=<?php echo time(); ?>"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/bootstrap-multiselect.js') }}?v=<?php echo time(); ?>"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/window.js') }}?v=<?php echo time(); ?>"></script>
 
 
   <!-- <script type="text/javascript">
