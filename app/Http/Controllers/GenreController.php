@@ -19,6 +19,11 @@ class GenreController extends Controller
 
     }
 
+
+    public function displayTable(){
+        return view('genreTest');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -50,11 +55,11 @@ class GenreController extends Controller
         //inseram valorile corespunzatoare in coloane
         $genre->name = $request->genreName;
         $genre->description = $request->genreDescription;
-        $genre->picture= $request->genrePicture;
+        $genre->picture = $request->genrePicture;
 
         $genre->save();
 
-        return redirect(route('home'))->with('successMsg','Genre successfully added to the database');
+        return redirect(route('genres'))->with('successMsg','Genre successfully added to the database'); 
         
 
     }
