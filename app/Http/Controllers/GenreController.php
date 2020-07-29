@@ -58,7 +58,7 @@ class GenreController extends Controller
         $genre->picture = $request->genrePicture;
 
         $genre->save();
-
+ 
         return redirect(route('genres'))->with('successMsg','Genre successfully added to the database'); 
         
 

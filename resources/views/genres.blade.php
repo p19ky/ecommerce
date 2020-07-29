@@ -7,7 +7,7 @@
 
 
 <div class="alert alert-success" role="alert">
-{{session('successMsg')}};
+{{ session('successMsg') }}
 </div>
 
 @endif
