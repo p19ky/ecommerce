@@ -43,10 +43,3 @@ function skewer() {
 document
   .getElementById("collapsedToggleButton")
   .addEventListener("click", skewer);
-
-window.onload = function () {
-  navbarLinksResizer();
-};
-window.onresize = function () {
-  navbarLinksResizer();
-};
