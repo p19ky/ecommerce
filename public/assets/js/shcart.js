@@ -8,8 +8,6 @@ const shoppingCartTooltiptext = document
   .getElementById("shoppingCartIcon")
   .getElementsByClassName("shcartTooltiptext");
 
-console.log(shoppingCartTooltiptext);
-
 shoppingCartIcon.addEventListener("click", function () {
   Array.prototype.filter.call(shoppingCartTooltiptext, function (el) {
     if (el.style.visibility === "hidden" && el.style.opacity === "0") {

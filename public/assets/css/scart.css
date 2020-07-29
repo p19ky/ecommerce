@@ -5,19 +5,19 @@
 
 #shoppingCart .shcartTooltip .shcartTooltiptext {
   visibility: hidden;
+  position: absolute;
   width: 300px;
   background: linear-gradient(to right, #3ab9eb, #d647d8);
   color: #fff;
   text-align: center;
-  border-radius: 6px;
   padding: 15px 10px;
-  position: absolute;
+  border-radius: 6px;
   z-index: 1;
-  top: 135%;
-  left: -100%;
-  margin-left: -165px;
   opacity: 0;
   transition: opacity 0.3s;
+  top: 175%;
+  left: -100%;
+  margin-left: -165px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -37,6 +37,27 @@
   border-color: transparent transparent #a66ade transparent;
 }
 
+@media screen and (max-width: 991px) {
+  #shoppingCart .shcartTooltip .shcartTooltiptext {
+    margin-left: 0px;
+    top: -50px;
+    left: 200%;
+  }
+
+  #shoppingCart .shcartTooltip .shcartTooltiptext::after {
+    bottom: 0%;
+    margin-left: -5px;
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #3db7ea transparent;
+    transform: rotate(270deg);
+  }
+}
+
 /* #shoppingCart .shcartTooltip:hover .shcartTooltiptext {
   visibility: visible;
   opacity: 1;
@@ -48,7 +69,6 @@ a#shoppingCart.nav-link.waves-effect.waves-light {
 
 .shopping-cart-total {
   float: right;
-  /* margin-left: 50px; */
 }
 
 .shopping-cart .badge {
@@ -75,9 +95,8 @@ a#shoppingCart.nav-link.waves-effect.waves-light {
 }
 
 ul.shopping-cart-items {
-  /* padding-top: 15px; */
   list-style: none;
-  padding: 15px 0px 0px 0px;
+  padding: 15px 0px 15px 0px;
   float: left;
 }
 
@@ -89,7 +108,7 @@ ul.shopping-cart-items li {
   float: left;
   margin-right: 12px;
   width: 70px;
-  height: 70px;
+  height: 80px;
   border-radius: 5px;
 }
 
@@ -111,12 +130,12 @@ ul.shopping-cart-items li {
   padding-bottom: 5px;
 }
 
-.clearfix:after {
+/* .clearfix:after {
   content: "";
   display: table;
   clear: both;
   width: 250px;
-}
+} */
 
 .bookDeleteTooltip {
   color: #dc3545;
@@ -143,4 +162,13 @@ ul.shopping-cart-items li {
 .remQuan:hover {
   font-weight: bold;
   color: #dc3545;
+}
+
+#shcartCheckout {
+  width: 200px;
+  background: linear-gradient(to left, #3ab9eb, #d647d8);
+}
+
+#shcartCheckout:hover {
+  color: #fff;
 }
