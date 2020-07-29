@@ -107,11 +107,14 @@
               <a class="dropdown-item nav-link" data-toggle="modal" data-target="#advancedSearchModal"><span id="advancedSearchSpan">
                   Advanced Search <i class="fas fa-search-plus"></i></span></a>
 
+              <!-- Wishlist -->
+              <a class="dropdown-item nav-link"><span id="wishlistSpan">Wishlist <i class="fas fa-heart"></i></span></a>
+
               <!-- Contact -->
               <a class="dropdown-item nav-link"><span id="contactSpan">Contact <i class="fas fa-phone-square-alt"></i></span></a>
 
-              <!-- Wishlist -->
-              <a class="dropdown-item nav-link"><span id="wishlistSpan">Wishlist <i class="fas fa-heart"></i></span></a>
+              <!-- Feedback -->
+              <a onclick="modalBackdropTrigger()" data-toggle="modal" data-target="#modalPoll-1" class="dropdown-item nav-link"><span id="feedbackSpan">Feedback <i class="fas fa-comments"></i></span></a>
             </div>
           </div>
         </li>

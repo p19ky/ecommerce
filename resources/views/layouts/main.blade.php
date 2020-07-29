@@ -36,7 +36,10 @@
   @yield('content')
 
   @include('layouts.footer')
+
+  @include('layouts.modals')
   <!-- End your project here-->
+
 
   <!-- jQuery -->
   <script type="text/javascript" src="{{  URL::asset('/mdb/js/jquery.min.js') }}?v=<?php echo time(); ?>"></script>
@@ -56,11 +59,11 @@
   <script type="text/javascript" src="{{  URL::asset('/assets/js/window.js') }}?v=<?php echo time(); ?>"></script>
 
 
-  <!-- <script type="text/javascript">
-    $(window).on('load', function() {
-      $('#advancedSearchModal').modal('toggle');
-    });
-  </script> -->
+  <script type="text/javascript">
+    // $(window).on('load', function() {
+    //   $('#advancedSearchModal').modal('toggle');
+    // });
+  </script>
 
 
 </body>

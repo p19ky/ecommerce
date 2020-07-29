@@ -1,16 +1,16 @@
-h5#modalHeaderTitle {
+#advancedSearchModal h5#modalHeaderTitle {
   position: relative;
 }
 
-button.close {
+#advancedSearchModal button.close {
   position: relative;
 }
 
-div#advancedSearchModalDialog {
+#advancedSearchModal div#advancedSearchModalDialog {
   color: #fff;
 }
 
-div#advancedSearchModalContent {
+#advancedSearchModal div#advancedSearchModalContent {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -19,7 +19,7 @@ div#advancedSearchModalContent {
   opacity: 1;
 }
 
-div#advancedSearchModalContent:before {
+#advancedSearchModal div#advancedSearchModalContent:before {
   position: absolute;
   content: "";
   top: 0;
@@ -36,30 +36,30 @@ div#advancedSearchModalContent:before {
   border-radius: 10px;
 }
 
-#modalCancelButton {
+#advancedSearchModal #modalCancelButton {
   border-radius: 50px;
   background: #d647d8;
 }
 
-#modalCancelButton:hover {
+#advancedSearchModal #modalCancelButton:hover {
   color: #fff;
 }
 
-#modalSearchButton {
+#advancedSearchModal #modalSearchButton {
   border-radius: 50px;
   background: #3ab9eb;
 }
 
-#modalSearchButton:hover {
+#advancedSearchModal #modalSearchButton:hover {
   color: #fff;
 }
 
-.buttonColorizer {
+#advancedSearchModal .buttonColorizer {
   background: transparent;
   border-radius: 50px;
   border: 1px solid white;
 }
 
-#genreSelectContainer .multiselect-container {
+#advancedSearchModal #genreSelectContainer .multiselect-container {
   width: 200px;
 }

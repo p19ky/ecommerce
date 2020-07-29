@@ -369,3 +369,7 @@ a.dropdown-item:hover {
   pointer-events: auto !important;
   opacity: 1 !important;
 }
+
+#feedbackSpan {
+  color: #fff;
+}
