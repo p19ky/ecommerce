@@ -8,7 +8,7 @@
 <!-- register genre form -->
 
 <form class="text-center border border-light p-5" action="{{ route('storeG') }}" method = "POST">
-@csrf
+{{ csrf_field() }}
     <div class="form-row mb-4">
         <div class="col">
             <!-- Genre name -->
