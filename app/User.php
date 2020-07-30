@@ -32,6 +32,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function role(){
+        return $this->belongsTo('App\Role');
+    }
+
     public function save(array $options = [])
     {
         if (app('env') == 'production' &&

@@ -30,9 +30,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::resource('/admin/users','Admin\UsersController',['except' => ['show','create', 'store']]);
 
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
-    Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
+Route::group([ 'as' => 'user.','prefix'=>'user', 'namespace'=>'User', 'middleware'=>['auth','user']], function() {
+    Route::get('index', 'UsersController@index')->name('index');
+});
+// ->name('*','dashboard')
+Route::group([ 'as' => 'admin.','prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth','admin']], function() {
+    Route::get('index', 'AdminController@index')->name('index');
 });
 
+// Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+//     Route::resource('/user', 'AdminController', ['except' => ['show', 'create', 'store']]);
+// });
+
+// Route::namespace('User')->prefix('user')->name('user.')->group(function(){
+//     Route::resource('/index', 'UsersController', ['except' => ['show', 'create', 'store']]);
+// });
 
 Route::get('/shcart', 'ShoppingCartController@index')->name('shcart');    // shopping cart page

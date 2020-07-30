@@ -64,9 +64,9 @@
                                     {{ __('Logout') }}
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('admin.users.index') }}">
+                                <!-- <a class="dropdown-item" href="{{ route('user.index') }}">
                                     User Management
-                                </a>
+                                </a> -->
 
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
