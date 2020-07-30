@@ -114,7 +114,7 @@
               <a class="dropdown-item nav-link"><span id="contactSpan">Contact <i class="fas fa-phone-square-alt"></i></span></a>
 
               <!-- Feedback -->
-              <a onclick="modalBackdropTrigger()" data-toggle="modal" data-target="#modalPoll-1" class="dropdown-item nav-link"><span id="feedbackSpan">Feedback <i class="fas fa-comments"></i></span></a>
+              <a onclick="modalBackdropTrigger()" data-toggle="modal" data-target="#feedbackModal" class="dropdown-item nav-link"><span id="feedbackSpan">Feedback <i class="fas fa-comments"></i></span></a>
             </div>
           </div>
         </li>

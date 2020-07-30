@@ -1,10 +1,10 @@
 <!-- Start-FeedbackModal -->
 
-<div class="modal fade right" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="FeedbaclModalLabel" aria-hidden="true">
+<div class="modal fade right" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="FeedbackModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
-    <div class="modal-content">
+    <div id="feedbackModalContent" class="modal-content">
       <!--Header-->
-      <div class="modal-header">
+      <div id="feedbackModalHeader" class="modal-header">
         <p class="heading lead">Feedback request
         </p>
 
@@ -172,3 +172,35 @@
 </div>
 
 <!-- End-AdvancedSeachModal -->
+
+<!-- Start - Confirm Delete Shopping Cart Element -->
+
+<!--Modal: modalConfirmDelete-->
+<div class="modal fade" id="modalConfirmDeleteShcartElement" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure?</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+
+        <i class="fas fa-times fa-4x animated rotateIn"></i>
+
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a id="confirmDeleteShcartElementYes" type="button" class="btn  btn-outline-danger" data-dismiss="modal">Yes</a>
+        <a id="confirmDeleteShcartElementNo" type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: modalConfirmDelete-->
+
+<!-- End - Confirm Delete Shopping Cart Element -->

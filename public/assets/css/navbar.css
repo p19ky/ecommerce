@@ -5,6 +5,8 @@
   background: -o-linear-gradient(to right, #3ab9eb, #d647d8);
 }
 
+/* <<<<<<<<<<<<<<<<< Search Box and Navbar Styling>>>>>>>>>>>>>>> */
+
 #userLogo {
   transition: all 0.75s;
 }
@@ -92,8 +94,6 @@ a > span.navbarText {
 a > span.navbarText:hover {
   font-size: 18px;
 }
-
-/* <<<<<<<<<<<<<<<<< Search Box and Navbar Styling>>>>>>>>>>>>>>> */
 
 #navContainer * {
   box-sizing: border-box;
@@ -307,6 +307,8 @@ a > span.navbarText:hover {
 }
 /* <<<<<<<<<<<<<<<<< Search Box and Navbar Styling>>>>>>>>>>>>>>> */
 
+/* Start --- More Dropdown */
+
 .caret-off::before {
   display: none;
 }
@@ -370,6 +372,12 @@ a.dropdown-item:hover {
   opacity: 1 !important;
 }
 
+/* End --- More Dropdown */
+
+/* Start --- Feedback */
+
 #feedbackSpan {
   color: #fff;
 }
+
+/* End --- Feedback */

@@ -103,11 +103,14 @@ function CheckIfShcartEmpty() {
   }
 }
 
-shcartQuantities.forEach(function (element) {
-  element.addEventListener("change", function () {
-    alert("he");
+function CheckForZeroQuantity() {
+  let quantityArray = [];
+  shcartQuantities.forEach((element) => {
+    quantityArray.push(parseInt(element.innerHTML.match(/\d+/)[0]));
   });
-});
+
+  // if quantityArray.includes
+}
 
 $(".remQuan").click(function (e) {
   e.preventDefault();
@@ -147,13 +150,24 @@ $(".addQuan").click(function (e) {
   showShoppingCart();
 });
 
-$(".bookDeleteTooltip").click(function (e) {
-  e.preventDefault();
+function DeleteElementFromShcart(e) {
+  $("#modalConfirmDeleteShcartElement").modal();
+  const localThis = this;
+  const localEvent = e;
 
-  let currentQuantity = $(this).closest(".shcart-item").remove();
+  document.getElementById(
+    "confirmDeleteShcartElementYes"
+  ).onclick = function () {
+    localEvent.preventDefault();
 
-  CalculateShoppingCartTotal();
-  CalculateShcartBadge();
-  CheckIfShcartEmpty();
+    let currentQuantity = $(localThis).closest(".shcart-item").remove();
+
+    CalculateShoppingCartTotal();
+    CalculateShcartBadge();
+    CheckIfShcartEmpty();
+  };
+
   showShoppingCart();
-});
+}
+
+$(".bookDeleteTooltip").click(DeleteElementFromShcart);
