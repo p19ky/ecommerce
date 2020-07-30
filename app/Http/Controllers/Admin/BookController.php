@@ -40,7 +40,7 @@ class BookController extends Controller
 
         $book->save();
 
-        return redirect(route('home'))->with('successMsg','Book successfully added to the database');
+        return redirect(route('home'))->with('successMsg','Book successfully added to the database.');
         
 
 
