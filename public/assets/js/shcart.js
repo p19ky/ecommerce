@@ -26,7 +26,8 @@ const shcartTotal = document.getElementById("shcartTotal");
 const shcartPrices = document.getElementsByClassName("item-price");
 const shcartQuantities = document.getElementsByClassName("item-quantity");
 const shcartBadge = document.getElementById("shcartBadge");
-const shoppingCartItems = document.getElementById("shoppingCartItems");
+const shoppingCartItemsId = document.getElementById("shoppingCartItems"); //the div that containts the items
+const shoppingCartItems = document.getElementsByClassName("shcart-item"); //all the items as HTMLCollection
 
 function CalculateShoppingCartTotal() {
   const shcartPricesArray = [];
@@ -42,9 +43,6 @@ function CalculateShoppingCartTotal() {
     shcartQuantitiesArray.push(parseInt(element.innerHTML.match(/\d+/)[0]));
   });
 
-  // console.log(shcartPricesArray);
-  // console.log(shcartQuantitiesArray);
-
   if (!shcartPricesArray.length || !shcartQuantitiesArray.length) {
     shcartTotal.innerHTML = "$0.00";
   } else {
@@ -54,8 +52,6 @@ function CalculateShoppingCartTotal() {
       shcartTotalSum += shcartPricesArray[i] * shcartQuantitiesArray[i];
     }
 
-    // console.log(shcartTotalSum);
-    // console.log("$" + shcartTotalSum.toFixed(2).toString());
     shcartTotal.innerHTML = "$" + shcartTotalSum.toFixed(2).toString();
   }
 }
@@ -87,30 +83,55 @@ CalculateShcartBadge();
 
 function CheckIfShcartEmpty() {
   if (shcartBadge.innerHTML === "0") {
-    console.log("Shopping Cart empty!");
+    // console.log("Shopping Cart empty!");
     let emptySpan = document.createElement("span");
     emptySpan.setAttribute("style", "width:250px;");
     emptySpan.setAttribute("id", "shcartEmptySpan");
     emptySpan.classList.add("d-flex");
     emptySpan.classList.add("justify-content-center");
     emptySpan.innerHTML = " Your Shopping Cart is Empty :( ";
-    shoppingCartItems.appendChild(emptySpan);
+    shoppingCartItemsId.appendChild(emptySpan);
   } else {
-    console.log("Shopping Cart NOT empty!");
+    // console.log("Shopping Cart NOT empty!");
     if (document.body.contains(document.getElementById("shcartEmptySpan"))) {
-      shoppingCartItems.removeChild(document.getElementById("shcartEmptySpan"));
+      shoppingCartItemsId.removeChild(
+        document.getElementById("shcartEmptySpan")
+      );
     }
   }
 }
 
-function CheckForZeroQuantity() {
+function CheckForZeroQuantity(e) {
   let quantityArray = [];
   shcartQuantities.forEach((element) => {
     quantityArray.push(parseInt(element.innerHTML.match(/\d+/)[0]));
   });
 
-  // if quantityArray.includes
+  if (quantityArray.includes(0)) {
+    document.getElementById("modalConfirmDeleteByRemQuan");
+
+    $("#modalConfirmDeleteByRemQuan").modal({
+      backdrop: "static",
+      keyboard: false,
+    });
+
+    document.getElementById(
+      "confirmDeleteShcartElementByRemQuanYes"
+    ).onclick = function () {
+      shoppingCartItems[quantityArray.indexOf(0)].parentNode.removeChild(
+        shoppingCartItems[quantityArray.indexOf(0)]
+      );
+    };
+
+    document.getElementById(
+      "confirmDeleteShcartElementByRemQuanNo"
+    ).onclick = function () {
+      shoppingCartItems[quantityArray.indexOf(0)].childNodes[11].click();
+    };
+  }
 }
+
+CheckForZeroQuantity();
 
 $(".remQuan").click(function (e) {
   e.preventDefault();
@@ -125,6 +146,7 @@ $(".remQuan").click(function (e) {
     .find(".item-quantity")
     .text("Quantity: " + quantityAfterRemQuan.toString());
 
+  CheckForZeroQuantity();
   CalculateShoppingCartTotal();
   CalculateShcartBadge();
   CheckIfShcartEmpty();
@@ -151,7 +173,10 @@ $(".addQuan").click(function (e) {
 });
 
 function DeleteElementFromShcart(e) {
-  $("#modalConfirmDeleteShcartElement").modal();
+  $("#modalConfirmDeleteShcartElement").modal({
+    backdrop: "static",
+    keyboard: false,
+  });
   const localThis = this;
   const localEvent = e;
 
@@ -160,7 +185,7 @@ function DeleteElementFromShcart(e) {
   ).onclick = function () {
     localEvent.preventDefault();
 
-    let currentQuantity = $(localThis).closest(".shcart-item").remove();
+    $(localThis).closest(".shcart-item").remove();
 
     CalculateShoppingCartTotal();
     CalculateShcartBadge();

@@ -26,7 +26,6 @@ modalCancelButton.addEventListener("click", function () {
 modalSearchButton.addEventListener("click", function () {
   modalAdvSearch.classList.remove("show");
   modalAdvSearch.classList.add("right");
-  $("#advancedSearchModal").modal("toggle");
 });
 
 $("#advancedSearchModal").on("hidden.bs.modal", function () {
