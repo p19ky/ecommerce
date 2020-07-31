@@ -1,0 +1,64 @@
+.minusQuanWishlist {
+  padding-right: 5px;
+}
+
+.plusQuanWishlist {
+  padding-left: 5px;
+}
+
+.removeItemWishlistClass:hover {
+  color: red;
+}
+
+#modalWishlistContent {
+  color: #fff;
+  background: transparent;
+  position: relative;
+  opacity: 1;
+  border-radius: 10px;
+}
+
+#modalWishlistContent:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right, #00abad 0%, #ab00ad 100%);
+  opacity: 0.9;
+  border-radius: 10px;
+}
+
+#wishlistHeaderTitle {
+  position: relative;
+}
+
+#modalWishlistContent #closeModalWishlistButton {
+  border-radius: 50px;
+  background: #d647d8;
+}
+
+#modalWishlistContent #closeModalWishlistButton:hover {
+  color: #fff;
+}
+
+#modalWishlistContent #addAllModalWishlistButton {
+  border-radius: 50px;
+  background: #3ab9eb;
+}
+
+#modalWishlistContent #addAllModalWishlistButton:hover {
+  color: #fff;
+}
+
+#modalWishlistContent .wishlistAddToCartButton {
+  background: linear-gradient(to left, #3ab9eb, #d647d8);
+  border-radius: 50px;
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
+#modalWishlistContent .wishlistAddToCartButton:hover {
+  color: #fff;
+}

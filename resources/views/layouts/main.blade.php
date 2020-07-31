@@ -25,6 +25,7 @@
   <link href="{{  URL::asset('/assets/css/scart.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/advSearchInputs.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/tags.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/assets/css/wishlist.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -57,6 +58,7 @@
   <script type="text/javascript" src="{{  URL::asset('/assets/js/shcart.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/bootstrap-multiselect.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/window.js') }}?v=<?php echo time(); ?>"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/wishlist.js') }}?v=<?php echo time(); ?>"></script>
 
 
   <script type="text/javascript">
