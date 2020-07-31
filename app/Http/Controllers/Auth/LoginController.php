@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -35,6 +36,13 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+
+        if(Auth::check() && Auth::user()->role->id == 1){
+            $this->redirectTo = route('admin.index');
+        }else{
+            $this->redirectTo = route('user.index');
+        }
+
         $this->middleware('guest')->except('logout');
     }
 }
