@@ -20,9 +20,11 @@ Route::get('/create', 'BookController@index')->name('create');              // b
 
 Route::post('/create', 'BookController@store')->name('store');              // add book to db
 Route::post('/createGenre', 'GenreController@store')->name('storeG');       // add genre to db
-Route::get('/createGenre', 'GenreController@displayTable')->name('displayTableG');    // add genre to db
+Route::get('/createGenre', 'GenreController@displayTable')->name('displayTableG'); // add genre to db
 
 Route::get('/genres', 'GenreController@index')->name('genres');             // genres page
+Route::get('/editG/{classifId}', 'GenreController@edit')->name('editG');             // edit genre page
+Route::post('/updateG/{classifId}', 'GenreController@update')->name('updateG');       // update genre page
 
 Auth::routes();
 
