@@ -20,6 +20,7 @@
       <th scope="col"></th>
       <th scope="col">Genre</th>
       <th scope="col">Description</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -29,6 +30,7 @@
       <td><img width="30%" src="{{$genre->picture}}" alt="no pic available" border="0"></td>
       <td>{{$genre->name}}</td>
       <td>{{$genre->description}}</td>
+      <td>Edit | Delete</td>
     </tr>
   
   @endforeach
