@@ -62,3 +62,12 @@
 #modalWishlistContent .wishlistAddToCartButton:hover {
   color: #fff;
 }
+
+.reversedGradientButton {
+  background: linear-gradient(to left, #3ab9eb, #d647d8);
+  border-radius: 50px;
+}
+
+.reversedGradientButton:hover {
+  color: #fff;
+}

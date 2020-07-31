@@ -9,7 +9,7 @@
 <br>
 <br>
 <br>
-Shopping Cart coming soon...
+All books coming soon...
 <br>
 <br>
 <br>

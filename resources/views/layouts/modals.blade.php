@@ -5,8 +5,7 @@
     <div id="feedbackModalContent" class="modal-content">
       <!--Header-->
       <div id="feedbackModalHeader" class="modal-header">
-        <p class="heading lead">Feedback request
-        </p>
+        <p class="heading lead"><i style="color:#fff;" class="fas fa-comments"></i> Feedback request</p>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" class="white-text">×</span>
@@ -85,7 +84,7 @@
   <div id="advancedSearchModalDialog" class="modal-dialog modal-dialog-centered modal-xl" role="document">
     <div id="advancedSearchModalContent" class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalHeaderTitle">Advanced Search</h5>
+        <h5 class="modal-title" id="modalHeaderTitle">Advanced Search <i class="fas fa-search-plus"></i></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -125,7 +124,7 @@
                   <div id="divTagContainer" class="tags-input" data-name="tags-input">
                     <!-- <span class="tag"><span class="tagTextSpan">HTML <i class="closeTagIcon fas fa-times"></i></span></span>
                     <span class="tag"><span class="tagTextSpan">CSS <i class="closeTagIcon fas fa-times"></i></span></span> -->
-                    <!-- These Comments are for test purpose, don't delete. -->
+                    <!-- THESE COMMENTS ARE FOR TEST PURPOSE - DON'T DELETE!!! -->
                   </div>
                 </div>
 
@@ -241,7 +240,7 @@
     <div id="modalWishlistContent" class="modal-content">
       <!--Header-->
       <div class="modal-header">
-        <h4 id="wishlistHeaderTitle" class="modal-title" id="myModalLabel">Your Wishlist</h4>
+        <h4 id="wishlistHeaderTitle" class="modal-title" id="myModalLabel">Your Wishlist <i class="fas fa-grin-hearts"></i></h4>
         <button id="wishlistHeaderClose" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -249,10 +248,18 @@
       <!--Body-->
       <div id="wishlistModalBody" class="modal-body">
 
-        <table class="text-white table">
+        <!-- <div id="emptyWishlistDiv" class="text-center">
+          <h5>Your Wishlist is empty... <i class="fas fa-grin-beam-sweat"></i></h5>
+          <div id="wishlistAllBooksLink">
+            <h5>We suggest checking our books out <i class="fas fa-smile-beam"></i></h5>
+            <button id="allBooksWishlistButton" onclick="window.location.href=`{{  url('/allBooks') }}`" class="btn reversedGradientButton" type="button">All Books</button>
+          </div>
+        </div> -->
+        <!-- FOR TEST PURPOSE - DON'T DELETE!!! -->
+
+        <table id="wishlistItemTable" class="text-white table">
           <thead class="text-center">
             <tr>
-              <th>#</th>
               <th>Book</th>
               <th>Price</th>
               <th>Add to Cart</th>
@@ -261,28 +268,24 @@
           </thead>
           <tbody id="wishlistItemList" class="text-center">
             <tr class="wishlistItem">
-              <th scope="row">1</th>
               <td>Book 1</td>
               <td>11,99$</td>
               <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart</button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
             <tr class="wishlistItem">
-              <th scope="row">2</th>
               <td>Book 2</td>
               <td>20,00$</td>
               <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart</button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
             <tr class="wishlistItem">
-              <th scope="row">3</th>
               <td>Book 3</td>
               <td>15,49$</td>
               <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart</button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
             <tr class="wishlistItem">
-              <th scope="row">4</th>
               <td>Book 4</td>
               <td>17,49$</td>
               <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart</button></td>
