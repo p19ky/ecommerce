@@ -83,7 +83,8 @@ class GenreController extends Controller
      */
     public function edit($id)
     {
-        //
+        $genre = Classification::find($id);
+        return view('editG', compact('genre'));
     }
 
     /**
