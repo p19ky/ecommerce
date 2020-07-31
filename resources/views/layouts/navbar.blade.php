@@ -50,7 +50,7 @@
 
         <!-- User Login/SignUp -->
         <li class="nav-item">
-          <a id="userLogo" class="nav-link" href="{{ backpack_url() }}" target="_blank"><span data-placement="bottom" data-toggle="tooltip" title="My Account" class="navbarText"><i class="fa fa-user"></i></span></a>
+          <a id="userLogo" class="nav-link" href="{{ url('/login') }}" target="_blank"><span data-placement="bottom" data-toggle="tooltip" title="My Account" class="navbarText"><i class="fa fa-user"></i></span></a>
         </li>
 
         <!-- Shopping Cart -->

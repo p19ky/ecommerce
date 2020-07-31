@@ -28,12 +28,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::resource('/admin/users','Admin\UsersController',['except' => ['show','create', 'store']]);
-
 Route::group([ 'as' => 'user.','prefix'=>'user', 'namespace'=>'User', 'middleware'=>['auth','user']], function() {
     Route::get('index', 'UsersController@index')->name('index');
 });
-// ->name('*','dashboard')
+
 Route::group([ 'as' => 'admin.','prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth','admin']], function() {
     Route::get('index', 'AdminController@index')->name('index');
 });
