@@ -336,6 +336,7 @@ div#moreDropdownMenu {
   background: transparent;
   position: relative;
   opacity: 1;
+  margin-left: -45px;
 }
 
 div#moreDropdownMenu:before {

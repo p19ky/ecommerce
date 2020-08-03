@@ -85,11 +85,18 @@ function CheckIfShcartEmpty() {
   if (shcartBadge.innerHTML === "0") {
     // console.log("Shopping Cart empty!");
     let emptySpan = document.createElement("span");
+    let emptySpanIcon = document.createElement("i");
+    emptySpanIcon.classList.add("fas");
+    emptySpanIcon.classList.add("fa-grin-beam-sweat");
+    emptySpanIcon.setAttribute("style", "padding-left:10px;");
+
     emptySpan.setAttribute("style", "width:250px;");
     emptySpan.setAttribute("id", "shcartEmptySpan");
     emptySpan.classList.add("d-flex");
     emptySpan.classList.add("justify-content-center");
-    emptySpan.innerHTML = " Your Shopping Cart is Empty :( ";
+    emptySpan.classList.add("text-white");
+    emptySpan.innerHTML = "Your Shopping Cart is Empty";
+    emptySpan.appendChild(emptySpanIcon);
     shoppingCartItemsId.appendChild(emptySpan);
   } else {
     // console.log("Shopping Cart NOT empty!");

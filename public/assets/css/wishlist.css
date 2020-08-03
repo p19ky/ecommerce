@@ -6,6 +6,10 @@
   padding-left: 5px;
 }
 
+.removeItemWishlistClass {
+  padding-top: 12px;
+}
+
 .removeItemWishlistClass:hover {
   color: red;
 }
@@ -60,5 +64,14 @@
 }
 
 #modalWishlistContent .wishlistAddToCartButton:hover {
+  color: #fff;
+}
+
+.reversedGradientButton {
+  background: linear-gradient(to left, #3ab9eb, #d647d8);
+  border-radius: 50px;
+}
+
+.reversedGradientButton:hover {
   color: #fff;
 }

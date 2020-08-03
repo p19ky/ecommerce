@@ -1,0 +1,102 @@
+#contactModalContent {
+  color: #fff;
+  background: transparent;
+  position: relative;
+  opacity: 1;
+  border-radius: 10px;
+}
+
+#contactModalContent:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right, #00abad 0%, #ab00ad 100%);
+  opacity: 0.9;
+  border-radius: 10px;
+}
+
+#contactModalTitle {
+  position: relative;
+}
+
+#contactFormCard {
+  color: #fff;
+  background: transparent;
+  position: relative;
+  opacity: 1;
+  border-radius: 10px;
+}
+
+#contactFormCard:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to left, #00abad 0%, #ab00ad 100%);
+  opacity: 0.9;
+  border-radius: 10px;
+}
+
+.defaultGradientButton {
+  background: linear-gradient(to right, #3ab9eb, #d647d8);
+  border-radius: 50px;
+}
+
+.defaultGradientButton:hover {
+  color: #fff;
+}
+
+#contactModalContent .map-container-6 {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+#contactModalContent .map-container-6 iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#contactFormCard input.contactInput {
+  color: #fff !important;
+}
+
+#contactFormCard label.contactInputLabel {
+  color: #fff !important;
+}
+
+#contactFormCard input.contactInput::placeholder {
+  color: rgba(255, 255, 255, 1);
+}
+
+#contactFormCard input:focus {
+  box-shadow: 0 1px 0 0 #fff !important;
+
+  border-bottom: 1px solid #fff !important;
+}
+
+#contactFormCard textarea.contactInput {
+  color: #fff !important;
+}
+
+#contactFormCard textarea.contactInput::placeholder {
+  color: rgba(255, 255, 255, 1);
+}
+
+#contactFormCard textarea:focus {
+  box-shadow: 0 1px 0 0 #fff !important;
+
+  border-bottom: 1px solid #fff !important;
+}
+
+#submitArrow {
+  transition: linear 0.2s;
+}

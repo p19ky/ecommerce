@@ -40,12 +40,12 @@
 
         <!-- All Books -->
         <li class="nav-item">
-          <a class="nav-link" href="#" target="_blank"><span class="navbarText">All Books</span></a>
+          <a class="nav-link" href="{{  url('/allBooks') }}"><span class="navbarText">All Books</span></a>
         </li>
 
         <!-- Genres -->
         <li class="nav-item">
-          <a class="nav-link" href="{{  url('/genres') }}" target="_blank"><span class="navbarText">Genres</span></a>
+          <a class="nav-link" href="{{  url('/genres') }}"><span class="navbarText">Genres</span></a>
         </li>
 
         <!-- User Login/SignUp -->
@@ -89,7 +89,7 @@
                           <span class="remQuan">Quantity-</span><span class="addQuan">Quantity+</span>
                         </li>
                       </ul>
-                      <button onclick="window.location.href=`{{  url('/shcart') }}`" id="shcartCheckout" type="button" class="btn">Checkout</button>
+                      <button onclick="window.location.href=`{{  url('/shcart') }}`" id="shcartCheckout" type="button" class="btn">Go To Cart</button>
                     </div>
                   </div>
                 </div>
@@ -111,7 +111,7 @@
               <a data-toggle="modal" data-target="#modalWishlist" class="dropdown-item nav-link"><span id="wishlistSpan">Wishlist <i class="fas fa-heart"></i></span></a>
 
               <!-- Contact -->
-              <a class="dropdown-item nav-link"><span id="contactSpan">Contact <i class="fas fa-phone-square-alt"></i></span></a>
+              <a class="dropdown-item nav-link" data-toggle="modal" data-target="#modalContact"><span id="contactSpan">Contact <i class="fas fa-phone-square-alt"></i></span></a>
 
               <!-- Feedback -->
               <a onclick="modalBackdropTrigger()" data-toggle="modal" data-target="#feedbackModal" class="dropdown-item nav-link"><span id="feedbackSpan">Feedback <i class="fas fa-comments"></i></span></a>

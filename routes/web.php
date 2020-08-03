@@ -30,11 +30,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group([ 'as' => 'user.','prefix'=>'user', 'namespace'=>'User', 'middleware'=>['auth','user']], function() {
+Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'user']], function () {
     Route::get('index', 'UsersController@index')->name('index');
 });
 
-Route::group([ 'as' => 'admin.','prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth','admin']], function() {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('index', 'AdminController@index')->name('index');
 });
 
@@ -47,3 +47,5 @@ Route::group([ 'as' => 'admin.','prefix'=>'admin', 'namespace'=>'Admin', 'middle
 // });
 
 Route::get('/shcart', 'ShoppingCartController@index')->name('shcart');    // shopping cart page
+
+Route::get('/allBooks', 'AllBooksController@index')->name('allBooks');    // all books page
