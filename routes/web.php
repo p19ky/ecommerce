@@ -23,8 +23,8 @@ Route::post('/createGenre', 'GenreController@store')->name('storeG');       // a
 Route::get('/createGenre', 'GenreController@displayTable')->name('displayTableG'); // add genre to db
 
 Route::get('/genres', 'GenreController@index')->name('genres');             // genres page
-Route::get('/editG/{classifId}', 'GenreController@edit')->name('editG');             // edit genre page
-Route::post('/updateG/{classifId}', 'GenreController@update')->name('updateG');       // update genre page
+Route::get('/editG/{id}', 'GenreController@edit')->name('editG');             // edit genre page
+Route::post('/updateG/{id}', 'GenreController@update')->name('updateG');       // update genre page
 
 Auth::routes();
 
