@@ -26,6 +26,12 @@ Route::get('/genres', 'GenreController@index')->name('genres');             // g
 Route::get('/editG/{id}', 'GenreController@edit')->name('editG');             // edit genre page
 Route::post('/updateG/{id}', 'GenreController@update')->name('updateG');       // update genre page
 
+Route::delete('/delete/{id}', 'GenreController@delete')->name('deleteG');       // delete genre page
+
+
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
