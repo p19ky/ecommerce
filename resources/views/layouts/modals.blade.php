@@ -270,25 +270,25 @@
             <tr class="wishlistItem">
               <td>Book 1</td>
               <td>11,99$</td>
-              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart</button></td>
+              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
             <tr class="wishlistItem">
               <td>Book 2</td>
               <td>20,00$</td>
-              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart</button></td>
+              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
             <tr class="wishlistItem">
               <td>Book 3</td>
               <td>15,49$</td>
-              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart</button></td>
+              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
             <tr class="wishlistItem">
               <td>Book 4</td>
               <td>17,49$</td>
-              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart</button></td>
+              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
           </tbody>
@@ -298,9 +298,125 @@
       <!--Footer-->
       <div class="d-flex justify-content-md-between modal-footer">
         <button id="closeModalWishlistButton" type="button" class="btn" data-dismiss="modal">Close</button>
-        <button id="addAllModalWishlistButton" type="button" class="btn" data-dismiss="modal">Add all to Cart</button>
+        <button id="addAllModalWishlistButton" type="button" class="btn" data-dismiss="modal">Add all to Cart <i class="fas fa-cart-plus"></i></button>
       </div>
     </div>
   </div>
 </div>
 <!-- Modal: End-modalWishlist -->
+
+<!-- Start - Modal - Contact -->
+
+<div class="modal fade" id="modalContact" tabindex="-1" role="dialog" aria-labelledby="modalContactLabel" aria-hidden="true">
+
+  <div id="contactModalDialog" class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div id="contactModalContent" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalTitle">Contact <i class="fas fa-phone-square-alt"></i></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <!--Section: Contact v.1-->
+        <section class="section pb-5">
+
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col-lg-5 mb-4">
+
+              <!--Form with header-->
+              <div id="contactFormCard" class="card">
+
+                <div style="position:relative;" class=" card-body">
+                  <!--Header-->
+                  <div class="text-center form-header">
+                    <h3><i class="fas fa-envelope"></i> <strong>Write to us:</strong></h3>
+                  </div>
+
+                  <br>
+                  <p>We'll reply as soon as possible. <i class="fas fa-smile-beam"></i></p>
+
+                  <!--Body-->
+                  <div class="md-form">
+                    <i class="fas fa-user prefix white-text"></i>
+                    <input type="text" id="contactYourName" class="form-control contactInput">
+                    <label class="contactInputLabel" for="contactYourName">Your name</label>
+                  </div>
+
+                  <div class="md-form">
+                    <i class="fas fa-envelope prefix white-text"></i>
+                    <input type="text" id="contactYourEmail" class="form-control contactInput">
+                    <label class="contactInputLabel" for="contactYourEmail">Your email</label>
+                  </div>
+
+                  <div class="md-form">
+                    <i class="fas fa-tag prefix white-text"></i>
+                    <input type="text" id="contactSubject" class="form-control contactInput">
+                    <label class="contactInputLabel" for="contactSubject">Subject</label>
+                  </div>
+
+                  <div class="md-form">
+                    <i class="fas fa-pencil-alt prefix white-text"></i>
+                    <textarea id="form-text" class="form-control md-textarea contactInput" rows="6"></textarea>
+                    <label class="contactInputLabel" for="form-text">Your Thoughts</label>
+                  </div>
+
+                  <div class="text-center mt-4">
+                    <button id="contactFormSubmitButton" class="btn defaultGradientButton">Submit <i id="submitArrow" class="fas fa-long-arrow-alt-right"></i></button>
+                  </div>
+
+                </div>
+
+              </div>
+              <!--Form with header-->
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-7">
+
+              <!--Google map-->
+              <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 400px; border-radius: 10px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10929.808097813475!2d23.5941116!3d46.7756967!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd5a08ae7ed21e379!2sNTT%20DATA%20Romania!5e0!3m2!1sen!2sro!4v1596448170123!5m2!1sen!2sro" frameborder="0" style="border:0;" allowfullscreen></iframe>
+              </div>
+
+              <br>
+              <!--Buttons-->
+              <div class="row text-center">
+                <div class="col-md-4">
+                  <a style="padding:10px 15px; border-radius:50%;" class="btn btn-default"><i class="fas fa-map-marker-alt"></i></a>
+                  <p>CJ 400158, Str. Constanta 19-21,</p>
+                  <p>Romania</p>
+                </div>
+
+                <div class="col-md-4">
+                  <a style="padding:12px 15px; border-radius:50%;" class="btn btn-default"><i class="fas fa-phone"></i></a>
+                  <p>+ 01 234 567 89</p>
+                  <p>Mon - Fri, 8:00-22:00</p>
+                </div>
+
+                <div class="col-md-4">
+                  <a style="padding:12px 15px; border-radius:50%;" class="btn btn-default"><i class="fas fa-envelope"></i></a>
+                  <p style="word-wrap:break-word;">info_emkran@gmail.com</p>
+                  <p style="word-wrap:break-word;">sale_emkran@gmail.com</p>
+                </div>
+              </div>
+
+            </div>
+            <!--Grid column-->
+
+          </div>
+
+        </section>
+        <!--Section: Contact v.1-->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End - Modal - Contact -->

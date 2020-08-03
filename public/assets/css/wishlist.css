@@ -6,6 +6,10 @@
   padding-left: 5px;
 }
 
+.removeItemWishlistClass {
+  padding-top: 12px;
+}
+
 .removeItemWishlistClass:hover {
   color: red;
 }
