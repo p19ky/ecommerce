@@ -1,5 +1,6 @@
-<!-- dashboard provizoriu .. -->
-@extends('layouts.main')
+<!-- dashboard provizoriu .. 
+@include('genres', ['genres'=>true])  -->
+@extends('layouts.main') 
 @section('content')
 <br><br><br><br>
 <h3>Welcome to your temporary Dashboard</h3>
@@ -12,6 +13,10 @@
 </div>
 <div class="tab-content" id="v-pills-tabContent">
   <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"> .genres.. work in pr.. check out /genres and add to the db</div>
+ <!-- @if(isset($genres) && $genres == true)
+    @yield('content')
+@endif -->
+</div>
   <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">.books.</div>
   <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">.users.</div>
   <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">.orders.</div>

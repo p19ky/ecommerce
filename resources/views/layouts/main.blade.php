@@ -40,7 +40,7 @@
   @include('layouts.footer')
 
   @include('layouts.modals')
-  <!-- End your project here-->
+  <!-- End your project here -->
 
 
   <!-- jQuery -->
