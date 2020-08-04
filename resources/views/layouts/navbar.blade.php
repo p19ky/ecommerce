@@ -69,20 +69,20 @@
                       <ul id="shoppingCartItems" class="shopping-cart-items">
                         <li class="shcart-item">
                           <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book1.jpg') }}" alt="soGoodTheyCan'tIgnoreYou">
-                          <span class="item-name">So good they can't ig...</span>
+                          <span class="item-name">So good they can't ignore you</span>
                           <span class="item-price">$12,99</span>
                           <span class="item-quantity">Quantity: 2</span>
                           <span class="remQuan">Quantity-</span><span class="addQuan">Quantity+</span>
                         </li>
                         <li class="shcart-item">
-                          <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book2.png') }}" alt="soGoodTheyCan'tIgnoreYou">
+                          <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book2.png') }}" alt="RichDadPoorDad">
                           <span class="item-name">Rich Dad Poor Dad</span>
                           <span class="item-price">$14,49</span>
                           <span class="item-quantity">Quantity: 1</span>
                           <span class="remQuan">Quantity-</span><span class="addQuan">Quantity+</span>
                         </li>
                         <li class="shcart-item">
-                          <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book3.jpg') }}" alt="soGoodTheyCan'tIgnoreYou">
+                          <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book3.jpg') }}" alt="EgoIsTheEnemy">
                           <span class="item-name">Ego is the enemy</span>
                           <span class="item-price">$11,39</span>
                           <span class="item-quantity">Quantity: 4</span>

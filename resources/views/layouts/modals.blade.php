@@ -260,7 +260,8 @@
         <table id="wishlistItemTable" class="text-white table">
           <thead class="text-center">
             <tr>
-              <th>Book</th>
+              <th>Cover</th>
+              <th>Title&Author</th>
               <th>Price</th>
               <th>Add to Cart</th>
               <th>Remove</th>
@@ -268,26 +269,33 @@
           </thead>
           <tbody id="wishlistItemList" class="text-center">
             <tr class="wishlistItem">
-              <td>Book 1</td>
-              <td>11,99$</td>
+              <!-- <td>Book 1</td> -->
+              <td>
+                <img style="border-radius:5px;" src="{{ asset('/assets/img/book3.jpg') }}" alt="soGoodTheyCan'tIgnoreYou" width="60" height="60">
+              </td>
+              <td><span>Ego is the enemy<br>By Ryan Holiday</span></td>
+              <td><span>11,99$</span></td>
               <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
             <tr class="wishlistItem">
-              <td>Book 2</td>
-              <td>20,00$</td>
+              <td><img style="border-radius:5px;" src="{{ asset('/assets/img/book2.png') }}" alt="RichDadPoorDad" width="60" height="60"></td>
+              <td><span>Rich Dad Poor Dad<br>By Robert Kiyosaki & Sharon Lechter</span></td>
+              <td><span>20,00$</span></td>
               <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
             <tr class="wishlistItem">
-              <td>Book 3</td>
-              <td>15,49$</td>
+              <td>IMAGE</td>
+              <td><span>Book 3<br>By Author Name 3</span></td>
+              <td><span>15,49$</span></td>
               <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
             <tr class="wishlistItem">
-              <td>Book 4</td>
-              <td>17,49$</td>
+              <td>IMAGE</td>
+              <td><span>Book 4<br>By Author Name 4</span></td>
+              <td><span>17,49$</span></td>
               <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
             </tr>
@@ -340,34 +348,35 @@
                   <p>We'll reply as soon as possible. <i class="fas fa-smile-beam"></i></p>
 
                   <!--Body-->
-                  <div class="md-form">
-                    <i class="fas fa-user prefix white-text"></i>
-                    <input type="text" id="contactYourName" class="form-control contactInput">
-                    <label class="contactInputLabel" for="contactYourName">Your name</label>
-                  </div>
+                  <form action="" method="post">
+                    <div class="md-form">
+                      <i class="fas fa-user prefix white-text"></i>
+                      <input type="text" id="contactYourName" class="form-control contactInput" required>
+                      <label class="contactInputLabel" for="contactYourName">Your name</label>
+                    </div>
 
-                  <div class="md-form">
-                    <i class="fas fa-envelope prefix white-text"></i>
-                    <input type="text" id="contactYourEmail" class="form-control contactInput">
-                    <label class="contactInputLabel" for="contactYourEmail">Your email</label>
-                  </div>
+                    <div class="md-form">
+                      <i class="fas fa-envelope prefix white-text"></i>
+                      <input type="email" id="contactYourEmail" class="form-control contactInput" required>
+                      <label class="contactInputLabel" for="contactYourEmail">Your email</label>
+                    </div>
 
-                  <div class="md-form">
-                    <i class="fas fa-tag prefix white-text"></i>
-                    <input type="text" id="contactSubject" class="form-control contactInput">
-                    <label class="contactInputLabel" for="contactSubject">Subject</label>
-                  </div>
+                    <div class="md-form">
+                      <i class="fas fa-tag prefix white-text"></i>
+                      <input type="text" id="contactSubject" class="form-control contactInput" required>
+                      <label class="contactInputLabel" for="contactSubject">Subject</label>
+                    </div>
 
-                  <div class="md-form">
-                    <i class="fas fa-pencil-alt prefix white-text"></i>
-                    <textarea id="form-text" class="form-control md-textarea contactInput" rows="6"></textarea>
-                    <label class="contactInputLabel" for="form-text">Your Thoughts</label>
-                  </div>
+                    <div class="md-form">
+                      <i class="fas fa-pencil-alt prefix white-text"></i>
+                      <textarea id="form-text" class="form-control md-textarea contactInput" rows="6" required></textarea>
+                      <label class="contactInputLabel" for="form-text">Your Thoughts</label>
+                    </div>
 
-                  <div class="text-center mt-4">
-                    <button id="contactFormSubmitButton" class="btn defaultGradientButton">Submit <i id="submitArrow" class="fas fa-long-arrow-alt-right"></i></button>
-                  </div>
-
+                    <div class="text-center mt-4">
+                      <button type="submit" id="contactFormSubmitButton" class="btn defaultGradientButton">Submit <i id="submitArrow" class="fas fa-long-arrow-alt-right"></i></button>
+                    </div>
+                  </form>
                 </div>
 
               </div>
