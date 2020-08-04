@@ -17,7 +17,11 @@
   <thead class="black white-text">
     <tr>
   
-      <th scope="col"> <a href="{{ route('displayTableG') }}" class="btn-info btn"><i class="fa fa-plus" aria-hidden="true"></i></a></th>
+      <th scope="col"> 
+      <a href="{{ route('displayTableG') }}" class="btn-info btn">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      </a>
+      </th>
       <th scope="col">Genre</th>
       <th scope="col">Description</th>
       <th scope="col">Action</th>
