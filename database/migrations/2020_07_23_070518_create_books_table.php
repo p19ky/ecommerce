@@ -23,7 +23,7 @@ class CreateBooksTable extends Migration
             $table->decimal('price', 10, 2);
             $table->integer('quantity');
             $table->integer('classifId')->unsigned();
-            $table->foreign('classifId')->references('classifId')->on('classification');
+            $table->foreign('classifId')->references('id')->on('classification');
             $table->timestamps();
 
         });

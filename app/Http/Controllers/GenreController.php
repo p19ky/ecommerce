@@ -85,6 +85,7 @@ class GenreController extends Controller
     {
         $genre = Classification::find($id);
         return view('editG', compact('genre'));
+     // return view('editG')->with('genre', $genre);
     }
 
     /**
@@ -96,7 +97,24 @@ class GenreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         //validam datele de intrare
+         $this->validate($request, [
+            'genreName' => 'required',
+            'genrePicture' => 'required',
+            'genreDescription' => 'required'
+            
+        ]);          
+
+        $genre = Classification::find($id);
+
+        //inseram valorile corespunzatoare in coloane
+        $genre->name = $request->genreName;
+        $genre->description = $request->genreDescription;
+        $genre->picture = $request->genrePicture;
+
+        $genre->save();
+ 
+        return redirect(route('genres'))->with('successMsg','Genre successfully updated'); 
     }
 
     /**
@@ -105,8 +123,9 @@ class GenreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+      Classification::find($id)->delete(); 
+      return redirect(route('genres'))->with('successMsg','Genre successfully deleted');   
     }
 }
