@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->increments('reviewId');
             $table->string('text');
             $table->integer('bookId')->unsigned();
-            $table->foreign('bookId')->references('bookId')->on('books');
+            $table->foreign('bookId')->references('id')->on('books');
 
             $table->timestamps();
         });

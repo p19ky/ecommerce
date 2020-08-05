@@ -19,7 +19,7 @@ class CreateBooksOrdersTable extends Migration
             $table->integer('orderId')->unsigned();
             $table->foreign('orderId')->references('orderId')->on('orders');
             $table->integer('bookId')->unsigned();
-            $table->foreign('bookId')->references('bookId')->on('books');
+            $table->foreign('bookId')->references('id')->on('books');
 
             $table->timestamps();
         });

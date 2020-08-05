@@ -18,7 +18,7 @@ class CreateBooksAuthorsTable extends Migration
             $table->integer('authorId')->unsigned();
             $table->foreign('authorId')->references('authorId')->on('authors');
             $table->integer('bookId')->unsigned();
-            $table->foreign('bookId')->references('bookId')->on('books');
+            $table->foreign('bookId')->references('id')->on('books');
 
             $table->timestamps();
         });

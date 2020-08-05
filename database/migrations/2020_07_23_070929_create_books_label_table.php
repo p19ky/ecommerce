@@ -18,7 +18,7 @@ class CreateBooksLabelTable extends Migration
             $table->integer('labelId')->unsigned();
             $table->foreign('labelId')->references('labelId')->on('labels');
             $table->integer('bookId')->unsigned();
-            $table->foreign('bookId')->references('bookId')->on('books');
+            $table->foreign('bookId')->references('id')->on('books');
 
             $table->timestamps();
         });
