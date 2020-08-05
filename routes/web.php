@@ -20,9 +20,11 @@ Route::get('/', 'EcommerceController@index')->name('home');
 
 //Route::post('/create', 'BookController@store')->name('store');              // add book to db
 
+// Rute admmin:
 
 Route::get('/dashboard', 'AdminCrudController@index')->name('dashboard');       // dashboard provizoriu..
 
+// genres
 Route::get('/genres', 'GenreController@index')->name('genres');             // genres page
 Route::post('/createGenre', 'GenreController@store')->name('storeG');       // add genre to db method
 Route::get('/createGenre', 'GenreController@displayTable')->name('displayTableG'); // add genre to db input
@@ -30,7 +32,8 @@ Route::get('/editG/{id}', 'GenreController@edit')->name('editG');             //
 Route::post('/updateG/{id}', 'GenreController@update')->name('updateG');       // update genre page
 Route::delete('/delete/{id}', 'GenreController@delete')->name('deleteG');       // delete genre page
 
-
+// books
+Route::get('/books', 'AllBooksController@indexAdmin')->name('books');             // books page
 
 
 

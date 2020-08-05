@@ -41,7 +41,7 @@
     Home
   </a>
   <a href="{{ route('genres') }}" class="list-group-item list-group-item-action active">Genres</a>
-  <a href="#!" class="list-group-item list-group-item-action">Books</a>
+  <a href="{{ route('books') }}" class="list-group-item list-group-item-action">Books</a>
   <a href="#!" class="list-group-item list-group-item-action">Customers</a>
   <a href="#!" class="list-group-item list-group-item-action disabled">Orders</a>
 </div>

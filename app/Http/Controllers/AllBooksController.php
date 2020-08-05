@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Books;
 
 class AllBooksController extends Controller
 {
@@ -13,7 +14,21 @@ class AllBooksController extends Controller
      */
     public function index()
     {
-        return view('allBooks');
+        //return view('allBooks');
+        $books = Books::all();  // fetching all the data from the Books table
+        return view('allBooks', compact('books'));
+
+    }
+
+
+    /**Display a listing of the resource - admin!! */
+
+    public function indexAdmin()
+    {
+        //return view('allBooks');
+        $books = Books::all();  // fetching all the data from the Books table
+        return view('booksAdmin', compact('books'));
+
     }
 
     /**

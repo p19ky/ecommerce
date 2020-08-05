@@ -29,17 +29,21 @@
     <br>
     <br>
   </div>
+
   <div id="blankPaddingAllBooks"></div>
   <div id="booksContainer" class="container">
+
+
     <!-- Card deck -->
     <div class="card-deck">
-
+    
+    @foreach($books->chunk(2) as $chunkedBook)
       <!-- Card -->
       <div class="card mb-4">
-
+      @foreach($chunkedBook as $book)
         <!--Card image-->
         <div class="view overlay">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+          <img class="card-img-top" src="{{ $book->picture }}" alt="Card image cap">
           <a href="#!">
             <div class="mask rgba-white-slight"></div>
           </a>
@@ -49,72 +53,19 @@
         <div class="card-body">
 
           <!--Title-->
-          <h4 class="card-title">Card title</h4>
+          <h4 class="card-title">{{ $book->name }}</h4>
           <!--Text-->
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+          <p class="card-text">{{ $book->author }}</p>
           <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
           <button type="button" class="btn btn-light-blue btn-md">Read more</button>
 
         </div>
-
+      @endforeach
       </div>
       <!-- Card -->
 
-      <!-- Card -->
-      <div class="card mb-4">
-
-        <!--Card image-->
-        <div class="view overlay">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-
-        <!--Card content-->
-        <div class="card-body">
-
-          <!--Title-->
-          <h4 class="card-title">Card title</h4>
-          <!--Text-->
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-          <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
-        </div>
-
-      </div>
-      <!-- Card -->
-
-      <!-- Card -->
-      <div class="card mb-4">
-
-        <!--Card image-->
-        <div class="view overlay">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-
-        <!--Card content-->
-        <div class="card-body">
-
-          <!--Title-->
-          <h4 class="card-title">Card title</h4>
-          <!--Text-->
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-          <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
-        </div>
-
-      </div>
-      <!-- Card -->
-
+      
+      @endforeach
     </div>
     <!-- Card deck -->
     <br>

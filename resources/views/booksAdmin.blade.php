@@ -40,10 +40,10 @@
   <a href="{{ route('dashboard') }}" class="list-group-horizontal list-group-item list-group-item-action">
     Home
   </a>
-  <a href="{{ route('genres') }}" class="list-group-item list-group-item-action active">Genres</a>
-  <a href="{{ route('books') }}" class="list-group-item list-group-item-action">Books</a>
+  <a href="{{ route('genres') }}" class="list-group-item list-group-item-action">Genres</a>
+  <a href="#!" class="list-group-item list-group-item-action active">Books</a>
   <a href="#!" class="list-group-item list-group-item-action">Customers</a>
-  <a href="#!" class="list-group-item list-group-item-action disabled">Orders</a>
+  <a href="#!" class="list-group-item list-group-item-action">Orders</a>
 </div>
 <!-- end navbar -->
 <br>
@@ -63,40 +63,39 @@
     <tr>
   
       <th scope="col"> 
-      <a href="{{ route('displayTableG') }}" class="btn-info btn">
+      <a href="#!" class="btn-info btn">
       <i class="fa fa-plus" aria-hidden="true"></i>
       </a>
       </th>
-      <th scope="col">Genre</th>
+      <th scope="col">Book</th>
+      <th scope="col">Author</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
       <th scope="col">Description</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-  @foreach($genres as $genre)
+  @foreach($books as $book)
     <tr>
 
-      <td><img width="30%" src="{{$genre->picture}}" alt="no pic available" border="0"></td>
-      <td>{{$genre->name}}</td>
-      <td>{{$genre->description}}</td>
+      <td><img width="30%" src="{{$book->picture}}" alt="no pic available" border="0"></td>
+      <td>{{$book->name}}</td>
+      <td>{{$book->author}}</td>
+      <td>{{$book->price}}</td>
+      <td>{{$book->quantity}}</td>
+      <td>{{$book->description}}</td>
       <td width="20%">
       
-      <a class="btn btn-raised btn-primary btn-sm" href="{{ route('editG', $genre->id)  }}"><i class="fa fa-edit" aria-hidden="true"></i>
+      <a class="btn btn-raised btn-primary btn-sm" href="#!"><i class="fa fa-edit" aria-hidden="true"></i>
       </a>
-      <form method="POST" id="deleteG-form-{{ $genre->id }}" action="{{ route('deleteG', $genre->id) }}" style="display:none; ">
+      <form method="POST" action="#!" style="display:none; ">
      {{  csrf_field() }}
      {{  method_field('delete') }}
       </form>
 
-    <button onclick=" if (confirm('Are you sure you want to delete this genre?')) {
-      event.preventDefault();
-      document.getElementById('deleteG-form-{{ $genre->id }}').submit();
-    } else{
-      event.preventDefault();
-
-    } 
-     "
-       class="btn btn-raised btn-danger btn-sm" href=""><i class="fa fa-trash" aria-hidden="true"></i>  
+    <button 
+       class="btn btn-raised btn-danger btn-sm" href="#!"><i class="fa fa-trash" aria-hidden="true"></i>  
       
     </button>
        </td>
@@ -107,7 +106,7 @@
 </table>
  <!-- Add to db button -->
  <a href="{{ route('displayTableG') }}" class="btn btn-info my-4 btn-block"><i class="fa fa-plus" aria-hidden="true"></i>
-Add a genre</a>
+Add a book</a>
 </div>
 
 
