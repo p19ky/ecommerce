@@ -23,7 +23,8 @@
         "backpack/revise-operation": "^1.0",
         "backpack/filemanager": "^1.0",
         "consoletvs/charts": "6.*",
-        "laravel/ui": "^2.1"
+        "laravel/ui": "^2.1",
+        "laravel/helpers": "^1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
