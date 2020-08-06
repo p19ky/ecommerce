@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Books;
+use Illuminate\Support\Facades\DB;
 
 class AllBooksController extends Controller
 {
@@ -15,9 +16,10 @@ class AllBooksController extends Controller
     public function index()
     {
         //return view('allBooks');
-        $books = Books::all();  // fetching all the data from the Books table
-        return view('allBooks', compact('books'));
-
+        // $books = Books::all();  // fetching all the data from the Books table
+        $books = DB::table('books')->paginate(1);
+        // return view('allBooks', compact('books'));
+        return view('allBooks', ['books' => $books]);
     }
 
 
@@ -28,7 +30,6 @@ class AllBooksController extends Controller
         //return view('allBooks');
         $books = Books::all();  // fetching all the data from the Books table
         return view('booksAdmin', compact('books'));
-
     }
 
     /**

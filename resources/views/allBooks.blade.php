@@ -36,11 +36,11 @@
 
     <!-- Card deck -->
     <div class="card-deck">
-    
-    @foreach($books->chunk(2) as $chunkedBook)
+
+      @foreach($books as $book)
       <!-- Card -->
       <div class="card mb-4">
-      @foreach($chunkedBook as $book)
+
         <!--Card image-->
         <div class="view overlay">
           <img class="card-img-top" src="{{ $book->picture }}" alt="Card image cap">
@@ -60,37 +60,16 @@
           <button type="button" class="btn btn-light-blue btn-md">Read more</button>
 
         </div>
-      @endforeach
+
       </div>
       <!-- Card -->
 
-      
+
       @endforeach
     </div>
     <!-- Card deck -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
+    {{ $books->onEachSide(5)->links() }}
   </div>
 </div>
 
