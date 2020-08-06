@@ -16,7 +16,7 @@ class AllBooksController extends Controller
     {
         //return view('allBooks');
         $books = Books::all();  // fetching all the data from the Books table
-        return view('allBooks', compact('books'));
+        return view('books/allBooks', compact('books'));
 
     }
 
@@ -27,7 +27,7 @@ class AllBooksController extends Controller
     {
         //return view('allBooks');
         $books = Books::all();  // fetching all the data from the Books table
-        return view('booksAdmin', compact('books'));
+        return view('books/booksAdmin', compact('books'));
 
     }
 
