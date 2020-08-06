@@ -26,7 +26,7 @@ class GenreController extends Controller
 
     }
 
-
+/** displays the input form in order to add a genre to the database */
     public function displayTable(){
         return view('genres/createGenre');
     }

@@ -35,7 +35,7 @@
 
 
     <!-- Card deck -->
-    <div class="card-deck">
+  <div class="card-deck">
     
     @foreach($books->chunk(2) as $chunkedBook)
       <!-- Card -->
@@ -61,7 +61,7 @@
 
         </div>
       @endforeach
-      </div>
+     </div>
       <!-- Card -->
 
       

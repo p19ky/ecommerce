@@ -34,9 +34,10 @@ Route::post('/updateG/{id}', 'GenreController@update')->name('updateG');       /
 Route::delete('/delete/{id}', 'GenreController@delete')->name('deleteG');       // delete genre page
 
 // books
-Route::get('/books', 'AllBooksController@indexAdmin')->name('books');             // books page
-
-
+Route::get('/books', 'AllBooksController@indexAdmin')->name('books');      // books page - ADMIN
+Route::get('/allBooks', 'AllBooksController@index')->name('allBooks');    //  books page - USER
+Route::post('/createBook', 'AllBooksController@store')->name('storeB');       // add book to db method
+Route::get('/createBook', 'AllBooksController@displayTable')->name('displayTableB'); // add book to db input
 
 Auth::routes();
 
@@ -60,4 +61,3 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 
 Route::get('/shcart', 'ShoppingCartController@index')->name('shcart');    // shopping cart page
 
-Route::get('/allBooks', 'AllBooksController@index')->name('allBooks');    // all books page

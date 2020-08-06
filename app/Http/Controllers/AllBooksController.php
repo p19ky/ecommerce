@@ -31,6 +31,12 @@ class AllBooksController extends Controller
 
     }
 
+    public function displayTable(){
+        return view('books/addBook');
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -49,8 +55,28 @@ class AllBooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //validam datele de intrare
+         $this->validate($request, [
+            'genreName' => 'required',
+            'genrePicture' => 'required',
+            'genreDescription' => 'required'
+            
+        ]);          
+
+        $genre = new Classification;
+
+        //inseram valorile corespunzatoare in coloane
+        $genre->name = $request->genreName;
+        $genre->description = $request->genreDescription;
+        $genre->picture = $request->genrePicture;
+
+        $genre->save();
+ 
+        return redirect(route('genres'))->with('successMsg','Genre successfully added to the database'); 
+        
+
     }
+    
 
     /**
      * Display the specified resource.
