@@ -15,11 +15,8 @@ class AllBooksController extends Controller
      */
     public function index()
     {
-        //return view('allBooks');
-        // $books = Books::all();  // fetching all the data from the Books table
         $books = DB::table('books')->paginate(1);
-        // return view('allBooks', compact('books'));
-        return view('allBooks', ['books' => $books]);
+        return view('books/allBooks', ['books' => $books]);
     }
 
 
@@ -29,7 +26,7 @@ class AllBooksController extends Controller
     {
         //return view('allBooks');
         $books = Books::all();  // fetching all the data from the Books table
-        return view('booksAdmin', compact('books'));
+        return view('books/booksAdmin', compact('books'));
     }
 
     /**

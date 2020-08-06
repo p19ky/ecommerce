@@ -15,13 +15,13 @@ class GenreController extends Controller
     public function index()
     {
         $genres = Classification::all();  // fetching all the data from the Classification table
-        return view('genres', compact('genres'));
+        return view('genres/genres', compact('genres'));
 
     }
 
 
     public function displayTable(){
-        return view('genreTest');
+        return view('genres/createGenre');
     }
 
     /**
@@ -84,8 +84,7 @@ class GenreController extends Controller
     public function edit($id)
     {
         $genre = Classification::find($id);
-        return view('editG', compact('genre'));
-     // return view('editG')->with('genre', $genre);
+        return view('genres/editGenre', compact('genre'));
     }
 
     /**

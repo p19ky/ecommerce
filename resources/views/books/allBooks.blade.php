@@ -69,6 +69,8 @@
     </div>
     <!-- Card deck -->
 
+    {{ $paginator->currentPage() }}
+
     {{ $books->onEachSide(5)->links() }}
   </div>
 </div>
