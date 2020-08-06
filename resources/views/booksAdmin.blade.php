@@ -1,4 +1,4 @@
-<!-- dashboard provizoriu .. - Genres -->
+<!-- dashboard provizoriu .. - Books -->
 
 
 <!DOCTYPE html>
