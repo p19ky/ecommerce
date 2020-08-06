@@ -11,7 +11,7 @@
   <link rel="icon" href="{{ URL::asset('/mdb/img/blue-diamond-transparent.png') }}" type="image/x-icon" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-   <!-- Google Fonts Roboto -->
+  <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <!-- Bootstrap core CSS -->
   <link href="{{  URL::asset('/mdb/css/bootstrap.min.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
@@ -62,6 +62,7 @@
   <script type="text/javascript" src="{{  URL::asset('/assets/js/window.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/wishlist.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/contact.js') }}?v=<?php echo time(); ?>"></script>
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/allBooks.js') }}?v=<?php echo time(); ?>"></script>
 
 
   <script type="text/javascript">
