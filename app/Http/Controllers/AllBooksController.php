@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Books;
 use Illuminate\Support\Facades\DB;
+use App\Classification;
 
 class AllBooksController extends Controller
 {
@@ -31,7 +32,8 @@ class AllBooksController extends Controller
         return view('books/booksAdmin', compact('books'));
     }
 
-    public function displayTable(){
+    public function displayTable()
+    {
         return view('books/addBook');
     }
 
@@ -55,13 +57,13 @@ class AllBooksController extends Controller
      */
     public function store(Request $request)
     {
-         //validam datele de intrare
-         $this->validate($request, [
+        //validam datele de intrare
+        $this->validate($request, [
             'genreName' => 'required',
             'genrePicture' => 'required',
             'genreDescription' => 'required'
-            
-        ]);          
+
+        ]);
 
         $genre = new Classification;
 
@@ -71,12 +73,10 @@ class AllBooksController extends Controller
         $genre->picture = $request->genrePicture;
 
         $genre->save();
- 
-        return redirect(route('genres'))->with('successMsg','Genre successfully added to the database'); 
-        
 
+        return redirect(route('genres'))->with('successMsg', 'Genre successfully added to the database');
     }
-    
+
 
     /**
      * Display the specified resource.
