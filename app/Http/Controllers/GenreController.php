@@ -15,7 +15,14 @@ class GenreController extends Controller
     public function index()
     {
         $genres = Classification::all();  // fetching all the data from the Classification table
-        return view('genres/genres', compact('genres'));
+        return view('genres/allGenres', compact('genres'));
+
+    }
+
+    public function indexAdmin()
+    {
+        $genres = Classification::all();  // fetching all the data from the Classification table
+        return view('genres/genresAdmin', compact('genres'));
 
     }
 

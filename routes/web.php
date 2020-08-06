@@ -25,7 +25,8 @@ Route::get('/', 'EcommerceController@index')->name('home');
 Route::get('/dashboard', 'AdminCrudController@index')->name('dashboard');       // dashboard provizoriu..
 
 // genres
-Route::get('/genres', 'GenreController@index')->name('genres');             // genres page
+Route::get('/allGenres', 'GenreController@index')->name('allGenres');             // genres page - USER
+Route::get('/genres', 'GenreController@indexAdmin')->name('genres');             // genres page - ADMIN
 Route::post('/createGenre', 'GenreController@store')->name('storeG');       // add genre to db method
 Route::get('/createGenre', 'GenreController@displayTable')->name('displayTableG'); // add genre to db input
 Route::get('/editG/{id}', 'GenreController@edit')->name('editG');             // edit genre page

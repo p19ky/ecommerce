@@ -45,7 +45,7 @@
 
         <!-- Genres -->
         <li class="nav-item">
-          <a class="nav-link" href="{{  url('/genres') }}"><span class="navbarText">Genres</span></a>
+          <a class="nav-link" href="{{  url('/allGenres') }}"><span class="navbarText">Genres</span></a>
         </li>
 
         <!-- User Login/SignUp -->
