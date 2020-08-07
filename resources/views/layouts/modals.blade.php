@@ -348,33 +348,34 @@
                   <p>We'll reply as soon as possible. <i class="fas fa-smile-beam"></i></p>
 
                   <!--Body-->
-                  <form action="" method="post">
+                  <form id="contactForm">
+
                     <div class="md-form">
                       <i class="fas fa-user prefix white-text"></i>
-                      <input type="text" id="contactYourName" class="form-control contactInput" required>
+                      <input name="name" type="text" id="contactYourName" class="form-control contactInput">
                       <label class="contactInputLabel" for="contactYourName">Your name</label>
                     </div>
 
                     <div class="md-form">
                       <i class="fas fa-envelope prefix white-text"></i>
-                      <input type="email" id="contactYourEmail" class="form-control contactInput" required>
+                      <input name="email" type="text" id="contactYourEmail" class="form-control contactInput">
                       <label class="contactInputLabel" for="contactYourEmail">Your email</label>
                     </div>
 
                     <div class="md-form">
                       <i class="fas fa-tag prefix white-text"></i>
-                      <input type="text" id="contactSubject" class="form-control contactInput" required>
+                      <input name="subject" type="text" id="contactSubject" class="form-control contactInput">
                       <label class="contactInputLabel" for="contactSubject">Subject</label>
                     </div>
 
                     <div class="md-form">
                       <i class="fas fa-pencil-alt prefix white-text"></i>
-                      <textarea id="form-text" class="form-control md-textarea contactInput" rows="6" required></textarea>
+                      <textarea name="message" id="contactYourThoughts" class="form-control md-textarea contactInput" rows="6"></textarea>
                       <label class="contactInputLabel" for="form-text">Your Thoughts</label>
                     </div>
 
                     <div class="text-center mt-4">
-                      <button type="submit" id="contactFormSubmitButton" class="btn defaultGradientButton">Submit <i id="submitArrow" class="fas fa-long-arrow-alt-right"></i></button>
+                      <button name="send" type="submit" id="contactFormSubmitButton" class="btn defaultGradientButton">Submit <i id="submitArrow" class="fas fa-long-arrow-alt-right"></i></button>
                     </div>
                   </form>
                 </div>

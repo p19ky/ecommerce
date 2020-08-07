@@ -3,36 +3,50 @@
 @section('content')
 
 <div id="allBooksMainContainer">
+
   <div id="sideFilterContainer">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
+    <div class="container">
+
+      <form action="{{ route('allBooks') }}" method="get">
+
+        {{ csrf_field() }}
+
+        <div class="d-flex justify-content-center">
+          <input type="submit" value="Filter" class="btn white-text defaultGradientButton">
+        </div>
+
+        <div class="md-form">
+          <input id="minPriceFilterInput" type="text" class="form-control">
+          <label class="minPriceInputLabel" for="minPriceFilterInput">Min. Price</label>
+        </div>
+        <div class="d-flex justify-content-center my-4">
+          <div class="w-75">
+            <input name="min_price" type="range" class="custom-range" id="customRangeMin" value="100" step="0.10" min="0.00" max="200.00">
+          </div>
+          <span style="width:55px;" class="font-weight-bold text-primary ml-2 valueSpanMin"></span>
+        </div>
+
+        <div class="md-form">
+          <input id="maxPriceFilterInput" type="text" class="form-control">
+          <label class="maxPriceInputLabel" for="maxPriceFilterInput">Max. Price</label>
+        </div>
+        <div class="d-flex justify-content-center my-4">
+          <div class="w-75">
+            <input name="max_price" type="range" class="custom-range" id="customRangeMax" value="100" step="0.10" min="0.00" max="200.00">
+          </div>
+          <span style="width:55px;" class="font-weight-bold text-primary ml-2 valueSpanMax"></span>
+        </div>
+
+      </form>
+
+    </div>
+
   </div>
 
   <div id="blankPaddingAllBooks"></div>
-  <div id="booksContainer" class="container">
 
+  <div id="booksContainer" class="container">
 
     <!-- Card deck -->
     <div id="booksCardDeck" class="card-deck">
@@ -62,6 +76,7 @@
           <h4 class="card-title">{{ $value->name }}</h4>
           <!--Text-->
           <p class="card-text"><small>by</small> {{ $value->author }}</p>
+          <p class="card-text">${{ $value->price }}</p>
 
         </div>
 
@@ -81,6 +96,7 @@
     </div>
 
   </div>
+
 </div>
 
 @endsection

@@ -60,4 +60,3 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 // });
 
 Route::get('/shcart', 'ShoppingCartController@index')->name('shcart');    // shopping cart page
-

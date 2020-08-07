@@ -195,6 +195,14 @@ a > span.navbarText:hover {
 
 .s130 form .inner-form .input-field.second-wrap {
   min-width: 100px;
+  background: linear-gradient(to right, #3ab9eb, #d647d8);
+}
+
+.s130 form .inner-form .input-field.second-wrap:hover {
+  background: linear-gradient(to right, #00abad, #ab00ad);
+  background: -webkit-linear-gradient(to right, #00abad, #ab00ad);
+  background: -moz-linear-gradient(to right, #00abad, #ab00ad);
+  background: -o-linear-gradient(to right, #00abad, #ab00ad);
 }
 
 .s130 form .inner-form .input-field.second-wrap .btn-search {
@@ -213,6 +221,8 @@ a > span.navbarText:hover {
   background: -o-linear-gradient(to right, #3ab9eb, #d647d8);
   transition: all 1s ease-out, color 1s ease-out;
   font-weight: 300;
+  bottom: 3px;
+  padding-bottom: 5px;
 }
 
 .s130 form .inner-form .input-field.second-wrap .btn-search:hover {

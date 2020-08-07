@@ -16,10 +16,35 @@ class AllBooksController extends Controller
      */
     public function index()
     {
-        // $books = DB::table('books')->paginate(1);
-        // return view('books/allBooks', ['books' => $books]);
-        $books = Books::simplePaginate(15);
-        return view('books/allBooks', ['books' => $books]);
+        $books = new Books;
+        $classifications = Classification::All();
+
+        $queries = [];
+
+        // if (request()->filled('main_search')) {
+        //     $books = $books->where('name', 'like', '%' . request('mainSearch') . '%');
+        //     $queries['main_search'] = request('main_search');
+        // }
+
+        if (request()->filled('min_price')) {
+            $books = $books->where('price', '>=', request('min_price'));
+            $queries['min_price'] = request('min_price');
+        }
+
+        if (request()->filled('max_price')) {
+            $books = $books->where('price', '<=', request('max_price'));
+            $queries['max_price'] = request('max_price');
+        }
+
+        // if (request()->has('sort')) {
+        //     //sort
+        //     $books = $books->orderBy('price', request('sort'));
+        //     $queries['sort'] = request('sort');
+        // }
+
+        $books = $books->paginate(10)->appends($queries);
+
+        return view('books/allBooks', compact('books'));
     }
 
 

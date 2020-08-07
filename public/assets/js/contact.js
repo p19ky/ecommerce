@@ -11,3 +11,7 @@ function moveSubmitButtonArrowToRight() {
 function moveSubmitButtonArrowToLeft() {
   submitArrow.style.cssText = "";
 }
+
+// MAIL
+
+// MAIL
