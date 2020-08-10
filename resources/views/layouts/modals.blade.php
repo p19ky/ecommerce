@@ -199,41 +199,6 @@
 </div>
 <!--Modal: End-modalConfirmDeleteByDeleteButton-->
 
-<!--Modal: Start-modalConfirmDeleteByRemQuan-->
-<div class="modal fade" id="modalConfirmDeleteByRemQuan" tabindex="-1" role="dialog" aria-labelledby="modalConfirmDeleteByRemQuanLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-    <!--Content-->
-    <div class="modal-content text-center">
-      <!--Header-->
-      <div class="modal-header d-flex justify-content-center">
-        <div class="row">
-          <div class="col-12">
-            <p class="heading">This Book's Quantity is 0 now.</p>
-          </div>
-          <div class="col-12">
-            <p class="heading">Do you want to remove it?</p>
-          </div>
-        </div>
-      </div>
-
-      <!--Body-->
-      <div class="modal-body">
-
-        <i class="fas fa-times fa-4x animated rotateIn"></i>
-
-      </div>
-
-      <!--Footer-->
-      <div class="modal-footer flex-center">
-        <a id="confirmDeleteShcartElementByRemQuanYes" class="btn  btn-outline-danger" data-dismiss="modal">Yes</a>
-        <a id="confirmDeleteShcartElementByRemQuanNo" type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
-      </div>
-    </div>
-    <!--/.Content-->
-  </div>
-</div>
-<!--Modal: End-modalConfirmDeleteByRemQuan-->
-
 <!-- Modal: Start-modalWishlist -->
 <div class="modal fade" id="modalWishlist" tabindex="-1" role="dialog" aria-labelledby="modalWishlistLabel" aria-hidden="true">
   <div id="modalWishlistDialog" class="modal-dialog modal-dialog-centered modal-lg" role="document">

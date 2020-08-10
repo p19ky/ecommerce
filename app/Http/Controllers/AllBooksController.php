@@ -21,6 +21,7 @@ class AllBooksController extends Controller
         $books = new Books;
         $classifications = Classification::All();
 
+
         $queries = [];
 
         // if (request()->filled('main_search')) {

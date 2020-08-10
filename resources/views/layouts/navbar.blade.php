@@ -49,9 +49,16 @@
         </li>
 
         <!-- User Login/SignUp -->
+        @auth
         <li class="nav-item">
-          <a id="userLogo" class="nav-link" href="{{ url('/login') }}" target="_blank"><span data-placement="bottom" data-toggle="tooltip" title="My Account" class="navbarText"><i class="fa fa-user"></i></span></a>
+          <a id="userLogo" class="nav-link" href="{{ url('/login') }}"><span data-placement="bottom" data-toggle="tooltip" title="My Account" class="navbarText"><i class="fa fa-user"></i></span></a>
         </li>
+        @endauth
+        @guest
+        <li class="nav-item">
+          <a id="userLogo" class="nav-link" href="{{ url('/login') }}"><span data-placement="bottom" data-toggle="tooltip" title="Login/Sign Up" class="navbarText"><i class="fa fa-user"></i></span></a>
+        </li>
+        @endguest
 
         <!-- Shopping Cart -->
         <li class="nav-item">
@@ -59,37 +66,33 @@
                 <div class="shcartTooltiptext">
                   <div class="container">
                     <div class="shopping-cart">
+                      @auth
                       <div class="shopping-cart-header">
                         <i class="fas fa-shopping-cart"></i><span id="shcartBadge" class="badge">7</span>
                         <div class="shopping-cart-total d-flex justify-content-end">
                           <span class="lighter-text">Total:</span>
-                          <span id="shcartTotal" class="main-color-text">$86.03</span>
+                          <span id="shcartTotal" class="main-color-text"></span>
                         </div>
                       </div>
                       <ul id="shoppingCartItems" class="shopping-cart-items">
-                        <li class="shcart-item">
+                        <!-- <li class="shcart-item">
                           <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book1.jpg') }}" alt="soGoodTheyCan'tIgnoreYou">
-                          <span class="item-name">So good they can't ignore you</span>
+                          <span class="item-name">SO GOOD THEY CAN'T IGNORE YOU XAHEXAH</span>
                           <span class="item-price">$12,99</span>
                           <span class="item-quantity">Quantity: 2</span>
                           <span class="remQuan">Quantity-</span><span class="addQuan">Quantity+</span>
-                        </li>
-                        <li class="shcart-item">
-                          <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book2.png') }}" alt="RichDadPoorDad">
-                          <span class="item-name">Rich Dad Poor Dad</span>
-                          <span class="item-price">$14,49</span>
-                          <span class="item-quantity">Quantity: 1</span>
-                          <span class="remQuan">Quantity-</span><span class="addQuan">Quantity+</span>
-                        </li>
-                        <li class="shcart-item">
-                          <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book3.jpg') }}" alt="EgoIsTheEnemy">
-                          <span class="item-name">Ego is the enemy</span>
-                          <span class="item-price">$11,39</span>
-                          <span class="item-quantity">Quantity: 4</span>
-                          <span class="remQuan">Quantity-</span><span class="addQuan">Quantity+</span>
-                        </li>
+                        </li> -->
+                        <!-- FOR TEST PURPOSE - DON'T DELETE -->
                       </ul>
-                      <button onclick="window.location.href=`{{  url('/shcart') }}`" id="shcartCheckout" type="button" class="btn">Go To Cart</button>
+                      <button onclick="window.location.href=`{{  route('shcart', auth()->user()->id) }}`" id="shcartCheckout" type="button" class="btn">Go To Cart</button>
+
+                      @endauth
+                      @guest
+                      <div style="margin-left:40px;">
+                        <p><strong>You have to login first!</strong></p>
+                        <button onclick="window.location.href=`{{  url('/login') }}`" class="btn reversedGradientButton">Login</button>
+                      </div>
+                      @endguest
                     </div>
                   </div>
                 </div>

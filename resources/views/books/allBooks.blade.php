@@ -77,13 +77,21 @@
           <!--Text-->
           <p class="card-text"><small>by</small> {{ $value->author }}</p>
           <p class="card-text">${{ $value->price }}</p>
+          <div class="bookIdDiv" style="display:none;">{{ $value->id }}</div>
 
         </div>
 
         <!-- Card footer -->
+        @auth
         <div class="card-footer d-flex justify-content-center">
-          <a type="button" class="btn btn-sm white-text defaultGradientButton">Add to cart</a>
+          <a type="button" class="btn btn-sm white-text defaultGradientButton addToCartMainClass">Add to cart</a>
         </div>
+        @endauth
+        @guest
+        <div class="card-footer d-flex justify-content-center">
+          <a onclick="showShoppingCart()" type="button" class="btn btn-sm white-text defaultGradientButton">Add to cart</a>
+        </div>
+        @endguest
 
       </div>
       <!-- Card -->

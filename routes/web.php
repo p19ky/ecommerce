@@ -51,6 +51,7 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('index', 'AdminController@index')->name('index');
+    Route::get('users', 'AdminController@get_all')->name('users');
 });
 
 // Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
@@ -61,4 +62,4 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 //     Route::resource('/index', 'UsersController', ['except' => ['show', 'create', 'store']]);
 // });
 
-Route::get('/shcart', 'ShoppingCartController@index')->name('shcart');    // shopping cart page
+Route::get('/shcart/{id}', 'ShoppingCartController@index')->name('shcart');    // shopping cart page
