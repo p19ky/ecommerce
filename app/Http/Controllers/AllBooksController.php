@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Books;
 use Illuminate\Support\Facades\DB;
+use Illuminate\html;
 use App\Classification;
+
 
 class AllBooksController extends Controller
 {
@@ -58,9 +60,17 @@ class AllBooksController extends Controller
         return view('books/booksAdmin', compact('books'));
     }
 
+     /**
+     * function to get all the genres and display their names in the select box
+     *  (+ input table)
+     */
+
+
     public function displayTable()
     {
-        return view('books/addBook');
+       // $genres = Classification::all();
+       $genres = Classification::orderBy('name')->get();  
+       return view('books.addBook', compact('genres'));
     }
 
 
@@ -85,22 +95,36 @@ class AllBooksController extends Controller
     {
         //validam datele de intrare
         $this->validate($request, [
-            'genreName' => 'required',
-            'genrePicture' => 'required',
-            'genreDescription' => 'required'
+            'bookName' => 'required',
+            'bookAuthor' => 'required',
+          //  'bookDescription' => 'required',
+            //'bookDetails' => 'required',
+            'bookPicture' => 'required',
+            'bookPrice' => 'required',
+            'bookQuantity' => 'required',
+            'bookGenre' => 'required'
 
         ]);
 
-        $genre = new Classification;
 
-        //inseram valorile corespunzatoare in coloane
-        $genre->name = $request->genreName;
-        $genre->description = $request->genreDescription;
-        $genre->picture = $request->genrePicture;
+        // cautam genre-ul cu id-ul corespunzator pentru a-i afla id-ul
+        $bookGenre = Classification::find($id);
 
-        $genre->save();
 
-        return redirect(route('genres'))->with('successMsg', 'Genre successfully added to the database');
+        $book = new Books;
+
+        $book->name = $request->bookName;
+        $book->author = $request->bookAuthor;
+        $book->description = $request->bookDescription;
+        $book->details = $request->bookDetails;
+        $book->picture = $request->bookPicture;
+        $book->price = $request->bookPrice;
+        $book->quantity = $request->bookQuantity;
+        print_r($request->bookGenre); 
+        $book->classifId = $request->bookGenre;
+        $book->save();
+
+        return redirect(route('books'))->with('successMsg', 'Book successfully added to the database');
     }
 
 

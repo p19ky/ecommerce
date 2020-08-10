@@ -39,6 +39,8 @@ Route::get('/allBooks', 'AllBooksController@index')->name('allBooks');    //  bo
 Route::post('/createBook', 'AllBooksController@store')->name('storeB');       // add book to db method
 Route::get('/createBook', 'AllBooksController@displayTable')->name('displayTableB'); // add book to db input
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -49,6 +51,7 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('index', 'AdminController@index')->name('index');
+    Route::get('users', 'AdminController@get_all')->name('users');
 });
 
 // Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
