@@ -17,6 +17,11 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
+    public function get_all(){
+        $users= User::all();
+        return view('admin.users')->with('users',$users);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
