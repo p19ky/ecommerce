@@ -39,6 +39,8 @@ Route::get('/allBooks', 'AllBooksController@index')->name('allBooks');    //  bo
 Route::post('/createBook', 'AllBooksController@store')->name('storeB');       // add book to db method
 Route::get('/createBook', 'AllBooksController@displayTable')->name('displayTableB'); // add book to db input
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
