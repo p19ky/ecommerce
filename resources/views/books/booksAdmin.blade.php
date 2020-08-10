@@ -63,7 +63,7 @@
     <tr>
   
       <th scope="col"> 
-      <a href="#!" class="btn-info btn">
+      <a href="{{ route('displayTableB') }}" class="btn-info btn">
       <i class="fa fa-plus" aria-hidden="true"></i>
       </a>
       </th>
@@ -105,7 +105,7 @@
   </tbody>
 </table>
  <!-- Add to db button -->
- <a href="{{ route('displayTableG') }}" class="btn btn-info my-4 btn-block"><i class="fa fa-plus" aria-hidden="true"></i>
+ <a href="{{ route('displayTableB') }}" class="btn btn-info my-4 btn-block"><i class="fa fa-plus" aria-hidden="true"></i>
 Add a book</a>
 </div>
 
