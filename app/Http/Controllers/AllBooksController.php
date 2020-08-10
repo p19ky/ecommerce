@@ -58,8 +58,6 @@ class AllBooksController extends Controller
         //return view('allBooks');
         $books = Books::with('classification')->get();  // fetching all the data from the Books table
 //        $genres = Classification::all();
-
-
         return view('books/booksAdmin', compact('books'));
     }
 
@@ -105,9 +103,7 @@ class AllBooksController extends Controller
             'bookGenre' => 'required',
             'bookPicture' => 'required',
             'bookPrice' => 'required',
-            'bookQuantity' => 'required',
-          
-
+            'bookQuantity' => 'required'
         ));
 
 

@@ -57,7 +57,6 @@
  {{$error}}
 </div>
 @endforeach
-
 @endif
 <!-- register genre form -->
 
