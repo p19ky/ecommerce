@@ -59,4 +59,4 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 //     Route::resource('/index', 'UsersController', ['except' => ['show', 'create', 'store']]);
 // });
 
-Route::get('/shcart', 'ShoppingCartController@index')->name('shcart');    // shopping cart page
+Route::get('/shcart/{id}', 'ShoppingCartController@index')->name('shcart');    // shopping cart page

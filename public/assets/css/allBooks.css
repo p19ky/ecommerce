@@ -1,7 +1,7 @@
 #allBooksMainContainer {
   margin-top: 100px;
   display: grid;
-  grid-template-columns: 20% 5% 75%;
+  grid-template-columns: 20% 3% 77%;
   margin-bottom: 15px;
 }
 
@@ -57,21 +57,18 @@
   opacity: 0.5;
 }
 
-/* .heartClicker {
-  position: absolute;
-  align-items: center;
-  left: 85%;
-  top: 85%;
-  width: 25px;
-  height: 25px;
-  z-index: 2;
-  background-color: transparent;
-} */
-
-/* .addToWishlistHeartIconLink:hover {
-  opacity: 0.9;
-} */
-
 .addToWishlistHeartIcon {
   color: white;
+}
+
+@media screen and (max-width: 900px) {
+  #allBooksMainContainer {
+    grid-template-columns: 30% 3% 67%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #allBooksMainContainer {
+    grid-template-columns: 40% 3% 57%;
+  }
 }
