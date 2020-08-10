@@ -86,15 +86,15 @@
     <div class="form-row mb-4">
     <div class="col">
             <!-- Book Genre -->
-            <div class="form-group">
-            <select class="form-control" name="BookGenre" id="BookGenre">
+            <!--div class="form-group"-->
+          <select class="form-control" name="BookGenre" id="BookGenre">
             <option disabled="disabled" selected="selected">Genre</option>
            @foreach($genres as $genre)
-           <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+           <option id="{{ $genre->id }} " value="{{ $genre->id }}">{{ $genre->name }}</option>
            @endforeach
-            </select>
-            </div>
-        </div>
+          </select>
+            <!--/div-->
+    </div>
         <div class="col">
             <!-- Picture -->
             <input type="text" name="bookPicture" id="bookPicture" class="form-control" placeholder="Picture">

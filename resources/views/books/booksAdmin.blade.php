@@ -1,6 +1,5 @@
 <!-- dashboard admin provizoriu .. - Books -->
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,6 +68,7 @@
       </th>
       <th scope="col">Book</th>
       <th scope="col">Author</th>
+      <th scope="col">Genre</th>
       <th scope="col">Price</th>
       <th scope="col">Quantity</th>
       <th scope="col">Description</th>
@@ -82,6 +82,7 @@
       <td><img width="30%" src="{{$book->picture}}" alt="no pic available" border="0"></td>
       <td>{{$book->name}}</td>
       <td>{{$book->author}}</td>
+      <td>{{$book->classification['name']}}</td>
       <td>{{$book->price}}</td>
       <td>{{$book->quantity}}</td>
       <td>{{$book->description}}</td>

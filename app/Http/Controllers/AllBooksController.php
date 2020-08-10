@@ -55,7 +55,10 @@ class AllBooksController extends Controller
     public function indexAdmin()
     {
         //return view('allBooks');
-        $books = Books::all();  // fetching all the data from the Books table
+        $books = Books::with('classification')->get();  // fetching all the data from the Books table
+//        $genres = Classification::all();
+
+
         return view('books/booksAdmin', compact('books'));
     }
 
@@ -93,21 +96,22 @@ class AllBooksController extends Controller
     public function store(Request $request)
     {
         //validam datele de intrare
-        $this->validate($request, [
+        $this->validate($request, array(
             'bookName' => 'required',
             'bookAuthor' => 'required',
-          //  'bookDescription' => 'required',
-            //'bookDetails' => 'required',
+            'bookDescription' => 'required',
+            'bookDetails' => 'required',
+            'bookGenre' => 'required',
             'bookPicture' => 'required',
             'bookPrice' => 'required',
             'bookQuantity' => 'required',
-            'bookGenre' => 'required'
+          
 
-        ]);
+        ));
 
 
-        // cautam genre-ul cu id-ul corespunzator pentru a-i afla id-ul
-        $bookGenre = Classification::find($id);
+        // cautam genre-ul cu id-ul corespunzator
+      //  $bookGenre = Classification::find($request->bookGenre);
 
 
         $book = new Books;
@@ -119,7 +123,6 @@ class AllBooksController extends Controller
         $book->picture = $request->bookPicture;
         $book->price = $request->bookPrice;
         $book->quantity = $request->bookQuantity;
-        print_r($request->bookGenre); 
         $book->classifId = $request->bookGenre;
         $book->save();
 
