@@ -71,7 +71,7 @@
                         <i class="fas fa-shopping-cart"></i><span id="shcartBadge" class="badge">7</span>
                         <div class="shopping-cart-total d-flex justify-content-end">
                           <span class="lighter-text">Total:</span>
-                          <span id="shcartTotal" class="main-color-text"></span>
+                          <span id="shcartTotal" class="main-color-text">$9.99</span>
                         </div>
                       </div>
                       <ul id="shoppingCartItems" class="shopping-cart-items">

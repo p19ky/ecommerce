@@ -35,6 +35,7 @@ function CalculateShoppingCartTotal() {
   const shcartQuantitiesArray = [];
 
   shcartPrices.forEach((element) => {
+    console.log(element);
     shcartPricesArray.push(
       parseFloat(element.innerHTML.substr(1).replace(/,/g, "."))
     );
@@ -45,9 +46,7 @@ function CalculateShoppingCartTotal() {
   });
 
   if (!shcartPricesArray.length || !shcartQuantitiesArray.length) {
-    if (!shcartTotal === null) {
-      shcartTotal.innerHTML = "$0.00";
-    }
+    shcartTotal.innerHTML = "$0.00";
   } else {
     let shcartTotalSum = 0;
 
@@ -57,6 +56,8 @@ function CalculateShoppingCartTotal() {
 
     shcartTotal.innerHTML = "$" + shcartTotalSum.toFixed(2).toString();
   }
+
+  console.log("calculated shcart total!");
 }
 
 CalculateShoppingCartTotal();
@@ -68,9 +69,7 @@ function CalculateShcartBadge() {
   });
 
   if (!quanArray.length) {
-    if (!shcartBadge === null) {
-      shcartBadge.innerHTML = "0";
-    }
+    shcartBadge.innerHTML = "0";
   } else {
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
@@ -82,37 +81,39 @@ function CalculateShcartBadge() {
       shcartBadge.innerHTML = "99+";
     }
   }
+
+  console.log("calculated shcart badge number!");
 }
 
 CalculateShcartBadge();
 
 function CheckIfShcartEmpty() {
-  if (!shcartBadge === null) {
-    if (shcartBadge.innerHTML === "0") {
-      // console.log("Shopping Cart empty!");
-      let emptySpan = document.createElement("span");
-      let emptySpanIcon = document.createElement("i");
-      emptySpanIcon.classList.add("fas");
-      emptySpanIcon.classList.add("fa-grin-beam-sweat");
-      emptySpanIcon.setAttribute("style", "padding-left:10px;");
+  if (shcartBadge.innerHTML === "0") {
+    // console.log("Shopping Cart empty!");
+    let emptySpan = document.createElement("span");
+    let emptySpanIcon = document.createElement("i");
+    emptySpanIcon.classList.add("fas");
+    emptySpanIcon.classList.add("fa-grin-beam-sweat");
+    emptySpanIcon.setAttribute("style", "padding-left:10px;");
 
-      emptySpan.setAttribute("style", "width:250px;");
-      emptySpan.setAttribute("id", "shcartEmptySpan");
-      emptySpan.classList.add("d-flex");
-      emptySpan.classList.add("justify-content-center");
-      emptySpan.classList.add("text-white");
-      emptySpan.innerHTML = "Your Shopping Cart is Empty";
-      emptySpan.appendChild(emptySpanIcon);
-      shoppingCartItemsId.appendChild(emptySpan);
-    } else {
-      // console.log("Shopping Cart NOT empty!");
-      if (document.body.contains(document.getElementById("shcartEmptySpan"))) {
-        shoppingCartItemsId.removeChild(
-          document.getElementById("shcartEmptySpan")
-        );
-      }
+    emptySpan.setAttribute("style", "width:250px;");
+    emptySpan.setAttribute("id", "shcartEmptySpan");
+    emptySpan.classList.add("d-flex");
+    emptySpan.classList.add("justify-content-center");
+    emptySpan.classList.add("text-white");
+    emptySpan.innerHTML = "Your Shopping Cart is Empty";
+    emptySpan.appendChild(emptySpanIcon);
+    shoppingCartItemsId.appendChild(emptySpan);
+  } else {
+    // console.log("Shopping Cart NOT empty!");
+    if (document.body.contains(document.getElementById("shcartEmptySpan"))) {
+      shoppingCartItemsId.removeChild(
+        document.getElementById("shcartEmptySpan")
+      );
     }
   }
+
+  console.log("checked if shcart empty!");
 }
 
 CheckIfShcartEmpty();
