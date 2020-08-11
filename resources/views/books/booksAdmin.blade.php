@@ -88,15 +88,22 @@
       <td>{{$book->description}}</td>
       <td width="20%">
       
-      <a class="btn btn-raised btn-primary btn-sm" href="#!"><i class="fa fa-edit" aria-hidden="true"></i>
+      <a class="btn btn-raised btn-primary btn-sm" href="{{ route('editB', $book->id)}}"><i class="fa fa-edit" aria-hidden="true"></i>
       </a>
-      <form method="POST" action="#!" style="display:none; ">
+      <form method="POST" id="deleteB-form-{{ $book->id }}" action="{{ route('deleteB', $book->id) }}" style="display:none; ">
      {{  csrf_field() }}
      {{  method_field('delete') }}
       </form>
 
-    <button 
-       class="btn btn-raised btn-danger btn-sm" href="#!"><i class="fa fa-trash" aria-hidden="true"></i>  
+    <button onclick=" if (confirm('Are you sure you want to delete this book?')) {
+      event.preventDefault();
+      document.getElementById('deleteB-form-{{ $book->id }}').submit();
+    } else{
+      event.preventDefault();
+
+    } 
+     "
+       class="btn btn-raised btn-danger btn-sm" href=""><i class="fa fa-trash" aria-hidden="true"></i>  
       
     </button>
        </td>

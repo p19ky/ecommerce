@@ -31,14 +31,16 @@ Route::post('/createGenre', 'GenreController@store')->name('storeG');       // a
 Route::get('/createGenre', 'GenreController@displayTable')->name('displayTableG'); // add genre to db input
 Route::get('/editG/{id}', 'GenreController@edit')->name('editG');             // edit genre page
 Route::post('/updateG/{id}', 'GenreController@update')->name('updateG');       // update genre page
-Route::delete('/delete/{id}', 'GenreController@delete')->name('deleteG');       // delete genre page
+Route::delete('/delete/{id}', 'GenreController@delete')->name('deleteG');       // delete genre route
 
 // books
 Route::get('/books', 'AllBooksController@indexAdmin')->name('books');      // books page - ADMIN
 Route::get('/allBooks', 'AllBooksController@index')->name('allBooks');    //  books page - USER
 Route::post('/createBook', 'AllBooksController@store')->name('storeB');       // add book to db method
 Route::get('/createBook', 'AllBooksController@displayTable')->name('displayTableB'); // add book to db input
-
+Route::get('/editB/{id}', 'AllBooksController@edit')->name('editB');             // edit book page
+Route::post('/updateB/{id}', 'AllBooksController@update')->name('updateB');       // update book page
+Route::delete('/deleteB/{id}', 'AllBooksController@delete')->name('deleteB');       // delete book route
 
 
 Auth::routes();

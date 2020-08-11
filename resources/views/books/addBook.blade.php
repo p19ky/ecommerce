@@ -1,4 +1,4 @@
-<!-- dashboard provizoriu .. - Genres add page -->
+<!-- dashboard provizoriu .. - Book add page -->
 
 
 <!DOCTYPE html>
@@ -72,21 +72,21 @@
             <input type="text" name="bookAuthor" id="bookAuthor" class="form-control" placeholder="Author">
         </div>
     </div>
-    <div class="form-row mb-4">
-    <!-- Description -->
+    <!--div class="form-row mb-4">
+    < Description >
     <div class="col">
     <textarea rows=6 type="text" name="bookDescription" id="bookDescription" class="form-control" placeholder="Description" name="description"></textarea>
     </div>
-    <!-- Details - Publisher, author etc -->
+    < Details - Publisher, author etc >
     <div class="col">
     <textarea rows=6 type="text" name="bookDetails" id="bookDetails" class="form-control" placeholder="Details" name="details"></textarea>
     </div>
-    </div>
+    </div -->
     <div class="form-row mb-4">
     <div class="col">
             <!-- Book Genre -->
             <!--div class="form-group"-->
-          <select class="form-control" name="BookGenre" id="BookGenre">
+          <select class="form-control" name="bookGenre" id="bookGenre">
             <option disabled="disabled" selected="selected">Genre</option>
            @foreach($genres as $genre)
            <option id="{{ $genre->id }} " value="{{ $genre->id }}">{{ $genre->name }}</option>
