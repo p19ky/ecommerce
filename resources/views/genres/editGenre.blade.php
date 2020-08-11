@@ -47,7 +47,7 @@
 </div>
 <!-- end navbar -->
 <br>
-<h3>Edit genre</h3>
+<h3>Edit Genre - {{$genre->name}}</h3>
 
 <div class="container">
 

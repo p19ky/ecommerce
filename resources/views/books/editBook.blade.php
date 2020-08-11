@@ -47,7 +47,7 @@
 </div>
 <!-- end navbar -->
 <br>
-<h3>Edit a book</h3>
+<h3>Edit Book "{{ $book->name}}" </h3>
 
 <div class="container">
 

@@ -76,7 +76,7 @@
   @foreach($genres as $genre)
     <tr>
 
-      <td><img width="30%" src="{{$genre->picture}}" alt="no pic available" border="0"></td>
+      <td><a href="{{ route('editG', $genre->id)}}"><img width="30%" src="{{$genre->picture}}" alt="no pic available" border="0"></a></td>
       <td>{{$genre->name}}</td>
       <td>{{$genre->description}}</td>
       <td width="20%">

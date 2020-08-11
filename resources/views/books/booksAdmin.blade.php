@@ -79,7 +79,7 @@
   @foreach($books as $book)
     <tr>
 
-      <td><img width="30%" src="{{$book->picture}}" alt="no pic available" border="0"></td>
+      <td><a href="{{ route('editB', $book->id)}}"><img width="30%" src="{{$book->picture}}" alt="no pic available" border="0"></img></td>
       <td>{{$book->name}}</td>
       <td>{{$book->author}}</td>
       <td>{{$book->classification['name']}}</td>
