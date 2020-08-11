@@ -47,7 +47,7 @@
 </div>
 <!-- end navbar -->
 <br>
-<h3>Edit genre</h3>
+<h3>Edit Genre - {{$genre->name}}</h3>
 
 <div class="container">
 
@@ -59,26 +59,29 @@
 @endforeach
 
 @endif
-<!-- register genre form -->
+<!-- edit genre form -->
 
 <form class="text-center border border-light p-5" action="{{ route('updateG', $genre->id) }}" method = "POST">
 {{ csrf_field() }}
     <div class="form-row mb-4">
         <div class="col">
             <!-- Genre name -->
+            <label> Genre Name </label>
             <input value="{{ $genre->name }}" type="text" name="genreName" id="genreName" class="form-control" placeholder="Name of the genre">
         </div>
         <div class="col">
             <!-- Picture -->
+            <label> Picture </label>
             <input value="{{ $genre->picture }}" type="text" name="genrePicture" id="genrePicture" class="form-control" placeholder="Picture">
         </div>
     </div>
     <div class="form-row mb-4">
     <!-- Description -->
+    <label> Description </label>
     <textarea rows=3 type="text" name="genreDescription" id="genreDescription" class="form-control" placeholder="if you wish to edit the description, click here..." name="description">{{ $genre-> description }}</textarea>
     </div>
     
-    <!-- Add to db button -->
+    <!-- Update to db button -->
     <button class="btn btn-info my-4 btn-block" type="submit">Update Genre</button>
 
 
