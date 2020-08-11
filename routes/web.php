@@ -52,11 +52,11 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('index', 'AdminController@index')->name('index');
     Route::get('users', 'AdminController@get_all')->name('users');
+    Route::get('create', 'AdminController@create')->name('create');
+    Route::post('store', 'AdminController@store')->name('store');
 });
 
-// Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
-//     Route::resource('/user', 'AdminController', ['except' => ['show', 'create', 'store']]);
-// });
+
 
 // Route::namespace('User')->prefix('user')->name('user.')->group(function(){
 //     Route::resource('/index', 'UsersController', ['except' => ['show', 'create', 'store']]);

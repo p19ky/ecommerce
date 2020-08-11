@@ -22,7 +22,7 @@
 <section class="content">
     <div class="container-fluid">
         <p>
-            <a href="#" class="btn btn-primary">Add new user</a>
+            <a href="{{ route('admin.create')}}" class="btn btn-primary">Add new user</a>
         </p>
         <table class="table table-bordered table-striped">
             <tr>

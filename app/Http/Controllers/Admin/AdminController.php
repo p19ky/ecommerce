@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +33,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
     /**
@@ -40,7 +44,25 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'usertype' => 'required',
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+
+        ]);
+
+        $user= new User;
+            $user-> role_id= $request->usertype;
+            $user-> name= $request->name;
+            $user-> username= $request->username;
+            $user-> email= $request->email;
+            $user-> password= $request->password;
+            $user->save();
+
+            return redirect(route('admin.create'))->with('successMsg', 'User successfully added to the database');
+
     }
 
     /**
