@@ -234,9 +234,7 @@
           </thead>
           <tbody id="wishlistItemList" class="text-center">
             <tr class="wishlistItem">
-              <!-- <td>Book 1</td> -->
-              <td>
-                <img style="border-radius:5px;" src="{{ asset('/assets/img/book3.jpg') }}" alt="soGoodTheyCan'tIgnoreYou" width="60" height="60">
+              <td><img style="border-radius:5px;" src="{{ asset('/assets/img/book3.jpg') }}" alt="soGoodTheyCan'tIgnoreYou" width="60" height="60">
               </td>
               <td><span>Ego is the enemy<br>By Ryan Holiday</span></td>
               <td><span>11,99$</span></td>
@@ -252,7 +250,7 @@
             </tr>
             <tr class="wishlistItem">
               <td>IMAGE</td>
-              <td><span>Book 3<br>By Author Name 3</span></td>
+              <td><span>So Good They Can't Ignore You<br>By Cal Newport</span></td>
               <td><span>15,49$</span></td>
               <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
               <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>

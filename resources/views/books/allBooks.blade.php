@@ -60,6 +60,7 @@
           <span id="wishlistHeartContainer">
             <a class="addToWishlistHeartIconLink d-flex justify-content-center">
               <i class="addToWishlistHeartIcon far fa-heart"></i>
+              <div class="bookIdDiv" style="display:none;">{{ $value->id }}</div>
             </a>
             <span class="heartClicker d-flex justify-content-center"></span>
           </span>
@@ -75,8 +76,8 @@
           <!--Title-->
           <h4 class="card-title">{{ $value->name }}</h4>
           <!--Text-->
-          <p class="card-text"><small>by</small> {{ $value->author }}</p>
-          <p class="card-text">${{ $value->price }}</p>
+          <p class="card-text c-a"><small>by</small> {{ $value->author }}</p>
+          <p class="card-text c-p">${{ $value->price }}</p>
           <div class="bookIdDiv" style="display:none;">{{ $value->id }}</div>
 
         </div>
