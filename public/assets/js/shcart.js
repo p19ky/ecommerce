@@ -1,8 +1,4 @@
-// #shoppingCart.myTooltip: hover.myTooltiptext {
-//   visibility: visible;
-//   opacity: 1;
-// }
-
+let ARRAYOFBOOKSINSHCART = [];
 let ArrayOfBookIds = [];
 const shoppingCartIcon = document.getElementById("shoppingCartIcon");
 const shoppingCartTooltiptext = document
@@ -57,7 +53,7 @@ function CalculateShoppingCartTotal() {
     shcartTotal.innerHTML = "$" + shcartTotalSum.toFixed(2).toString();
   }
 
-  console.log("calculated shcart total!");
+  // console.log("calculated shcart total!");
 }
 
 CalculateShoppingCartTotal();
@@ -82,7 +78,7 @@ function CalculateShcartBadge() {
     }
   }
 
-  console.log("calculated shcart badge number!");
+  // console.log("calculated shcart badge number!");
 }
 
 CalculateShcartBadge();
@@ -113,7 +109,7 @@ function CheckIfShcartEmpty() {
     }
   }
 
-  console.log("checked if shcart empty!");
+  // console.log("checked if shcart empty!");
 }
 
 CheckIfShcartEmpty();

@@ -68,21 +68,14 @@
                     <div class="shopping-cart">
                       @auth
                       <div class="shopping-cart-header">
-                        <i class="fas fa-shopping-cart"></i><span id="shcartBadge" class="badge">7</span>
+                        <i class="fas fa-shopping-cart"></i><span id="shcartBadge" class="badge">0</span>
                         <div class="shopping-cart-total d-flex justify-content-end">
                           <span class="lighter-text">Total:</span>
-                          <span id="shcartTotal" class="main-color-text">$9.99</span>
+                          <span id="shcartTotal" class="main-color-text">$0.00</span>
                         </div>
                       </div>
+                      <!-- This list contains the Shopping Cart Items. -->
                       <ul id="shoppingCartItems" class="shopping-cart-items">
-                        <!-- <li class="shcart-item">
-                          <span class="bookDeleteTooltip">Delete</span><img src="{{ asset('/assets/img/book1.jpg') }}" alt="soGoodTheyCan'tIgnoreYou">
-                          <span class="item-name">SO GOOD THEY CAN'T IGNORE YOU XAHEXAH</span>
-                          <span class="item-price">$12,99</span>
-                          <span class="item-quantity">Quantity: 2</span>
-                          <span class="remQuan">Quantity-</span><span class="addQuan">Quantity+</span>
-                        </li> -->
-                        <!-- FOR TEST PURPOSE - DON'T DELETE -->
                       </ul>
                       <button onclick="window.location.href=`{{  route('shcart', auth()->user()->id) }}`" id="shcartCheckout" type="button" class="btn">Go To Cart</button>
 

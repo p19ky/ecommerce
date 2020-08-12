@@ -57,7 +57,7 @@
 
         <!--Card image-->
         <div class="view overlay">
-          <span id="wishlistHeartContainer">
+          <span class="wishlistHeartContainer">
             <a class="addToWishlistHeartIconLink d-flex justify-content-center">
               <i class="addToWishlistHeartIcon far fa-heart"></i>
               <div class="bookIdDiv" style="display:none;">{{ $value->id }}</div>

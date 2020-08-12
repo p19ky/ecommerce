@@ -212,6 +212,7 @@
       </div>
       <!--Body-->
       <div id="wishlistModalBody" class="modal-body">
+        <!-- Here will be the wishlist Items added. -->
       </div>
       <!--Footer-->
       <div class="d-flex justify-content-md-between modal-footer">

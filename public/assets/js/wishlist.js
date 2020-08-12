@@ -1,21 +1,177 @@
 let ARRAYOFWISHLISTBOOKS = [];
+let ARRAYOFUSERSWITHWISHLISTBOOKS = [
+  { userId: "guest", ARRAYOFWISHLISTBOOKS: [] },
+];
 
-// if (typeof Storage !== "undefined") {
-//   if (localStorage.getItem("ARRAYOFWISHLISTBOOKS") === null) {
-//     localStorage.setItem(
-//       "ARRAYOFWISHLISTBOOKS",
-//       JSON.stringify(ARRAYOFWISHLISTBOOKS)
-//     );
-//   } else {
-//     ARRAYOFWISHLISTBOOKS = JSON.parse(
-//       localStorage.getItem("ARRAYOFWISHLISTBOOKS")
-//     );
-//   }
-// } else {
-//   alert(
-//     "Your Browser doesn't support LocalStorage! - Please upgrade your browser or try using another one."
-//   );
-// }
+let idUser = "";
+
+if (typeof Storage !== "undefined") {
+  if (localStorage.getItem("ARRAYOFUSERSWITHWISHLISTBOOKS") === null) {
+    localStorage.setItem(
+      "ARRAYOFUSERSWITHWISHLISTBOOKS",
+      JSON.stringify(ARRAYOFUSERSWITHWISHLISTBOOKS)
+    );
+  } else {
+    ARRAYOFUSERSWITHWISHLISTBOOKS = JSON.parse(
+      localStorage.getItem("ARRAYOFUSERSWITHWISHLISTBOOKS")
+    );
+
+    if (document.body.contains(document.getElementById("shcartCheckout"))) {
+      let URL = document
+        .getElementById("shcartCheckout")
+        .getAttribute("onclick");
+      idUser = URL.replace(/^\D+/g, "");
+
+      ARRAYOFUSERSWITHWISHLISTBOOKS.forEach((USERR) => {
+        if ("userId" in USERR) {
+          if (USERR["userId"] === idUser) {
+            if ("ARRAYOFWISHLISTBOOKS" in USERR) {
+              ARRAYOFWISHLISTBOOKS = USERR["ARRAYOFWISHLISTBOOKS"];
+            }
+          }
+        }
+      });
+    } else {
+      idUser = "guest";
+      ARRAYOFUSERSWITHWISHLISTBOOKS.forEach((USER) => {
+        if ("userId" in USER) {
+          if (USER["userId"] === "guest") {
+            if ("ARRAYOFWISHLISTBOOKS" in USER) {
+              ARRAYOFWISHLISTBOOKS = USER["ARRAYOFWISHLISTBOOKS"];
+            }
+          }
+        }
+      });
+    }
+  }
+
+  // console.log(Object.entries(localStorage));
+} else {
+  alert(
+    "Your Browser doesn't support LocalStorage! - Wishlist And Shopping Cart Will NOT work... Please upgrade your browser or try using another one."
+  );
+}
+
+function FillWishlist() {
+  if (ARRAYOFWISHLISTBOOKS.length !== 0) {
+    ARRAYOFWISHLISTBOOKS.forEach((wish) => {
+      if (
+        "bookId" in wish &&
+        "title" in wish &&
+        "author" in wish &&
+        "price" in wish &&
+        "image" in wish
+      ) {
+        CreateWishlistItem(
+          wish["bookId"],
+          wish["image"],
+          wish["title"],
+          wish["author"],
+          wish["price"]
+        );
+      }
+    });
+    CheckIfWishlistIsEmpty();
+    ColorizeRedHearts();
+  }
+}
+
+FillWishlist();
+
+function ColorizeRedHearts() {
+  let listOfCards = document.getElementById("booksCardDeck").childNodes;
+
+  listOfCards.forEach((card) => {
+    if (card.tagName === "DIV") {
+      if (card.classList.contains("card")) {
+        card.childNodes.forEach((part) => {
+          if (part.tagName === "DIV") {
+            if (part.classList.contains("view")) {
+              part.childNodes.forEach((EL) => {
+                if (EL.tagName === "SPAN") {
+                  if (EL.classList.contains("wishlistHeartContainer")) {
+                    EL.childNodes.forEach((sec) => {
+                      if (sec.tagName === "A") {
+                        if (
+                          sec.classList.contains("addToWishlistHeartIconLink")
+                        ) {
+                          sec.childNodes.forEach((itemos) => {
+                            if (itemos.tagName === "DIV") {
+                              if (itemos.classList.contains("bookIdDiv")) {
+                                let currentIdInsideCard = itemos.innerHTML;
+
+                                if (ARRAYOFWISHLISTBOOKS.length === 0) {
+                                  itemos.parentElement.childNodes.forEach(
+                                    (line) => {
+                                      if (line.tagName === "I") {
+                                        line.style.color = "";
+                                        line.classList.remove("fas");
+                                        line.classList.remove("fa-heart");
+                                        line.classList.add("far");
+                                        line.classList.add("fa-heart");
+                                        sec.style.background = "#777676";
+                                        sec.style.opacity = "0.5";
+                                      }
+                                    }
+                                  );
+                                }
+
+                                ARRAYOFWISHLISTBOOKS.forEach((book) => {
+                                  if ("bookId" in book) {
+                                    if (
+                                      book["bookId"] === currentIdInsideCard
+                                    ) {
+                                      itemos.parentElement.childNodes.forEach(
+                                        (line) => {
+                                          if (line.tagName === "I") {
+                                            line.style.color = "red";
+                                            line.classList.remove("far");
+                                            line.classList.remove("fa-heart");
+                                            line.classList.add("fas");
+                                            line.classList.add("fa-heart");
+                                            sec.style.background =
+                                              "transparent";
+                                            sec.style.opacity = "1";
+                                          }
+                                        }
+                                      );
+                                    } else {
+                                      itemos.parentElement.childNodes.forEach(
+                                        (line) => {
+                                          if (line.tagName === "I") {
+                                            line.style.color = "";
+                                            line.classList.remove("fas");
+                                            line.classList.remove("fa-heart");
+                                            line.classList.add("far");
+                                            line.classList.add("fa-heart");
+                                            sec.style.background = "#777676";
+                                            sec.style.opacity = "0.5";
+                                          }
+                                        }
+                                      );
+                                    }
+                                  }
+                                });
+                              }
+                            }
+                          });
+                        }
+                      }
+                    });
+                  }
+                }
+              });
+            }
+          }
+        });
+      }
+    }
+  });
+}
+
+// window.localStorage.removeItem("ARRAYOFUSERSWITHWISHLISTBOOKS");
+
+console.log(Object.entries(localStorage));
 
 const wishlistModalBody = document.getElementById("wishlistModalBody");
 const modalWishlist = document.getElementById("modalWishlist");
@@ -116,6 +272,54 @@ const addToWishlistHeartIcon = document.getElementsByClassName(
 
 const heartClicker = document.getElementsByClassName("heartClicker");
 
+function ReloadDeleteIconsForWishlist() {
+  const removeItemWishlistClassList = document.getElementsByClassName(
+    "removeItemWishlistClass"
+  );
+
+  removeItemWishlistClassList.forEach((elementt) => {
+    elementt.addEventListener("click", () => {
+      let hasToBeDeletedId = "";
+      elementt.closest(".wishlistItem").childNodes.forEach((data) => {
+        if (data.tagName === "DIV") {
+          if (data.classList.contains("bookIdDiv")) {
+            hasToBeDeletedId = data.innerHTML;
+          }
+        }
+      });
+
+      ARRAYOFWISHLISTBOOKS.forEach((carte) => {
+        if ("bookId" in carte) {
+          if (carte["bookId"] === hasToBeDeletedId) {
+            ARRAYOFWISHLISTBOOKS.splice(ARRAYOFWISHLISTBOOKS.indexOf(carte), 1);
+          }
+        }
+      });
+
+      ARRAYOFUSERSWITHWISHLISTBOOKS.forEach((persona) => {
+        if ("userId" in persona) {
+          if (persona["userId"] === idUser) {
+            if ("ARRAYOFWISHLISTBOOKS" in persona) {
+              persona["ARRAYOFWISHLISTBOOKS"] = ARRAYOFWISHLISTBOOKS;
+            }
+          }
+        }
+      });
+
+      localStorage.setItem(
+        "ARRAYOFUSERSWITHWISHLISTBOOKS",
+        JSON.stringify(ARRAYOFUSERSWITHWISHLISTBOOKS)
+      );
+
+      elementt.closest(".wishlistItem").remove();
+      CheckIfWishlistIsEmpty();
+      ColorizeRedHearts();
+    });
+  });
+}
+
+ReloadDeleteIconsForWishlist();
+
 addToWishlistHeartIconLink.forEach(function (element) {
   element.addEventListener("click", function () {
     if (typeof Storage !== "undefined") {
@@ -127,7 +331,7 @@ addToWishlistHeartIconLink.forEach(function (element) {
         if (ele.tagName === "DIV") {
           if (ele.classList.contains("bookIdDiv")) {
             idOfBook = ele.innerHTML;
-            console.log(idOfBook);
+            // console.log(idOfBook);
           }
         }
       });
@@ -179,23 +383,113 @@ addToWishlistHeartIconLink.forEach(function (element) {
         }
       });
 
-      if (!ARRAYOFWISHLISTBOOKS.includes(idOfBook)) {
+      let shouldIAddToWishlist = true;
+      let IsUser = false;
+      let idOfUser = "";
+
+      if (document.body.contains(document.getElementById("shcartCheckout"))) {
+        IsUser = true;
+        let url = document
+          .getElementById("shcartCheckout")
+          .getAttribute("onclick");
+        idOfUser = url.replace(/^\D+/g, "");
+      }
+
+      let foundUser = false;
+
+      if (IsUser) {
+        ARRAYOFUSERSWITHWISHLISTBOOKS.forEach((user) => {
+          if ("userId" in user) {
+            if (user["userId"] === idOfUser) {
+              foundUser = true;
+              if ("ARRAYOFWISHLISTBOOKS" in user) {
+                user["ARRAYOFWISHLISTBOOKS"].forEach((item) => {
+                  if ("bookId" in item) {
+                    if (item["bookId"] === idOfBook) {
+                      shouldIAddToWishlist = false;
+                    }
+                  }
+                });
+              }
+            }
+          }
+        });
+
+        if (!foundUser) {
+          let newCompleteUser = { userId: idOfUser, ARRAYOFWISHLISTBOOKS: [] };
+          ARRAYOFUSERSWITHWISHLISTBOOKS.push(newCompleteUser);
+
+          localStorage.setItem(
+            "ARRAYOFUSERSWITHWISHLISTBOOKS",
+            JSON.stringify(ARRAYOFUSERSWITHWISHLISTBOOKS)
+          );
+
+          ARRAYOFWISHLISTBOOKS = [];
+        }
+      } else {
+        ARRAYOFUSERSWITHWISHLISTBOOKS.forEach((u) => {
+          if ("userId" in u) {
+            if (u["userId"] === "guest") {
+              if ("ARRAYOFWISHLISTBOOKS" in u) {
+                u["ARRAYOFWISHLISTBOOKS"].forEach((ite) => {
+                  if ("bookId" in ite) {
+                    if (ite["bookId"] === idOfBook) {
+                      shouldIAddToWishlist = false;
+                    }
+                  }
+                });
+              }
+            }
+          }
+        });
+      }
+
+      if (shouldIAddToWishlist) {
         //A
         //A
         //Add to Wishlist
         //A
         //A
 
-        ARRAYOFWISHLISTBOOKS.push(idOfBook);
+        let newItem = {
+          bookId: idOfBook,
+          title: titleForTheBook,
+          author: authorForTheBook,
+          price: priceForTheBook,
+          image: srcOfBookImage,
+        };
+
+        ARRAYOFWISHLISTBOOKS.push(newItem);
+
+        if (IsUser) {
+          ARRAYOFUSERSWITHWISHLISTBOOKS.forEach((person) => {
+            if ("userId" in person) {
+              if (person["userId"] === idOfUser) {
+                person["ARRAYOFWISHLISTBOOKS"] = ARRAYOFWISHLISTBOOKS;
+              }
+            }
+          });
+        } else {
+          ARRAYOFUSERSWITHWISHLISTBOOKS.forEach((person) => {
+            if ("userId" in person) {
+              if (person["userId"] === "guest") {
+                person["ARRAYOFWISHLISTBOOKS"] = ARRAYOFWISHLISTBOOKS;
+              }
+            }
+          });
+        }
+
         localStorage.setItem(
-          "ARRAYOFWISHLISTBOOKS",
-          JSON.stringify(ARRAYOFWISHLISTBOOKS)
+          "ARRAYOFUSERSWITHWISHLISTBOOKS",
+          JSON.stringify(ARRAYOFUSERSWITHWISHLISTBOOKS)
         );
 
         CreateWishlistItem(
           idOfBook,
           srcOfBookImage,
-          collectionOfInfoFromCardBody
+          titleForTheBook,
+          authorForTheBook,
+          priceForTheBook
         );
 
         icon.style.color = "red";
@@ -205,12 +499,61 @@ addToWishlistHeartIconLink.forEach(function (element) {
         icon.classList.add("fa-heart");
         this.style.background = "transparent";
         this.style.opacity = "1";
+
+        console.log(Object.entries(localStorage));
       } else {
         //R
         //R
         //Remove from Wishlist
         //R
         //R
+
+        ARRAYOFWISHLISTBOOKS.forEach((element) => {
+          if ("bookId" in element) {
+            if (element["bookId"] === idOfBook) {
+              ARRAYOFWISHLISTBOOKS.splice(
+                ARRAYOFWISHLISTBOOKS.indexOf(element),
+                1
+              );
+            }
+          }
+        });
+
+        ARRAYOFUSERSWITHWISHLISTBOOKS.forEach((p) => {
+          if ("userId" in p) {
+            if (p["userId"] === idOfUser) {
+              if ("ARRAYOFWISHLISTBOOKS" in p) {
+                p["ARRAYOFWISHLISTBOOKS"] = ARRAYOFWISHLISTBOOKS;
+              }
+            }
+          }
+        });
+
+        localStorage.setItem(
+          "ARRAYOFUSERSWITHWISHLISTBOOKS",
+          JSON.stringify(ARRAYOFUSERSWITHWISHLISTBOOKS)
+        );
+
+        let thisToBeDeleted = "";
+
+        document
+          .getElementById("wishlistItemList")
+          .childNodes.forEach((row) => {
+            if (row.tagName === "TR") {
+              thisToBeDeleted = row;
+              row.childNodes.forEach((elementtt) => {
+                if (elementtt.tagName === "DIV") {
+                  if (elementtt.classList.contains("bookIdDiv")) {
+                    if (elementtt.innerHTML === idOfBook) {
+                      thisToBeDeleted.remove();
+                      CheckIfWishlistIsEmpty();
+                    }
+                  }
+                }
+              });
+            }
+          });
+
         icon.style.color = "";
         icon.classList.remove("fas");
         icon.classList.remove("fa-heart");
@@ -218,21 +561,14 @@ addToWishlistHeartIconLink.forEach(function (element) {
         icon.classList.add("fa-heart");
         this.style.background = "#777676";
         this.style.opacity = "0.5";
+
+        console.log(Object.entries(localStorage));
       }
 
-      const removeItemWishlistClassList = document.getElementsByClassName(
-        "removeItemWishlistClass"
-      );
-
-      removeItemWishlistClassList.forEach((elementt) => {
-        elementt.addEventListener("click", () => {
-          elementt.closest(".wishlistItem").remove();
-          CheckIfWishlistIsEmpty();
-        });
-      });
+      ReloadDeleteIconsForWishlist();
     } else {
       alert(
-        "Your Browser doesn't support LocalStorage! - Please upgrade your browser or try using another one."
+        "Your Browser doesn't support LocalStorage! - Wishlist And Shopping Cart Will NOT work... Please upgrade your browser or try using another one."
       );
     }
   });
@@ -250,34 +586,19 @@ $(".addToWishlistHeartIconLink")
     }
   });
 
-function CreateWishlistItem(infoIdBook, infoSrcImage, infoCardBody) {
+function CreateWishlistItem(
+  infoIdBook,
+  infoSrcImage,
+  infoTitle,
+  infoAuthor,
+  infoPrice
+) {
   const wishlistTableRow = document.createElement("tr");
   wishlistTableRow.classList.add("wishlistItem");
 
-  let titleForTheBook = "";
-  let authorForTheBook = "";
-  let priceForTheBook = "";
-
-  infoCardBody.forEach((eleme) => {
-    if (eleme.tagName === "H4") {
-      if (eleme.classList.contains("card-title")) {
-        titleForTheBook = eleme.innerHTML;
-        // console.log(titleForTheBook);
-      }
-    }
-    if (eleme.tagName === "P") {
-      if (eleme.classList.contains("c-a")) {
-        authorForTheBook = eleme.innerText;
-        // console.log(authorForTheBook);
-      }
-    }
-    if (eleme.tagName === "P") {
-      if (eleme.classList.contains("c-p")) {
-        priceForTheBook = eleme.innerText;
-        // console.log(priceForTheBook);
-      }
-    }
-  });
+  let titleForTheBook = infoTitle;
+  let authorForTheBook = infoAuthor;
+  let priceForTheBook = infoPrice;
 
   const imageTableData = document.createElement("td");
   const bookImage = document.createElement("img");
@@ -325,6 +646,7 @@ function CreateWishlistItem(infoIdBook, infoSrcImage, infoCardBody) {
   const hiddenForIdBook = document.createElement("div");
   hiddenForIdBook.classList.add("bookIdDiv");
   hiddenForIdBook.setAttribute("style", "display:none;");
+  hiddenForIdBook.innerHTML = infoIdBook;
 
   wishlistTableRow.appendChild(imageTableData);
   wishlistTableRow.appendChild(titleAndAuthorTableData);
@@ -388,6 +710,6 @@ function AppendItemToWishlist(theWishlistNewItem) {
     wishlistTable.appendChild(wishlistTableHead);
     wishlistTable.appendChild(wishlistTableBody);
 
-    wishlistModalBody.appendChild(wishlistTable);
+    document.getElementById("wishlistModalBody").appendChild(wishlistTable);
   }
 }
