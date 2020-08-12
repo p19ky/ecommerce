@@ -55,8 +55,8 @@ class AllBooksController extends Controller
 
     public function indexAdmin()
     {
-        //return view('allBooks');
-        $books = Books::all();  // fetching all the data from the Books table
+    
+        $books = Books::with('classification')->get();  // fetching all the data from the Books table
         return view('books/booksAdmin', compact('books'));
     }
 
@@ -93,23 +93,18 @@ class AllBooksController extends Controller
      */
     public function store(Request $request)
     {
+
         //validam datele de intrare
-        $this->validate($request, [
+        $this->validate($request, array(
             'bookName' => 'required',
             'bookAuthor' => 'required',
-          //  'bookDescription' => 'required',
+           // 'bookDescription' => 'required',
             //'bookDetails' => 'required',
+            'bookGenre' => 'required',
             'bookPicture' => 'required',
             'bookPrice' => 'required',
-            'bookQuantity' => 'required',
-            'bookGenre' => 'required'
-
-        ]);
-
-
-        // cautam genre-ul cu id-ul corespunzator pentru a-i afla id-ul
-        $bookGenre = Classification::find($id);
-
+            'bookQuantity' => 'required'
+        ));
 
         $book = new Books;
 
@@ -120,7 +115,6 @@ class AllBooksController extends Controller
         $book->picture = $request->bookPicture;
         $book->price = $request->bookPrice;
         $book->quantity = $request->bookQuantity;
-        print_r($request->bookGenre); 
         $book->classifId = $request->bookGenre;
         $book->save();
 
@@ -147,7 +141,12 @@ class AllBooksController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+       // $books = Books::with('classification')->get();  // fetching all the data from the Books table
+       
+        $book = Books::find($id);
+        $genres = Classification::all();
+        return view('books/editBook', compact('book', 'genres'));
     }
 
     /**
@@ -159,8 +158,42 @@ class AllBooksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       //validam datele de intrare
+       $this->validate($request, array(
+        'bookName' => 'required',
+        'bookAuthor' => 'required',
+       // 'bookDescription' => 'required',
+        //'bookDetails' => 'required',
+        'bookGenre' => 'required',
+        'bookPicture' => 'required',
+        'bookPrice' => 'required',
+        'bookQuantity' => 'required'
+    ));
+
+        $book = Books::find($id);
+
+        $book->name = $request->bookName;
+        $book->author = $request->bookAuthor;
+        $book->description = $request->bookDescription;
+        $book->details = $request->bookDetails;
+        $book->picture = $request->bookPicture;
+        $book->price = $request->bookPrice;
+        $book->quantity = $request->bookQuantity;
+        $book->classifId = $request->bookGenre;
+        $book->save();
+
+ 
+        return redirect(route('books'))->with('successMsg','Book successfully updated'); 
     }
+
+
+
+    public function delete($id)
+    {
+      Books::find($id)->delete(); 
+      return redirect(route('books'))->with('successMsg','Book successfully deleted');   
+    }
+
 
     /**
      * Remove the specified resource from storage.
