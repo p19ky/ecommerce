@@ -212,61 +212,7 @@
       </div>
       <!--Body-->
       <div id="wishlistModalBody" class="modal-body">
-
-        <!-- <div id="emptyWishlistDiv" class="text-center">
-          <h5>Your Wishlist is empty... <i class="fas fa-grin-beam-sweat"></i></h5>
-          <div id="wishlistAllBooksLink">
-            <h5>We suggest checking our books out <i class="fas fa-smile-beam"></i></h5>
-            <button id="allBooksWishlistButton" onclick="window.location.href=`{{  url('/allBooks') }}`" class="btn reversedGradientButton" type="button">All Books</button>
-          </div>
-        </div> -->
-        <!-- FOR TEST PURPOSE - DON'T DELETE!!! -->
-
-        <table id="wishlistItemTable" class="text-white table">
-          <thead class="text-center">
-            <tr>
-              <th>Cover</th>
-              <th>Title&Author</th>
-              <th>Price</th>
-              <th>Add to Cart</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody id="wishlistItemList" class="text-center">
-            <tr class="wishlistItem">
-              <!-- <td>Book 1</td> -->
-              <td>
-                <img style="border-radius:5px;" src="{{ asset('/assets/img/book3.jpg') }}" alt="soGoodTheyCan'tIgnoreYou" width="60" height="60">
-              </td>
-              <td><span>Ego is the enemy<br>By Ryan Holiday</span></td>
-              <td><span>11,99$</span></td>
-              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
-              <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
-            </tr>
-            <tr class="wishlistItem">
-              <td><img style="border-radius:5px;" src="{{ asset('/assets/img/book2.png') }}" alt="RichDadPoorDad" width="60" height="60"></td>
-              <td><span>Rich Dad Poor Dad<br>By Robert Kiyosaki & Sharon Lechter</span></td>
-              <td><span>20,00$</span></td>
-              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
-              <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
-            </tr>
-            <tr class="wishlistItem">
-              <td>IMAGE</td>
-              <td><span>Book 3<br>By Author Name 3</span></td>
-              <td><span>15,49$</span></td>
-              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
-              <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
-            </tr>
-            <tr class="wishlistItem">
-              <td>IMAGE</td>
-              <td><span>Book 4<br>By Author Name 4</span></td>
-              <td><span>17,49$</span></td>
-              <td><button type="button" class="btn wishlistAddToCartButton btn-sm">Add to Cart <i class="fas fa-shopping-cart"></i></button></td>
-              <td><a><i class="removeItemWishlistClass fas fa-times"></i></a></td>
-            </tr>
-          </tbody>
-        </table>
-
+        <!-- Here will be the wishlist Items added. -->
       </div>
       <!--Footer-->
       <div class="d-flex justify-content-md-between modal-footer">
