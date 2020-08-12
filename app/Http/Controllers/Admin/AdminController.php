@@ -53,12 +53,14 @@ class AdminController extends Controller
 
         ]);
 
+        //$user->create($request->all());  
         $user= new User;
-            $user-> role_id= $request->usertype;
-            $user-> name= $request->name;
-            $user-> username= $request->username;
-            $user-> email= $request->email;
-            $user-> password= $request->password;
+            
+            $user->role_id= $request->usertype;
+            $user->name= $request->name;
+            $user->username= $request->username;
+            $user->email= $request->email;
+            $user->password= $request->password;
             $user->save();
 
             return redirect(route('admin.create'))->with('successMsg', 'User successfully added to the database');
