@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-
 use Alert;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -33,7 +32,11 @@ class User extends Authenticatable
     ];
 
     public function role(){
-        return $this->belongsTo('App\Role');
+        return $this->belongsTo('App\Role','role_id');
+    }
+
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function save(array $options = [])

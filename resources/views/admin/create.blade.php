@@ -35,8 +35,8 @@
     <div class="form-group">
             <label>Give Role</label>
                 <select name="usertype">
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
+                    <option value="1">Admin</option>
+                    <option value="2">User</option>
                     <!-- Role -->
                     <!-- <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Role"> -->
                 </select>
