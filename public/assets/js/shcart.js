@@ -603,9 +603,16 @@ document
                 iBookPrice = littleItem.innerHTML;
               }
             }
+            if (littleItem.tagName === "DIV") {
+              if (littleItem.classList.contains("bookIdDiv")) {
+                iBookId = littleItem.innerHTML;
+              }
+            }
           });
         }
       });
+
+      //Work data - coming...
     });
   });
 
