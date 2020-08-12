@@ -171,7 +171,7 @@ function ColorizeRedHearts() {
 
 // window.localStorage.removeItem("ARRAYOFUSERSWITHWISHLISTBOOKS");
 
-console.log(Object.entries(localStorage));
+// console.log(Object.entries(localStorage));
 
 const wishlistModalBody = document.getElementById("wishlistModalBody");
 const modalWishlist = document.getElementById("modalWishlist");
@@ -610,12 +610,19 @@ function CreateWishlistItem(
   imageTableData.appendChild(bookImage);
 
   const titleAndAuthorTableData = document.createElement("td");
-  const titleAndAuthorSpan = document.createElement("span");
-  titleAndAuthorSpan.innerHTML = titleForTheBook + "<br />" + authorForTheBook;
-  titleAndAuthorTableData.appendChild(titleAndAuthorSpan);
+  const titleSpan = document.createElement("span");
+  const AuthorSpan = document.createElement("span");
+  titleSpan.classList.add("titleSpan");
+  titleSpan.innerHTML = titleForTheBook;
+  AuthorSpan.classList.add("AuthorSpan");
+  AuthorSpan.innerHTML = authorForTheBook;
+  titleAndAuthorTableData.appendChild(titleSpan);
+  titleAndAuthorTableData.innerHTML += "<br />";
+  titleAndAuthorTableData.appendChild(AuthorSpan);
 
   const priceTableData = document.createElement("td");
   const priceSpan = document.createElement("span");
+  priceSpan.classList.add("priceSpan");
   priceSpan.innerHTML = priceForTheBook;
   priceTableData.appendChild(priceSpan);
 
