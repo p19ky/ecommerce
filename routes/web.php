@@ -56,6 +56,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::get('users', 'AdminController@get_all')->name('users');
     Route::get('create', 'AdminController@create')->name('create');
     Route::post('store', 'AdminController@store')->name('store');
+    Route::get('edit/{id}', 'AdminController@edit')->name('edit');
+    Route::post('update/{id}', 'AdminController@update')->name('update');
+    Route::delete('delete/{id}', 'AdminController@delete')->name('delete');
 });
 
 

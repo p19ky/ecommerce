@@ -86,7 +86,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.edit',compact('user'));
     }
 
     /**
@@ -98,7 +99,27 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'usertype' => 'required',
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+
+        ]);
+
+        
+        $user= User::find($id);
+            
+            $user->role_id= $request->usertype;
+            $user->name= $request->name;
+            $user->username= $request->username;
+            $user->email= $request->email;
+            $user->password= $request->password;
+            $user->save();
+
+            return redirect(route('admin.create'))->with('successMsg', 'User successfully updated to the database');
+
     }
 
     /**
@@ -107,8 +128,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        User::find($id)->delete();
+        return redirect(route('admin.create'))->with('successMsg', 'User successfully deleted from the database');
+
     }
 }
