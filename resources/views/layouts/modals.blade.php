@@ -1,3 +1,7 @@
+@auth
+<div id="hiddenCheckForAuth"></div>
+@endauth
+
 <!-- Start-FeedbackModal -->
 
 <div class="modal fade right" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="FeedbackModalLabel" aria-hidden="true">
@@ -136,19 +140,10 @@
                   <div class="col-4" id="genreSelectContainer">
                     <h5>Select Genre(s):</h5>
                     <select id="genreSelect" multiple="multiple">
-                      <option value="Fantasy">Fantasy</option>
-                      <option value="Sci-Fi">Sci-Fi</option>
-                      <option value="Mystery">Mystery</option>
-                      <option value="Romance">Romance</option>
-                      <option value="Dystopian">Dystopian</option>
-                      <option value="Thriller">Thriller</option>
-                      <option value="Westerns">Westerns</option>
-                      <option value="Contemporary">Contemporary</option>
-                      <option value="Adventure">Adventure</option>
-                      <option value="Horror">Horror</option>
-                      <option value="Paranormal">Paranormal</option>
-                      <option value="Health">Health</option>
-                      <option value="Motivational">Motivational</option>
+                      <option value="Fantasy">Psychological Fiction</option>
+                      <option value="Sci-Fi">Thriller</option>
+                      <option value="Mystery">Crime</option>
+                      <option value="Romance">History</option>
                     </select>
                   </div>
                   <div class="col-4"></div>
@@ -217,7 +212,12 @@
       <!--Footer-->
       <div class="d-flex justify-content-md-between modal-footer">
         <button id="closeModalWishlistButton" type="button" class="btn" data-dismiss="modal">Close</button>
+        @auth
         <button id="addAllModalWishlistButton" type="button" class="btn" data-dismiss="modal">Add all to Cart <i class="fas fa-cart-plus"></i></button>
+        @endauth
+        @guest
+        <button id="addAllModalWishlistButtonGuest" onclick="showShoppingCart()" type="button" class="btn" data-dismiss="modal">Add all to Cart <i class="fas fa-cart-plus"></i></button>
+        @endguest
       </div>
     </div>
   </div>

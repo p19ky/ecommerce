@@ -73,3 +73,12 @@
 .reversedGradientButton:hover {
   color: #fff;
 }
+
+#modalWishlistContent #addAllModalWishlistButtonGuest {
+  border-radius: 50px;
+  background: #3ab9eb;
+}
+
+#modalWishlistContent #addAllModalWishlistButtonGuest:hover {
+  color: #fff;
+}

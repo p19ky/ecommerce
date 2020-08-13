@@ -62,7 +62,7 @@ if (typeof Storage !== "undefined") {
   );
 }
 
-console.log(Object.entries(localStorage));
+// console.log(Object.entries(localStorage));
 
 function fillShcart() {
   ARRAYOFBOOKSINSHCART.forEach((bookie) => {
@@ -105,88 +105,94 @@ const shoppingCartItemsId = document.getElementById("shoppingCartItems"); //the 
 const shoppingCartItems = document.getElementsByClassName("shcart-item"); //all the items as HTMLCollection
 
 function CalculateShoppingCartTotal() {
-  const shcartPricesArray = [];
-  const shcartQuantitiesArray = [];
+  if (document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
+    const shcartPricesArray = [];
+    const shcartQuantitiesArray = [];
 
-  shcartPrices.forEach((element) => {
-    shcartPricesArray.push(
-      parseFloat(element.innerHTML.substr(1).replace(/,/g, "."))
-    );
-  });
+    shcartPrices.forEach((element) => {
+      shcartPricesArray.push(
+        parseFloat(element.innerHTML.substr(1).replace(/,/g, "."))
+      );
+    });
 
-  shcartQuantities.forEach((element) => {
-    shcartQuantitiesArray.push(parseInt(element.innerHTML.match(/\d+/)[0]));
-  });
+    shcartQuantities.forEach((element) => {
+      shcartQuantitiesArray.push(parseInt(element.innerHTML.match(/\d+/)[0]));
+    });
 
-  if (!shcartPricesArray.length || !shcartQuantitiesArray.length) {
-    shcartTotal.innerHTML = "$0.00";
-  } else {
-    let shcartTotalSum = 0;
+    if (!shcartPricesArray.length || !shcartQuantitiesArray.length) {
+      shcartTotal.innerHTML = "$0.00";
+    } else {
+      let shcartTotalSum = 0;
 
-    for (let i = 0; i < shcartPricesArray.length; i++) {
-      shcartTotalSum += shcartPricesArray[i] * shcartQuantitiesArray[i];
+      for (let i = 0; i < shcartPricesArray.length; i++) {
+        shcartTotalSum += shcartPricesArray[i] * shcartQuantitiesArray[i];
+      }
+
+      shcartTotal.innerHTML = "$" + shcartTotalSum.toFixed(2).toString();
     }
 
-    shcartTotal.innerHTML = "$" + shcartTotalSum.toFixed(2).toString();
+    // console.log("calculated shcart total!");
   }
-
-  // console.log("calculated shcart total!");
 }
 
 CalculateShoppingCartTotal();
 
 function CalculateShcartBadge() {
-  let quanArray = [];
-  shcartQuantities.forEach((element) => {
-    quanArray.push(parseInt(element.innerHTML.match(/\d+/)[0]));
-  });
+  if (document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
+    let quanArray = [];
+    shcartQuantities.forEach((element) => {
+      quanArray.push(parseInt(element.innerHTML.match(/\d+/)[0]));
+    });
 
-  if (!quanArray.length) {
-    shcartBadge.innerHTML = "0";
-  } else {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-    let badgeSum = quanArray.reduce(reducer);
-
-    if (badgeSum < 100) {
-      shcartBadge.innerHTML = badgeSum.toString();
+    if (!quanArray.length) {
+      shcartBadge.innerHTML = "0";
     } else {
-      shcartBadge.innerHTML = "99+";
-    }
-  }
+      const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-  // console.log("calculated shcart badge number!");
+      let badgeSum = quanArray.reduce(reducer);
+
+      if (badgeSum < 100) {
+        shcartBadge.innerHTML = badgeSum.toString();
+      } else {
+        shcartBadge.innerHTML = "99+";
+      }
+    }
+
+    // console.log("calculated shcart badge number!");
+  }
 }
 
 CalculateShcartBadge();
 
 function CheckIfShcartEmpty() {
-  if (shcartBadge.innerHTML === "0") {
-    // console.log("Shopping Cart empty!");
-    let emptySpan = document.createElement("span");
-    let emptySpanIcon = document.createElement("i");
-    emptySpanIcon.classList.add("fas");
-    emptySpanIcon.classList.add("fa-grin-beam-sweat");
-    emptySpanIcon.setAttribute("style", "padding-left:10px;");
+  if (document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
+    if (shcartBadge.innerHTML === "0") {
+      // console.log("Shopping Cart empty!");
+      let emptySpan = document.createElement("span");
+      let emptySpanIcon = document.createElement("i");
+      emptySpanIcon.classList.add("fas");
+      emptySpanIcon.classList.add("fa-grin-beam-sweat");
+      emptySpanIcon.setAttribute("style", "padding-left:10px;");
 
-    emptySpan.setAttribute("style", "width:250px;");
-    emptySpan.setAttribute("id", "shcartEmptySpan");
-    emptySpan.classList.add("d-flex");
-    emptySpan.classList.add("justify-content-center");
-    emptySpan.classList.add("text-white");
-    emptySpan.innerHTML = "Your Shopping Cart is Empty";
-    emptySpan.appendChild(emptySpanIcon);
-    shoppingCartItemsId.appendChild(emptySpan);
-  } else {
-    // console.log("Shopping Cart NOT empty!");
-    if (document.body.contains(document.getElementById("shcartEmptySpan"))) {
-      shoppingCartItemsId.removeChild(
-        document.getElementById("shcartEmptySpan")
-      );
+      emptySpan.setAttribute("style", "width:250px;");
+      emptySpan.setAttribute("id", "shcartEmptySpan");
+      emptySpan.classList.add("d-flex");
+      emptySpan.classList.add("justify-content-center");
+      emptySpan.classList.add("text-white");
+      emptySpan.innerHTML = "Your Shopping Cart is Empty";
+      emptySpan.appendChild(emptySpanIcon);
+      shoppingCartItemsId.appendChild(emptySpan);
+    } else {
+      // console.log("Shopping Cart NOT empty!");
+      if (document.body.contains(document.getElementById("shcartEmptySpan"))) {
+        shoppingCartItemsId.removeChild(
+          document.getElementById("shcartEmptySpan")
+        );
+      }
     }
-  }
 
-  // console.log("checked if shcart empty!");
+    // console.log("checked if shcart empty!");
+  }
 }
 
 CheckIfShcartEmpty();
@@ -572,49 +578,109 @@ function CheckIfBookAlreadyInCart(dataAboutBookId) {
   }
 }
 
-document
-  .getElementsByClassName("wishlistAddToCartButton")
-  .forEach((element) => {
-    element.addEventListener("click", function () {
-      let iBookId = "";
-      let iBookImage = "";
-      let iBookTitle = "";
-      let iBookAuthor = "";
-      let iBookPrice = "";
+function reloadWishlistAddToCartButton() {
+  if (document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
+    document
+      .getElementsByClassName("wishlistAddToCartButton")
+      .forEach((element) => {
+        element.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          let iBookId = "";
+          let iBookImage = "";
+          let iBookTitle = "";
+          let iBookAuthor = "";
+          let iBookPrice = "";
 
-      this.parentElement.childNodes.forEach((dataRow) => {
-        if (dataRow.tagName === "TD") {
-          dataRow.childNodes.forEach((littleItem) => {
-            if (littleItem.tagName === "IMG") {
-              iBookImage = littleItem.getAttribute("src");
+          this.parentElement.parentElement.childNodes.forEach((dataRow) => {
+            if (dataRow.tagName === "TD") {
+              dataRow.childNodes.forEach((littleItem) => {
+                if (littleItem.tagName === "IMG") {
+                  iBookImage = littleItem.getAttribute("src");
+                }
+                if (littleItem.tagName === "SPAN") {
+                  if (littleItem.classList.contains("titleSpan")) {
+                    iBookTitle = littleItem.innerHTML;
+                  }
+                }
+                if (littleItem.tagName === "SPAN") {
+                  if (littleItem.classList.contains("AuthorSpan")) {
+                    iBookAuthor = littleItem.innerHTML;
+                  }
+                }
+                if (littleItem.tagName === "SPAN") {
+                  if (littleItem.classList.contains("priceSpan")) {
+                    iBookPrice = littleItem.innerHTML;
+                  }
+                }
+              });
             }
-            if (littleItem.tagName === "SPAN") {
-              if (littleItem.classList.contains("titleSpan")) {
-                iBookTitle = littleItem.innerHTML;
-              }
-            }
-            if (littleItem.tagName === "SPAN") {
-              if (littleItem.classList.contains("AuthorSpan")) {
-                iBookAuthor = littleItem.innerHTML;
-              }
-            }
-            if (littleItem.tagName === "SPAN") {
-              if (littleItem.classList.contains("priceSpan")) {
-                iBookPrice = littleItem.innerHTML;
-              }
-            }
-            if (littleItem.tagName === "DIV") {
-              if (littleItem.classList.contains("bookIdDiv")) {
-                iBookId = littleItem.innerHTML;
+            if (dataRow.tagName === "DIV") {
+              if (dataRow.classList.contains("bookIdDiv")) {
+                iBookId = dataRow.innerHTML;
               }
             }
           });
-        }
-      });
 
-      //Work data - coming...
-    });
-  });
+          if (!CheckIfBookAlreadyInCart(iBookId)) {
+            //Add Book - Not in Sh Cart yet.
+
+            ARRAYOFBOOKSINSHCART.push({
+              idBook: iBookId,
+              imageBook: iBookImage,
+              titleBook: iBookTitle,
+              authorBook: iBookAuthor,
+              priceBook: iBookPrice,
+              quantityBook: "Quantity: 1",
+            });
+
+            ARRAYOFUSERSWITHSHOPPINGCART.forEach((person) => {
+              if ("idUser" in person) {
+                if (person["idUser"] === currentUserId) {
+                  if ("ARRAYOFBOOKSINSHCART" in person) {
+                    person["ARRAYOFBOOKSINSHCART"] = ARRAYOFBOOKSINSHCART;
+                  }
+                }
+              }
+            });
+
+            localStorage.setItem(
+              "ARRAYOFUSERSWITHSHOPPINGCART",
+              JSON.stringify(ARRAYOFUSERSWITHSHOPPINGCART)
+            );
+
+            createNewShcartItem(
+              iBookId,
+              iBookImage,
+              iBookTitle,
+              iBookAuthor,
+              iBookPrice,
+              "Quantity: 1"
+            );
+            CalculateShoppingCartTotal();
+            CalculateShcartBadge();
+            CheckIfShcartEmpty();
+
+            // console.log(Object.entries(localStorage));
+
+            ReloadDeleteAndRemAndAdd();
+          }
+        });
+      });
+  } else {
+    document
+      .getElementsByClassName("wishlistAddToCartButton")
+      .forEach((element) => {
+        element.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          showShoppingCart();
+        });
+      });
+  }
+}
 
 // window.localStorage.removeItem("ARRAYOFUSERSWITHSHOPPINGCART");
 
