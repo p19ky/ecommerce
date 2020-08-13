@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div id="allBooksMainContainer">
 
   <div id="sideFilterContainer">
@@ -44,13 +45,18 @@
 
   </div>
 
+
   <div id="blankPaddingAllBooks"></div>
 
   <div id="booksContainer" class="container">
-
+  @if (session('noResults'))
+   <div class="alert alert-info" role="alert">
+    {{ session('noResults') }}
+    </div>
+  @endif
     <!-- Card deck -->
     <div id="booksCardDeck" class="card-deck">
-
+    
       @foreach($books as $key => $value)
       <!-- Card -->
       <div class="card mb-4">
@@ -101,7 +107,7 @@
     <!-- Card deck -->
 
     <div id="allBooksPaginatorDiv" class="d-flex justify-content-center">
-      {{$books->links()}}
+    {{$books->links()}}
     </div>
 
   </div>

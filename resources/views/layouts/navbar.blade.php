@@ -9,7 +9,8 @@
 
     <!-- Search -->
     <div class="s130">
-      <form action="{{ route('allBooks') }}" method="get">
+      <form action="{{ route('allBooks') }}" method="POST" role="search">
+      {{ csrf_field() }}
         <div class="inner-form">
           <div class="input-field first-wrap">
             <div class="svg-wrapper">
