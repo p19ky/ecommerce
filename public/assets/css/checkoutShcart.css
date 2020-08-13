@@ -1,0 +1,25 @@
+.checkoutShcart .checkoutShcartBadge {
+  background-color: #d647d8;
+}
+
+.checkoutShcart .checkoutShcartItemFirstContentDiv {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+}
+
+.checkoutShcart .checkoutShcartItemName {
+  word-wrap: break-word;
+}
+
+.checkoutShcart .checkoutShcartItemSecondContentDiv {
+  display: grid;
+  grid-template-columns: 10% 40% 40% 10%;
+}
+
+.checkoutShcart .remQuanCheckout:hover {
+  color: #d448d8;
+}
+
+.checkoutShcart .addQuanCheckout:hover {
+  color: #3cb8eb;
+}

@@ -198,29 +198,29 @@ Shopping Cart coming soon...
       <!--Grid column-->
 
       <!--Grid column-->
-      <div class="col-lg-6 mb-4">
+      <div class="checkoutShcart col-lg-6 mb-4">
 
         <!-- Heading -->
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted">Your cart</span>
-          <span style="background-color:#D647D8;" class="checkoutShcartBadge badge badge-pill">3</span>
+          <span class="checkoutShcartBadge badge badge-pill z-depth-2">1</span>
         </h4>
 
         <!-- Cart -->
         <ul class="checkoutShcartBookslist list-group mb-3 z-depth-2">
           <li class="list-group-item checkoutShcartItem">
-            <div class="checkoutShcartItemFirstContentDiv" style="display:grid; grid-template-columns:30% 40% 30%;">
-              <img style="align-self:center; border-radius:5px;" src="https://i.ibb.co/PZNmcyJ/the-snowman.jpg" width="90" height="90">
+            <div class="checkoutShcartItemFirstContentDiv">
+              <img style="border-radius:5px;" src="https://i.ibb.co/PZNmcyJ/the-snowman.jpg" width="90" height="90">
               <div class="text-center">
-                <h6 style="word-wrap:break-word;" class=" checkoutShcartItemName">Book the 7</h6>
+                <h6 class="checkoutShcartItemName">Book with Name</h6>
                 <small class="text-center checkoutShcartItemAuthor text-muted">by Author Name</small>
               </div>
               <span class="text-right checkoutShcartItemPrice text-muted">$122.00</span>
             </div>
             <div class="emptyDivForShcartItem"></div>
-            <div class="checkoutShcartItemSecondContentDiv" style="display:grid; grid-template-columns:10% 40% 40% 10%;">
+            <div class="checkoutShcartItemSecondContentDiv">
               <div class="emptyDivForShcartItem"></div>
-              <div class="text-center">- Quan +</div>
+              <div class="text-center"><i class="remQuanCheckout fas fa-minus-square"></i> Quantity <i class="addQuanCheckout fas fa-plus-square"></i></div>
               <div class="text-center">Quantity: 1</div>
               <div class="emptyDivForShcartItem"></div>
             </div>
@@ -228,7 +228,7 @@ Shopping Cart coming soon...
           </li>
           <li class=" list-group-item d-flex justify-content-between">
             <span>Total (USD)</span>
-            <strong id="checkoutShcartTotal">$20.00</strong>
+            <strong id="checkoutShcartTotal">$122.00</strong>
           </li>
         </ul>
         <!-- Cart -->
