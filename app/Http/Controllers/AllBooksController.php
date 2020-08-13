@@ -114,7 +114,7 @@ class AllBooksController extends Controller
         $book->name = $request->bookName;
         $book->author = $request->bookAuthor;
         $book->description = $request->bookDescription;
-        $book->details = $request->bookDetails;
+        $book->language = $request->bookDetails;
         $book->picture = $request->bookPicture;
         $book->price = $request->bookPrice;
         $book->quantity = $request->bookQuantity;
