@@ -34,8 +34,26 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
-                    <td><a href="#" class="btn btn-info">Edit</a> <a href="#"
-                    class="btn btn-danger">Delete</a></td>
+                    <td><a href="{{ route('admin.edit', $user->id)}}" class="btn btn-info">Edit</a> 
+
+                   <form method="POST" id="delete-form-{{ $user->id }}" action="{{ route('admin.delete', $user->id) }}" style="display:none; ">
+                    {{  csrf_field() }}
+                    {{  method_field('delete') }}
+                    </form>
+
+                    <button onclick=" if (confirm('Are you sure you want to delete this user?')) {
+                    event.preventDefault();
+                    document.getElementById('delete-form-{{ $user->id }}').submit();
+                    } else{
+                    event.preventDefault();
+
+                    } 
+                    "
+                    class="btn btn-danger" href="">Delete  
+                    
+                    </button>
+     
+                   </td>
                 </tr>
             @endforeach
         </table>

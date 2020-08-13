@@ -6,12 +6,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Add Users</h1>
+                <h1 class="m-0 text-dark">Edit Users</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href=" {{ route('admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Add Users</li>
+                    <li class="breadcrumb-item active">Edit Users</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -36,13 +36,13 @@
 @endif
 
 <!-- Default form register -->
-<form class="text-center border border-light p-5" action="{{ route('admin.store')}}" method="POST">
+<form class="text-center border border-light p-5" action="{{ route('admin.update', $user->id)}}" method="POST">
 {{ csrf_field() }}
-    <p class="h4 mb-4">Add user</p>
+    <p class="h4 mb-4">Edit user</p>
 
     <div class="form-group">
             <label>Give Role</label>
-                <select name="usertype">
+                <select value="{{ $user->role_id }}" name="usertype">
                     <option value="1">Admin</option>
                     <option value="2">User</option>
                     <!-- Role -->
@@ -53,26 +53,26 @@
         
         <div class="col">
             <!-- Name -->
-            <input type="text" id="defaultRegisterFormLastName" class="form-control" name="name" placeholder="Name">
+            <input type="text" id="defaultRegisterFormLastName" class="form-control" value="{{ $user->name }}" name="name" placeholder="Name">
         </div>
         <div class="col">
-            <input type="text" id="defaultRegisterFormUserame" class="form-control" name="username" placeholder="Username">
+            <input type="text" id="defaultRegisterFormUserame" class="form-control" value="{{ $user->username }}" name="username" placeholder="Username">
         </div>
     </div>
 
    
 
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" name="email" placeholder="E-mail">
+    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" value="{{ $user->email }}" name="email" placeholder="E-mail">
     
 
     <!-- Password -->
-    <input type="password" id="defaultRegisterFormPassword" class="form-control" name="password" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <input type="password" id="defaultRegisterFormPassword" class="form-control" value="{{ $user->password }}" name="password" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
         At least 8 characters
     </small>
 
     <!-- Sign up button -->
-    <button class="btn btn-info my-4 btn-block" type="submit">Add data</button>
+    <button class="btn btn-info my-4 btn-block" type="submit">Update</button>
 
     <!-- Social register -->
     
