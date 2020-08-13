@@ -18,16 +18,17 @@ class AllBooksController extends Controller
      */
     public function index()
     {
+
         $books = new Books;
         $classifications = Classification::All();
 
-
         $queries = [];
 
-        // if (request()->filled('main_search')) {
-        //     $books = $books->where('name', 'like', '%' . request('mainSearch') . '%');
-        //     $queries['main_search'] = request('main_search');
-        // }
+        if (request()->filled('main_search')) {
+            $keyword=request('main_search');
+            $books = $books->where('name', 'LIKE', '%' .$keyword. '%');
+            $queries['main_search'] = request('main_search');
+        }
 
         if (request()->filled('min_price')) {
             $books = $books->where('price', '>=', request('min_price'));
@@ -48,7 +49,9 @@ class AllBooksController extends Controller
         $books = $books->paginate(10)->appends($queries);
 
         return view('books/allBooks', compact('books'));
+        
     }
+
 
 
     /**Display a listing of the resource - admin!! */
