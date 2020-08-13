@@ -17,8 +17,8 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('author');
-            $table->json('description')->nullable();
-            $table->json('details')->nullable();
+            $table->string('description')->nullable();
+            $table->string('language')->nullable();
             $table->string('picture')->nullable();
             $table->decimal('price', 10, 2);
             $table->integer('quantity');
