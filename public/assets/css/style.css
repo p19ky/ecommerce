@@ -19,3 +19,9 @@ body {
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+.checkoutShcartItem {
+  display: grid;
+  /* grid-template-columns: 50% 50%; */
+  grid-template-rows: 40% 45% 5% 10%;
+}

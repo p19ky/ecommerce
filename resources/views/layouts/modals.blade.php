@@ -1,5 +1,5 @@
 @auth
-<div id="hiddenCheckForAuth"></div>
+<div style="display:none;" id="hiddenCheckForAuth">{{ auth()->user()->id }}</div>
 @endauth
 
 <!-- Start-FeedbackModal -->
@@ -212,12 +212,7 @@
       <!--Footer-->
       <div class="d-flex justify-content-md-between modal-footer">
         <button id="closeModalWishlistButton" type="button" class="btn" data-dismiss="modal">Close</button>
-        @auth
-        <button id="addAllModalWishlistButton" type="button" class="btn" data-dismiss="modal">Add all to Cart <i class="fas fa-cart-plus"></i></button>
-        @endauth
-        @guest
-        <button id="addAllModalWishlistButtonGuest" onclick="showShoppingCart()" type="button" class="btn" data-dismiss="modal">Add all to Cart <i class="fas fa-cart-plus"></i></button>
-        @endguest
+        <button onclick="window.location.href=`{{  url('/allBooks') }}`" id="seeAllBooks" type="button" class="btn" data-dismiss="modal">Books</button>
       </div>
     </div>
   </div>

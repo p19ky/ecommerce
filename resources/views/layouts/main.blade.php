@@ -63,7 +63,7 @@
   <script type="text/javascript" src="{{  URL::asset('/assets/js/wishlist.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/contact.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/allBooks.js') }}?v=<?php echo time(); ?>"></script>
-
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/checkoutShcart.js') }}?v=<?php echo time(); ?>"></script>
 
   <script type="text/javascript">
     // $(window).on('load', function() {

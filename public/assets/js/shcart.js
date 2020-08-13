@@ -5,9 +5,10 @@ const shcartPrices = document.getElementsByClassName("item-price");
 const shcartQuantities = document.getElementsByClassName("item-quantity");
 const shcartBadge = document.getElementById("shcartBadge");
 
-if (document.body.contains(document.getElementById("shcartCheckout"))) {
-  let URL = document.getElementById("shcartCheckout").getAttribute("onclick");
-  currentUserId = URL.replace(/^\D+/g, "");
+if (document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
+  // let URL = document.getElementById("shcartCheckout").getAttribute("onclick");
+  // currentUserId = URL.replace(/^\D+/g, "");
+  currentUserId = document.getElementById("hiddenCheckForAuth").innerHTML;
 }
 
 let ARRAYOFBOOKSINSHCART = [];

@@ -16,11 +16,12 @@ if (typeof Storage !== "undefined") {
       localStorage.getItem("ARRAYOFUSERSWITHWISHLISTBOOKS")
     );
 
-    if (document.body.contains(document.getElementById("shcartCheckout"))) {
-      let URL = document
-        .getElementById("shcartCheckout")
-        .getAttribute("onclick");
-      idUser = URL.replace(/^\D+/g, "");
+    if (document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
+      // let URL = document
+      //   .getElementById("shcartCheckout")
+      //   .getAttribute("onclick");
+      // idUser = URL.replace(/^\D+/g, "");
+      idUser = document.getElementById("hiddenCheckForAuth").innerHTML;
 
       ARRAYOFUSERSWITHWISHLISTBOOKS.forEach((USERR) => {
         if ("userId" in USERR) {
@@ -96,7 +97,9 @@ function FillWishlist() {
 FillWishlist();
 
 function ColorizeRedHearts() {
-  if (document.body.contains(document.getElementById("allBooksMainContainer"))) {
+  if (
+    document.body.contains(document.getElementById("allBooksMainContainer"))
+  ) {
     let listOfCards = document.getElementById("booksCardDeck").childNodes;
 
     listOfCards.forEach((card) => {
@@ -191,7 +194,6 @@ function ColorizeRedHearts() {
       }
     });
   }
-  
 }
 
 ColorizeRedHearts();
@@ -203,29 +205,16 @@ ColorizeRedHearts();
 const wishlistModalBody = document.getElementById("wishlistModalBody");
 const modalWishlist = document.getElementById("modalWishlist");
 const modalCloseWishlist = document.getElementById("closeModalWishlistButton");
-const modalAddAllToCart = document.getElementById("addAllModalWishlistButton");
 
 modalCloseWishlist.addEventListener("click", function () {
   modalWishlist.classList.remove("show");
   modalWishlist.classList.add("left");
 });
 
-if (!document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
-  document
-    .getElementById("addAllModalWishlistButtonGuest")
-    .addEventListener("click", function () {
-      modalWishlist.classList.remove("show");
-      modalWishlist.classList.add("right");
-    });
-}
-if (document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
-  document
-    .getElementById("addAllModalWishlistButton")
-    .addEventListener("click", function () {
-      modalWishlist.classList.remove("show");
-      modalWishlist.classList.add("right");
-    });
-}
+document.getElementById("seeAllBooks").addEventListener("click", function () {
+  modalWishlist.classList.remove("show");
+  modalWishlist.classList.add("right");
+});
 
 $("#modalWishlist").on("hidden.bs.modal", function () {
   modalWishlist.classList.remove("left");
@@ -424,12 +413,15 @@ addToWishlistHeartIconLink.forEach(function (element) {
       let IsUser = false;
       let idOfUser = "";
 
-      if (document.body.contains(document.getElementById("shcartCheckout"))) {
+      if (
+        document.body.contains(document.getElementById("hiddenCheckForAuth"))
+      ) {
         IsUser = true;
-        let url = document
-          .getElementById("shcartCheckout")
-          .getAttribute("onclick");
-        idOfUser = url.replace(/^\D+/g, "");
+        // let url = document
+        //   .getElementById("shcartCheckout")
+        //   .getAttribute("onclick");
+        // idOfUser = url.replace(/^\D+/g, "");
+        idOfUser = document.getElementById("hiddenCheckForAuth").innerHTML;
       }
 
       let foundUser = false;
