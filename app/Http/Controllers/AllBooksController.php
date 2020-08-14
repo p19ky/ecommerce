@@ -25,8 +25,8 @@ class AllBooksController extends Controller
         $queries = [];
 
         if (request()->filled('main_search')) {
-            $keyword=request('main_search');
-            $books = $books->where('name', 'LIKE', '%' .$keyword. '%');
+            $keyword = request('main_search');
+            $books = $books->where('name', 'LIKE', '%' . $keyword . '%');
             $queries['main_search'] = request('main_search');
         }
 
@@ -48,8 +48,7 @@ class AllBooksController extends Controller
 
         $books = $books->paginate(10)->appends($queries);
 
-        return view('books/allBooks', compact('books'));
-        
+        return view('books/allBooks', compact('books', 'classifications'));
     }
 
 
@@ -58,12 +57,12 @@ class AllBooksController extends Controller
 
     public function indexAdmin()
     {
-    
+
         $books = Books::with('classification')->get();  // fetching all the data from the Books table
         return view('books/booksAdmin', compact('books'));
     }
 
-     /**
+    /**
      * function to get all the genres and display their names in the select box
      *  (+ input table)
      */
@@ -71,9 +70,9 @@ class AllBooksController extends Controller
 
     public function displayTable()
     {
-       // $genres = Classification::all();
-       $genres = Classification::orderBy('name')->get();  
-       return view('books.addBook', compact('genres'));
+        // $genres = Classification::all();
+        $genres = Classification::orderBy('name')->get();
+        return view('books.addBook', compact('genres'));
     }
 
 
@@ -101,7 +100,7 @@ class AllBooksController extends Controller
         $this->validate($request, array(
             'bookName' => 'required',
             'bookAuthor' => 'required',
-           // 'bookDescription' => 'required',
+            // 'bookDescription' => 'required',
             //'bookDetails' => 'required',
             'bookGenre' => 'required',
             'bookPicture' => 'required',
@@ -144,9 +143,9 @@ class AllBooksController extends Controller
      */
     public function edit($id)
     {
-        
-       // $books = Books::with('classification')->get();  // fetching all the data from the Books table
-       
+
+        // $books = Books::with('classification')->get();  // fetching all the data from the Books table
+
         $book = Books::find($id);
         $genres = Classification::all();
         return view('books/editBook', compact('book', 'genres'));
@@ -161,17 +160,17 @@ class AllBooksController extends Controller
      */
     public function update(Request $request, $id)
     {
-       //validam datele de intrare
-       $this->validate($request, array(
-        'bookName' => 'required',
-        'bookAuthor' => 'required',
-       // 'bookDescription' => 'required',
-        //'bookDetails' => 'required',
-        'bookGenre' => 'required',
-        'bookPicture' => 'required',
-        'bookPrice' => 'required',
-        'bookQuantity' => 'required'
-    ));
+        //validam datele de intrare
+        $this->validate($request, array(
+            'bookName' => 'required',
+            'bookAuthor' => 'required',
+            // 'bookDescription' => 'required',
+            //'bookDetails' => 'required',
+            'bookGenre' => 'required',
+            'bookPicture' => 'required',
+            'bookPrice' => 'required',
+            'bookQuantity' => 'required'
+        ));
 
         $book = Books::find($id);
 
@@ -185,16 +184,16 @@ class AllBooksController extends Controller
         $book->classifId = $request->bookGenre;
         $book->save();
 
- 
-        return redirect(route('books'))->with('successMsg','Book successfully updated'); 
+
+        return redirect(route('books'))->with('successMsg', 'Book successfully updated');
     }
 
 
 
     public function delete($id)
     {
-      Books::find($id)->delete(); 
-      return redirect(route('books'))->with('successMsg','Book successfully deleted');   
+        Books::find($id)->delete();
+        return redirect(route('books'))->with('successMsg', 'Book successfully deleted');
     }
 
 

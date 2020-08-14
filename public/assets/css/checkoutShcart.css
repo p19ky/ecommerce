@@ -1,4 +1,4 @@
-.checkoutShcart .checkoutShcartBadge {
+.checkoutShcart #checkoutShcartBadge {
   background-color: #d647d8;
 }
 
@@ -7,19 +7,49 @@
   grid-template-columns: 30% 40% 30%;
 }
 
-.checkoutShcart .checkoutShcartItemName {
+.checkoutShcart .checkoutShcartItemTitle {
   word-wrap: break-word;
+  margin: 0px 0px 8px 0;
 }
 
 .checkoutShcart .checkoutShcartItemSecondContentDiv {
   display: grid;
-  grid-template-columns: 10% 40% 40% 10%;
+  grid-template-columns: 33% 34% 33%;
 }
 
+.checkoutShcart .remQuanCheckout {
+  margin-right: 4px;
+}
 .checkoutShcart .remQuanCheckout:hover {
   color: #d448d8;
 }
 
+.checkoutShcart .addQuanCheckout {
+  margin-left: 4px;
+}
 .checkoutShcart .addQuanCheckout:hover {
   color: #3cb8eb;
+}
+
+.checkoutShcart .checkoutShcartItem {
+  display: grid;
+  grid-template-rows: 80% 6% 8% 6%;
+}
+
+.checkoutShcart .checkoutShcartDeleteIcon:hover {
+  color: #dc3545;
+}
+
+.checkoutShcart .checkoutShcartItemImage {
+  border-radius: 5px;
+  align-self: center;
+}
+
+.checkoutShcart .checkoutShcartItemGenre {
+  word-wrap: break-word;
+  margin: 8px 0 8px 0;
+}
+
+.checkoutShcart .checkoutShcartItemAuthor {
+  word-wrap: break-word;
 }

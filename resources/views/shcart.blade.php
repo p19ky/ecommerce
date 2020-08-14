@@ -91,7 +91,7 @@ Shopping Cart coming soon...
               <div class="col-lg-4 col-md-6 mb-4">
 
                 <label for="zip">Country</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <input type="text" class="form-control" id="country" placeholder="" required>
                 <div class="invalid-feedback">
                   Country required.
                 </div>
@@ -103,7 +103,7 @@ Shopping Cart coming soon...
               <div class="col-lg-4 col-md-6 mb-4">
 
                 <label for="zip">City</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <input type="text" class="form-control" id="city" placeholder="" required>
                 <div class="invalid-feedback">
                   City required.
                 </div>
@@ -203,33 +203,11 @@ Shopping Cart coming soon...
         <!-- Heading -->
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted">Your cart</span>
-          <span class="checkoutShcartBadge badge badge-pill z-depth-2">1</span>
+          <span id="checkoutShcartBadge" class="badge badge-pill z-depth-2">0</span>
         </h4>
 
         <!-- Cart -->
-        <ul class="checkoutShcartBookslist list-group mb-3 z-depth-2">
-          <li class="list-group-item checkoutShcartItem">
-            <div class="checkoutShcartItemFirstContentDiv">
-              <img style="border-radius:5px;" src="https://i.ibb.co/PZNmcyJ/the-snowman.jpg" width="90" height="90">
-              <div class="text-center">
-                <h6 class="checkoutShcartItemName">Book with Name</h6>
-                <small class="text-center checkoutShcartItemAuthor text-muted">by Author Name</small>
-              </div>
-              <span class="text-right checkoutShcartItemPrice text-muted">$122.00</span>
-            </div>
-            <div class="emptyDivForShcartItem"></div>
-            <div class="checkoutShcartItemSecondContentDiv">
-              <div class="emptyDivForShcartItem"></div>
-              <div class="text-center"><i class="remQuanCheckout fas fa-minus-square"></i> Quantity <i class="addQuanCheckout fas fa-plus-square"></i></div>
-              <div class="text-center">Quantity: 1</div>
-              <div class="emptyDivForShcartItem"></div>
-            </div>
-            <div class="emptyDivForShcartItem"></div>
-          </li>
-          <li class=" list-group-item d-flex justify-content-between">
-            <span>Total (USD)</span>
-            <strong id="checkoutShcartTotal">$122.00</strong>
-          </li>
+        <ul id="checkoutShcartBookslist" class="list-group mb-3 z-depth-2">
         </ul>
         <!-- Cart -->
 

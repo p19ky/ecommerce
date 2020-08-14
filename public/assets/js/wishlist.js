@@ -86,7 +86,8 @@ function FillWishlist() {
           wish["image"],
           wish["title"],
           wish["author"],
-          wish["price"]
+          wish["price"],
+          wish["genre"]
         );
       }
     });
@@ -407,6 +408,11 @@ addToWishlistHeartIconLink.forEach(function (element) {
             priceForTheBook = eleme.innerText;
           }
         }
+        if (eleme.tagName === "P") {
+          if (eleme.classList.contains("classif")) {
+            genreForTheBook = eleme.innerText;
+          }
+        }
       });
 
       let shouldIAddToWishlist = true;
@@ -486,6 +492,7 @@ addToWishlistHeartIconLink.forEach(function (element) {
           author: authorForTheBook,
           price: priceForTheBook,
           image: srcOfBookImage,
+          genre: genreForTheBook,
         };
 
         ARRAYOFWISHLISTBOOKS.push(newItem);
@@ -518,7 +525,8 @@ addToWishlistHeartIconLink.forEach(function (element) {
           srcOfBookImage,
           titleForTheBook,
           authorForTheBook,
-          priceForTheBook
+          priceForTheBook,
+          genreForTheBook
         );
 
         icon.style.color = "red";
@@ -621,7 +629,8 @@ function CreateWishlistItem(
   infoSrcImage,
   infoTitle,
   infoAuthor,
-  infoPrice
+  infoPrice,
+  infoGenre
 ) {
   const wishlistTableRow = document.createElement("tr");
   wishlistTableRow.classList.add("wishlistItem");
@@ -685,12 +694,18 @@ function CreateWishlistItem(
   hiddenForIdBook.setAttribute("style", "display:none;");
   hiddenForIdBook.innerHTML = infoIdBook;
 
+  const hiddenForGenreBook = document.createElement("div");
+  hiddenForGenreBook.classList.add("bookGenreDiv");
+  hiddenForGenreBook.setAttribute("style", "display:none;");
+  hiddenForGenreBook.innerHTML = infoGenre;
+
   wishlistTableRow.appendChild(imageTableData);
   wishlistTableRow.appendChild(titleAndAuthorTableData);
   wishlistTableRow.appendChild(priceTableData);
   wishlistTableRow.appendChild(AddToCartButtonTableData);
   wishlistTableRow.appendChild(removeWishlistItemTableData);
   wishlistTableRow.appendChild(hiddenForIdBook);
+  wishlistTableRow.appendChild(hiddenForGenreBook);
 
   AppendItemToWishlist(wishlistTableRow);
 }

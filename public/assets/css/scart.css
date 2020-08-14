@@ -110,6 +110,7 @@ ul.shopping-cart-items li {
   width: 70px;
   height: 80px;
   border-radius: 5px;
+  align-self: center;
 }
 
 .shopping-cart .shopping-cart-items .item-price {

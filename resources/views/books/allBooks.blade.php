@@ -49,14 +49,14 @@
   <div id="blankPaddingAllBooks"></div>
 
   <div id="booksContainer" class="container">
-  @if (session('noResults'))
-   <div class="alert alert-info" role="alert">
-    {{ session('noResults') }}
+    @if (session('noResults'))
+    <div class="alert alert-info" role="alert">
+      {{ session('noResults') }}
     </div>
-  @endif
+    @endif
     <!-- Card deck -->
     <div id="booksCardDeck" class="card-deck">
-    
+
       @foreach($books as $key => $value)
       <!-- Card -->
       <div class="card mb-4">
@@ -83,6 +83,7 @@
           <h4 class="card-title">{{ $value->name }}</h4>
           <!--Text-->
           <p class="card-text c-a"><small>by</small> {{ $value->author }}</p>
+          <p class="card-text classif">{{ $classifications->where('id', '=', $value->classifId)->first()->name }}</p>
           <p class="card-text c-p">${{ $value->price }}</p>
           <div class="bookIdDiv" style="display:none;">{{ $value->id }}</div>
 
@@ -107,7 +108,7 @@
     <!-- Card deck -->
 
     <div id="allBooksPaginatorDiv" class="d-flex justify-content-center">
-    {{$books->links()}}
+      {{$books->links()}}
     </div>
 
   </div>

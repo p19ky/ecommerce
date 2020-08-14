@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+<nav id="myMainNavbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
   <div id="navContainer" class="container">
 
     <!-- Brand -->
@@ -10,7 +10,7 @@
     <!-- Search -->
     <div class="s130">
       <form action="{{ route('allBooks') }}" method="POST" role="search">
-      {{ csrf_field() }}
+        {{ csrf_field() }}
         <div class="inner-form">
           <div class="input-field first-wrap">
             <div class="svg-wrapper">
