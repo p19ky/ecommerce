@@ -72,27 +72,15 @@
             <input type="text" name="bookAuthor" id="bookAuthor" class="form-control" placeholder="Author">
         </div>
     </div>
-    <!--div class="form-row mb-4">
-    < Description >
-    <div class="col">
-    <textarea rows=6 type="text" name="bookDescription" id="bookDescription" class="form-control" placeholder="Description" name="description"></textarea>
-    </div>
-    < Details - Publisher, author etc >
-    <div class="col">
-    <textarea rows=6 type="text" name="bookDetails" id="bookDetails" class="form-control" placeholder="Details" name="details"></textarea>
-    </div>
-    </div -->
     <div class="form-row mb-4">
     <div class="col">
             <!-- Book Genre -->
-            <!--div class="form-group"-->
           <select class="form-control" name="bookGenre" id="bookGenre">
             <option disabled="disabled" selected="selected">Genre</option>
            @foreach($genres as $genre)
            <option id="{{ $genre->id }} " value="{{ $genre->id }}">{{ $genre->name }}</option>
            @endforeach
           </select>
-            <!--/div-->
     </div>
         <div class="col">
             <!-- Picture -->
@@ -108,8 +96,16 @@
             <!-- Quantity -->
             <input type="number" name="bookQuantity" id="bookQuantity" class="form-control" placeholder="Quantity">
         </div>
+        <div class="col">
+        <input type="text" name="bookLanguage" id="bookLanguage" class="form-control" placeholder="Language">
+        </div>
     </div>
-
+    <div class="form-row mb-4">
+     
+      <div class="col">
+      <textarea rows=5 type="text" name="bookDescription" id="bookDescription" class="form-control" placeholder="Description"></textarea>
+      </div>
+    </div>
     
     <!-- Add to db button -->
     <button class="btn btn-info my-4 btn-block" type="submit">Add Book</button>

@@ -101,7 +101,7 @@
             <div id="moreDropdownMenu" class="dropdown-menu dropdown-primary fade">
 
               <!-- Advanced Search -->
-              <a class="dropdown-item nav-link" data-toggle="modal" data-target="#advancedSearchModal"><span id="advancedSearchSpan">
+              <a class="drosspdown-item nav-link" data-toggle="modal" data-target="#advancedSearchModal"><span id="advancedSearchSpan">
                   Advanced Search <i class="fas fa-search-plus"></i></span></a>
 
               <!-- Wishlist -->
