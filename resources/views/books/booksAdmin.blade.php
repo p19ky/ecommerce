@@ -72,6 +72,7 @@
       <th scope="col">Price</th>
       <th scope="col">Quantity</th>
       <th scope="col">Description</th>
+      <th scope="col">Language</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -86,6 +87,7 @@
       <td>{{$book->price}}</td>
       <td>{{$book->quantity}}</td>
       <td>{{$book->description}}</td>
+      <td> {{ $book->language }} </td>
       <td width="20%">
       
       <a class="btn btn-raised btn-primary btn-sm" href="{{ route('editB', $book->id)}}"><i class="fa fa-edit" aria-hidden="true"></i>

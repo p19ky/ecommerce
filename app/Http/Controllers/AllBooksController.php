@@ -20,13 +20,54 @@ class AllBooksController extends Controller
     {
 
         $books = new Books;
+        $booksCopy = new Books;
         $classifications = Classification::All();
-
         $queries = [];
 
+        /**advanced search
+         * checking if field is empty. if not -> filter
+         */
+
+        // daca avem titlu
+        if (request()->filled('titleInput')) {
+            $title = request('titleInput');
+            $books = $books->where('name', 'LIKE', '%' . $title . '%');
+            $queries['titleInput'] = request('titleInput');
+        }
+
+        // daca avem autor
+        if (request()->filled('authorInput')) {
+            $author = request('authorInput');
+            $books = $books->where('author', 'LIKE', '%' . $author . '%');
+            $queries['authorInput'] = request('authorInput');
+        }
+
+        // daca avem language
+        if (request()->filled('languageInput')) {
+            $language = request('languageInput');
+            $books = $books->where('language', 'LIKE', '%' . $language . '%');
+            $queries['languageInput'] = request('languageInput');
+        }
+
+        // .. tags
+        if (request()->filled('tagsInput')) {
+            $tags = request('tagsInput');
+            $books = $books->where('name', 'LIKE', '%' . $tags . '%')->orWhere('description', 'LIKE', '%' . $tags . '%')->orWhere('author', 'LIKE', '%' . $tags . '%');
+            $queries['tagsInput'] = request('tagsInput');
+        }
+
+        // genres
+        if (request()->filled('genreSelect')) {
+            $genre = request('genreSelect');
+            $books = $books->where('classifId', 'LIKE', '%' . $genre . '%');
+            $queries['genreSelect'] = request('genreSelect');
+        }
+        /** end advanced search */
+
+        /** main search */
         if (request()->filled('main_search')) {
             $keyword = request('main_search');
-            $books = $books->where('name', 'LIKE', '%' . $keyword . '%');
+            $books = $books->where('name', 'LIKE', '%' . $keyword . '%')->orWhere('author', 'LIKE', '%' . $keyword . '%');
             $queries['main_search'] = request('main_search');
         }
 
@@ -48,7 +89,14 @@ class AllBooksController extends Controller
 
         $books = $books->paginate(10)->appends($queries);
 
-        return view('books/allBooks', compact('books', 'classifications'));
+        //if($booksCopy!=$books){
+        return view('books/allBooks')->with('books', $books)->with('queries', $queries)->with('searchMsg', '')->with('classifications', $classifications);
+        //  }
+        //    else {
+        //        $searchMsg='';
+        //        return redirect(route('allBooks'))->with('noResults', 'Sorry, no results. Try searching again.');
+        //        }
+
     }
 
 
@@ -101,7 +149,7 @@ class AllBooksController extends Controller
             'bookName' => 'required',
             'bookAuthor' => 'required',
             // 'bookDescription' => 'required',
-            //'bookDetails' => 'required',
+            //'bookLanguage' => 'required',
             'bookGenre' => 'required',
             'bookPicture' => 'required',
             'bookPrice' => 'required',
@@ -113,7 +161,7 @@ class AllBooksController extends Controller
         $book->name = $request->bookName;
         $book->author = $request->bookAuthor;
         $book->description = $request->bookDescription;
-        $book->language = $request->bookDetails;
+        $book->language = $request->bookLanguage;
         $book->picture = $request->bookPicture;
         $book->price = $request->bookPrice;
         $book->quantity = $request->bookQuantity;
@@ -177,7 +225,7 @@ class AllBooksController extends Controller
         $book->name = $request->bookName;
         $book->author = $request->bookAuthor;
         $book->description = $request->bookDescription;
-        $book->details = $request->bookDetails;
+        $book->language = $request->bookLanguage;
         $book->picture = $request->bookPicture;
         $book->price = $request->bookPrice;
         $book->quantity = $request->bookQuantity;

@@ -49,9 +49,22 @@
   <div id="blankPaddingAllBooks"></div>
 
   <div id="booksContainer" class="container">
+
     @if (session('noResults'))
     <div class="alert alert-info" role="alert">
       {{ session('noResults') }}
+    </div>
+    @endif
+    @if(!empty($searchMsg))
+    <div class="alert alert-info" role="alert">
+      {{ $searchMsg }}
+      <table>
+        <tr>
+          @foreach ($queries as $query)
+          <td>{{$query}}</td>
+          @endforeach
+        </tr>
+        <table>
     </div>
     @endif
     <!-- Card deck -->

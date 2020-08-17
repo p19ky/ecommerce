@@ -26,6 +26,15 @@ class GenreController extends Controller
 
     }
 
+
+    /** genre getter */
+
+    public function getGenre()
+    {
+        $genres = Classification::all();
+        return view('layouts/modals', compact('genres'));
+    }
+
 /** displays the input form in order to add a genre to the database */
     public function displayTable(){
         return view('genres/createGenre');
