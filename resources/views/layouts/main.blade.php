@@ -18,6 +18,7 @@
   <!-- Material Design Bootstrap -->
   <link href="{{  URL::asset('/mdb/css/mdb.min.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <!-- Your custom styles (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{  URL::asset('/assets/css/bootstrap-multiselect.css') }}?v=<?php echo time(); ?>" type="text/css" />
   <link href="{{  URL::asset('/assets/css/style.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/navbar.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
@@ -29,10 +30,11 @@
   <link href="{{  URL::asset('/assets/css/contact.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/allBooks.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/checkoutShcart.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+  <link href="{{  URL::asset('/assets/css/allGenres.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 
 </head>
 
-<body style="margin:auto 25px;">
+<body>
 
   <!-- Start your project here-->
   @include('layouts.navbar')
@@ -54,6 +56,7 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="{{  URL::asset('/mdb/js/mdb.min.js') }}?v=<?php echo time(); ?>"></script>
   <!-- Your custom scripts (optional) -->
+  <script type="text/javascript" src="{{  URL::asset('/assets/js/home.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/navScript.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/searchModal.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/genreSelect.js') }}?v=<?php echo time(); ?>"></script>

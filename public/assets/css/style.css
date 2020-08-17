@@ -1,7 +1,3 @@
-#mainBody {
-  margin-top: 100px;
-}
-
 footer {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
@@ -18,4 +14,66 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin: auto 25px;
+}
+
+.parallax-empty-book {
+  /* The image used */
+  background-image: url("empty-book.png");
+
+  /* Set a specific height */
+  height: 800px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#fillUpWithDiv {
+  background: transparent;
+  font-family: "Pangolin", cursive;
+  height: 125px;
+  font-size: 36px;
+  position: relative;
+  opacity: 1;
+}
+
+#fillUpWithDiv:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://www.bookster.ro/landing/img/books-tapet.jpg");
+  opacity: 0.5;
+}
+
+#fillUpWithDivTitle {
+  position: relative;
+  padding-top: 38px;
+  /* font-weight: bold; */
+}
+
+#homepageContentContainer {
+  margin: auto 25px;
+}
+
+.groupOfCardsTitle {
+  height: 125px;
+  font-family: "Pangolin", cursive;
+  font-size: 36px;
+  align-self: center;
+}
+
+.genreCardDeck {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.randomBooksCardDeck {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }

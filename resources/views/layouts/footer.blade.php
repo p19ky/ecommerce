@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4">
+<footer id="mainFooter" class="page-footer font-small blue pt-4">
   <!-- add sticky-bottom class the "footer" element if footer isn't fixed to bottom of website-->
 
   <!-- Footer Links -->

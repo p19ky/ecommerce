@@ -95,12 +95,12 @@
       </div>
       <div class="modal-body">
         <div class="container">
-        <form class="" name="advancedSearchModal" id="advancedSearchModal" action="{{route('allBooks')}}" method="POST">
-         {{ csrf_field() }}
-          <div class="row">
-            <div class="col-1"></div>
-            <div class="col-10">
-            
+          <form class="" name="advancedSearchModalForm" id="advancedSearchModalForm" action="{{route('allBooks')}}" method="POST">
+            {{ csrf_field() }}
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-10">
+
                 <!-- Title -->
                 <div class="md-form">
                   <input type="text" id="titleInput" name="titleInput" class="form-control advSearchInput">
@@ -141,28 +141,28 @@
                   <div class="col-4" id="genreSelectContainer">
                     <h5>Select Genre:</h5>
                     @php
-                     use App\Classification;
-                      $genres = Classification::all();
+                    use App\Classification;
+                    $genres = Classification::all();
                     @endphp
-                <select class="form-control advSearchInput" id="genreSelect" name="genreSelect">
-                <option value="" disabled="disabled" selected="selected">Choose...</option>
-                @foreach($genres as $genre)
-                <option value="{{ $genre->id}}">{{$genre->name}}</option>
-                @endforeach
-                </select>
+                    <select class="form-control advSearchInput" id="genreSelect" name="genreSelect">
+                      <option value="" disabled="disabled" selected="selected">Choose...</option>
+                      @foreach($genres as $genre)
+                      <option value="{{ $genre->id}}">{{$genre->name}}</option>
+                      @endforeach
+                    </select>
                   </div>
                   <div class="col-4"></div>
                 </div>
-             
-            <div class="col-1"></div>
-          </div>
+
+                <div class="col-1"></div>
+              </div>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer d-flex justify-content-between">
-        <!-- data-dismiss="modal"  -  am sters de la butoane-->
-        <button id="modalCancelButton" type="button" class="btn" data-dismiss="modal">Cancel</button>
-        <button id="modalSearchButton" type="submit" class="btn" >Search</button>
-        </form>
+        <div class="modal-footer d-flex justify-content-between">
+          <!-- data-dismiss="modal"  -  am sters de la butoane-->
+          <button id="modalCancelButton" type="button" class="btn" data-dismiss="modal">Cancel</button>
+          <button id="modalSearchButton" type="submit" class="btn">Search</button>
+          </form>
         </div>
       </div>
     </div>
