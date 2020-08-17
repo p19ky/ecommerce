@@ -50,6 +50,25 @@
 
   <div id="booksContainer" class="container">
 
+  <form action="{{ route('allBooks') }}" method="get">
+    {{ csrf_field() }}
+    <div class="d-flex" style="float:right; position:relative;">
+    <table>
+    <tr><td style="font-size:100%;">Sort Books: </td>
+    <td>
+        <select class="btn white-text defaultGradientButton" name="sortBooks" id="sortBooks" onchange="this.form.submit();" value="Sort Books">
+        <option style="color:black;" name="0" id="0" value="0">Books from A-Z</option></button>
+        <option style="color:black;" name="1" id="1" value="1">Authors from A-Z</option> 
+        <option style="color:black;" name="2" id="2" value="2">Price: Low to High</option> 
+        <option style="color:black;" name="3" id="3" value="3">Price: High to Low</option> 
+        </select>
+      </td>
+      </tr>
+      </table>
+    </div>
+</form>
+  <br><br><br>
+
     @if (session('noResults'))
     <div class="alert alert-info" role="alert">
       {{ session('noResults') }}
@@ -69,7 +88,7 @@
     @endif
     <!-- Card deck -->
     <div id="booksCardDeck" class="card-deck">
-
+    
       @foreach($books as $key => $value)
       <!-- Card -->
       <div class="card mb-4">
@@ -91,6 +110,7 @@
 
         <!--Card content-->
         <div class="card-body">
+        
 
           <!--Title-->
           <h4 class="card-title">{{ $value->name }}</h4>

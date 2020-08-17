@@ -19,10 +19,32 @@ class AllBooksController extends Controller
     public function index()
     {
 
-        $books = new Books;
-        $booksCopy = new Books;
+        $books = new Books;    
         $classifications = Classification::All();
         $queries = [];
+        $sortingOption = 0;
+
+        /**
+         * sortari
+         */
+        // books from A-Z - default Sort
+        if (request()->filled('sortBooks')) {
+         $sortingOption=request('sortBooks');
+            if ($sortingOption == 0){
+                 $books=$books->orderBy('name');
+            }
+            if ($sortingOption == 1){
+                $books=$books->orderBy('author');
+           }
+           if ($sortingOption == 2){
+            $books=$books->orderBy('price');
+          }
+          if ($sortingOption == 3){
+            $books=$books->orderBy('price', 'desc');
+          }
+    
+         }
+       
 
         /**advanced search
          * checking if field is empty. if not -> filter
