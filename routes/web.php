@@ -33,6 +33,10 @@ Route::get('/editG/{id}', 'GenreController@edit')->name('editG');             //
 Route::post('/updateG/{id}', 'GenreController@update')->name('updateG');       // update genre page
 Route::delete('/delete/{id}', 'GenreController@delete')->name('deleteG');       // delete genre route
 
+// genres route for the advanced search
+//Route::get('/', 'GenreController@getGenre')->name('adS');
+
+
 // books
 Route::get('/books', 'AllBooksController@indexAdmin')->name('books');      // books page - ADMIN
 Route::any('/allBooks', 'AllBooksController@index')->name('allBooks');    //  books page - USER

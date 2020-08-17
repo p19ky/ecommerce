@@ -5,9 +5,10 @@ const shcartPrices = document.getElementsByClassName("item-price");
 const shcartQuantities = document.getElementsByClassName("item-quantity");
 const shcartBadge = document.getElementById("shcartBadge");
 
-if (document.body.contains(document.getElementById("shcartCheckout"))) {
-  let URL = document.getElementById("shcartCheckout").getAttribute("onclick");
-  currentUserId = URL.replace(/^\D+/g, "");
+if (document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
+  // let URL = document.getElementById("shcartCheckout").getAttribute("onclick");
+  // currentUserId = URL.replace(/^\D+/g, "");
+  currentUserId = document.getElementById("hiddenCheckForAuth").innerHTML;
 }
 
 let ARRAYOFBOOKSINSHCART = [];
@@ -72,7 +73,8 @@ function fillShcart() {
       bookie["titleBook"],
       bookie["authorBook"],
       bookie["priceBook"],
-      bookie["quantityBook"]
+      bookie["quantityBook"],
+      bookie["genreBook"]
     );
   });
 }
@@ -197,6 +199,20 @@ function CheckIfShcartEmpty() {
 
 CheckIfShcartEmpty();
 
+function CheckHeightImage() {
+  document.getElementById("shoppingCartItems").childNodes.forEach((child) => {
+    if (child.clientHeight > 95) {
+      child.childNodes.forEach((youngster) => {
+        if (youngster.tagName === "IMG") {
+          youngster.setAttribute("style", "margin-top:7px;");
+        }
+      });
+    }
+  });
+}
+
+CheckHeightImage();
+
 addToCartButtons = document.getElementsByClassName("addToCartMainClass");
 
 $(".addToCartMainClass").click(function () {
@@ -222,6 +238,11 @@ $(".addToCartMainClass").click(function () {
           if (element.tagName === "DIV") {
             if (element.classList.contains("bookIdDiv")) {
               infoAboutBookId = element.innerHTML;
+            }
+          }
+          if (element.tagName === "P") {
+            if (element.classList.contains("classif")) {
+              infoAboutGenre = element.innerHTML;
             }
           }
         });
@@ -254,6 +275,7 @@ $(".addToCartMainClass").click(function () {
       authorBook: infoAboutAuthor,
       priceBook: infoAboutPrice,
       quantityBook: "Quantity: 1",
+      genreBook: infoAboutGenre,
     });
 
     ARRAYOFUSERSWITHSHOPPINGCART.forEach((person) => {
@@ -271,17 +293,38 @@ $(".addToCartMainClass").click(function () {
       JSON.stringify(ARRAYOFUSERSWITHSHOPPINGCART)
     );
 
+    if (
+      document.body.contains(document.getElementById("checkoutShcartBookslist"))
+    ) {
+      $("#totalFromCheckoutShcart").remove();
+      CreateCheckoutShcartItem(
+        infoAboutBookId,
+        infoAboutImage,
+        infoAboutTitle,
+        infoAboutAuthor,
+        infoAboutPrice,
+        infoAboutGenre,
+        "Quantity: 1"
+      );
+      AppendTotalToCheckoutShcart();
+      CalculateTotalCheckoutShcart();
+      CalculateBadgeCheckoutShcart();
+      RefreshRemAddDel();
+    }
+
     createNewShcartItem(
       infoAboutBookId,
       infoAboutImage,
       infoAboutTitle,
       infoAboutAuthor,
       infoAboutPrice,
-      "Quantity: 1"
+      "Quantity: 1",
+      infoAboutGenre
     );
     CalculateShoppingCartTotal();
     CalculateShcartBadge();
     CheckIfShcartEmpty();
+    CheckHeightImage();
 
     // console.log(Object.entries(localStorage));
 
@@ -310,10 +353,12 @@ function ReloadDeleteAndRemAndAdd() {
     ).onclick = function () {
       localEvent.preventDefault();
 
+      let RemovedItem = "";
+
       localThis.parentElement.childNodes.forEach((el) => {
         if (el.tagName === "SPAN") {
           if (el.classList.contains("hiddenBookIdSpan")) {
-            let RemovedItem = el.innerHTML;
+            RemovedItem = el.innerHTML;
 
             ARRAYOFBOOKSINSHCART.forEach((dog) => {
               if ("idBook" in dog) {
@@ -346,6 +391,19 @@ function ReloadDeleteAndRemAndAdd() {
 
       $(localThis).closest(".shcart-item").remove();
 
+      document
+        .getElementById("checkoutShcartBookslist")
+        .childNodes.forEach((list) => {
+          if (list.tagName === "LI") {
+            if ($(list).find(".bookIdDiv").text() === RemovedItem) {
+              $(list).remove();
+
+              CalculateBadgeCheckoutShcart();
+              CalculateTotalCheckoutShcart();
+            }
+          }
+        });
+
       CalculateShoppingCartTotal();
       CalculateShcartBadge();
       CheckIfShcartEmpty();
@@ -361,6 +419,11 @@ function ReloadDeleteAndRemAndAdd() {
   function RemoveQuantity(e) {
     e.preventDefault();
 
+    let curBookId = $(this)
+      .closest(".shcart-item")
+      .find(".hiddenBookIdSpan")
+      .text();
+
     let currentQuantity = $(this)
       .closest(".shcart-item")
       .find(".item-quantity")
@@ -371,10 +434,7 @@ function ReloadDeleteAndRemAndAdd() {
 
       ARRAYOFBOOKSINSHCART.forEach((bookero) => {
         if ("idBook" in bookero) {
-          if (
-            bookero["idBook"] ===
-            $(this).closest(".shcart-item").find(".hiddenBookIdSpan").text()
-          ) {
+          if (bookero["idBook"] === curBookId) {
             bookero["quantityBook"] =
               "Quantity: " + quantityAfterRemQuan.toString();
           }
@@ -403,6 +463,29 @@ function ReloadDeleteAndRemAndAdd() {
       CalculateShoppingCartTotal();
       CalculateShcartBadge();
       CheckIfShcartEmpty();
+
+      if (
+        document.body.contains(
+          document.getElementById("checkoutShcartBookslist")
+        )
+      ) {
+        document
+          .getElementById("checkoutShcartBookslist")
+          .childNodes.forEach((rowFromCheckoutCart) => {
+            if (rowFromCheckoutCart.tagName === "LI") {
+              if (
+                $(rowFromCheckoutCart).find(".bookIdDiv").text() === curBookId
+              ) {
+                $(rowFromCheckoutCart)
+                  .find(".checkoutShcartItemQuantity")
+                  .text("Quantity: " + quantityAfterRemQuan.toString());
+
+                CalculateBadgeCheckoutShcart();
+                CalculateTotalCheckoutShcart();
+              }
+            }
+          });
+      }
     }
     showShoppingCart();
   }
@@ -414,6 +497,11 @@ function ReloadDeleteAndRemAndAdd() {
   function AddQuantity(e) {
     e.preventDefault();
 
+    let curBookId = $(this)
+      .closest(".shcart-item")
+      .find(".hiddenBookIdSpan")
+      .text();
+
     let currentQuantity = $(this)
       .closest(".shcart-item")
       .find(".item-quantity")
@@ -422,10 +510,7 @@ function ReloadDeleteAndRemAndAdd() {
 
     ARRAYOFBOOKSINSHCART.forEach((bookeros) => {
       if ("idBook" in bookeros) {
-        if (
-          bookeros["idBook"] ===
-          $(this).closest(".shcart-item").find(".hiddenBookIdSpan").text()
-        ) {
+        if (bookeros["idBook"] === curBookId) {
           bookeros["quantityBook"] =
             "Quantity: " + quantityAfterAddQuan.toString();
         }
@@ -455,6 +540,28 @@ function ReloadDeleteAndRemAndAdd() {
     CalculateShoppingCartTotal();
     CalculateShcartBadge();
     CheckIfShcartEmpty();
+
+    if (
+      document.body.contains(document.getElementById("checkoutShcartBookslist"))
+    ) {
+      document
+        .getElementById("checkoutShcartBookslist")
+        .childNodes.forEach((rowFromCheckoutCart) => {
+          if (rowFromCheckoutCart.tagName === "LI") {
+            if (
+              $(rowFromCheckoutCart).find(".bookIdDiv").text() === curBookId
+            ) {
+              $(rowFromCheckoutCart)
+                .find(".checkoutShcartItemQuantity")
+                .text("Quantity: " + quantityAfterAddQuan.toString());
+
+              CalculateBadgeCheckoutShcart();
+              CalculateTotalCheckoutShcart();
+            }
+          }
+        });
+    }
+
     showShoppingCart();
   }
 
@@ -471,7 +578,8 @@ function createNewShcartItem(
   dataAboutTitle,
   dataAboutAuthor,
   dataAboutPrice,
-  dataAboutQuantity
+  dataAboutQuantity,
+  dataAboutGenre
 ) {
   const mainListItem = document.createElement("li");
   mainListItem.classList.add("shcart-item");
@@ -533,7 +641,13 @@ function createNewShcartItem(
   const bookHiddenQuantity = document.createElement("div");
   bookHiddenQuantity.classList.add("hiddenBookQuantityDiv");
   bookHiddenQuantity.setAttribute("style", "display:none;");
-  bookHiddenQuantity.innerHTML = dataAboutAuthor;
+  bookHiddenQuantity.innerHTML = dataAboutQuantity;
+
+  //Book Genre hidden Div
+  const bookHiddenGenre = document.createElement("div");
+  bookHiddenGenre.classList.add("hiddenBookGenreDiv");
+  bookHiddenGenre.setAttribute("style", "display:none;");
+  bookHiddenGenre.innerHTML = dataAboutGenre;
 
   mainListItem.append(deleteSpan, bookImage);
   mainListItem.appendChild(bookTitle);
@@ -543,6 +657,7 @@ function createNewShcartItem(
   mainListItem.appendChild(bookHiddenId);
   mainListItem.appendChild(bookHiddenAuthor);
   mainListItem.appendChild(bookHiddenQuantity);
+  mainListItem.appendChild(bookHiddenGenre);
 
   document.getElementById("shoppingCartItems").appendChild(mainListItem);
 }
@@ -592,6 +707,7 @@ function reloadWishlistAddToCartButton() {
           let iBookTitle = "";
           let iBookAuthor = "";
           let iBookPrice = "";
+          let iBookGenre = "";
 
           this.parentElement.parentElement.childNodes.forEach((dataRow) => {
             if (dataRow.tagName === "TD") {
@@ -621,6 +737,11 @@ function reloadWishlistAddToCartButton() {
                 iBookId = dataRow.innerHTML;
               }
             }
+            if (dataRow.tagName === "DIV") {
+              if (dataRow.classList.contains("bookGenreDiv")) {
+                iBookGenre = dataRow.innerHTML;
+              }
+            }
           });
 
           if (!CheckIfBookAlreadyInCart(iBookId)) {
@@ -633,6 +754,7 @@ function reloadWishlistAddToCartButton() {
               authorBook: iBookAuthor,
               priceBook: iBookPrice,
               quantityBook: "Quantity: 1",
+              genreBook: iBookGenre,
             });
 
             ARRAYOFUSERSWITHSHOPPINGCART.forEach((person) => {
@@ -650,17 +772,40 @@ function reloadWishlistAddToCartButton() {
               JSON.stringify(ARRAYOFUSERSWITHSHOPPINGCART)
             );
 
+            if (
+              document.body.contains(
+                document.getElementById("checkoutShcartBookslist")
+              )
+            ) {
+              $("#totalFromCheckoutShcart").remove();
+              CreateCheckoutShcartItem(
+                iBookId,
+                iBookImage,
+                iBookTitle,
+                iBookAuthor,
+                iBookPrice,
+                iBookGenre,
+                "Quantity: 1"
+              );
+              AppendTotalToCheckoutShcart();
+              CalculateTotalCheckoutShcart();
+              CalculateBadgeCheckoutShcart();
+              RefreshRemAddDel();
+            }
+
             createNewShcartItem(
               iBookId,
               iBookImage,
               iBookTitle,
               iBookAuthor,
               iBookPrice,
-              "Quantity: 1"
+              "Quantity: 1",
+              iBookGenre
             );
             CalculateShoppingCartTotal();
             CalculateShcartBadge();
             CheckIfShcartEmpty();
+            CheckHeightImage();
 
             // console.log(Object.entries(localStorage));
 

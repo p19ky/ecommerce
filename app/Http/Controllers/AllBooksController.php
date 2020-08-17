@@ -20,13 +20,54 @@ class AllBooksController extends Controller
     {
 
         $books = new Books;
+        $booksCopy = new Books;
         $classifications = Classification::All();
-
         $queries = [];
 
+        /**advanced search
+         * checking if field is empty. if not -> filter
+         */
+
+        // daca avem titlu
+        if (request()->filled('titleInput')) {
+            $title = request('titleInput');
+            $books = $books->where('name', 'LIKE', '%' . $title . '%');
+            $queries['titleInput'] = request('titleInput');
+        }
+
+        // daca avem autor
+        if (request()->filled('authorInput')) {
+            $author = request('authorInput');
+            $books = $books->where('author', 'LIKE', '%' . $author . '%');
+            $queries['authorInput'] = request('authorInput');
+        }
+
+        // daca avem language
+        if (request()->filled('languageInput')) {
+            $language = request('languageInput');
+            $books = $books->where('language', 'LIKE', '%' . $language . '%');
+            $queries['languageInput'] = request('languageInput');
+        }
+
+        // .. tags
+        if (request()->filled('tagsInput')) {
+            $tags = request('tagsInput');
+            $books = $books->where('name', 'LIKE', '%' . $tags . '%')->orWhere('description', 'LIKE', '%' . $tags . '%')->orWhere('author', 'LIKE', '%' . $tags . '%');
+            $queries['tagsInput'] = request('tagsInput');
+        }
+
+        // genres
+        if (request()->filled('genreSelect')) {
+            $genre = request('genreSelect');
+            $books = $books->where('classifId', 'LIKE', '%' . $genre . '%');
+            $queries['genreSelect'] = request('genreSelect');
+        }
+        /** end advanced search */
+
+        /** main search */
         if (request()->filled('main_search')) {
-            $keyword=request('main_search');
-            $books = $books->where('name', 'LIKE', '%' .$keyword. '%');
+            $keyword = request('main_search');
+            $books = $books->where('name', 'LIKE', '%' . $keyword . '%')->orWhere('author', 'LIKE', '%' . $keyword . '%');
             $queries['main_search'] = request('main_search');
         }
 
@@ -48,8 +89,14 @@ class AllBooksController extends Controller
 
         $books = $books->paginate(10)->appends($queries);
 
-        return view('books/allBooks', compact('books'));
-        
+        //if($booksCopy!=$books){
+        return view('books/allBooks')->with('books', $books)->with('queries', $queries)->with('searchMsg', '')->with('classifications', $classifications);
+        //  }
+        //    else {
+        //        $searchMsg='';
+        //        return redirect(route('allBooks'))->with('noResults', 'Sorry, no results. Try searching again.');
+        //        }
+
     }
 
 
@@ -58,12 +105,12 @@ class AllBooksController extends Controller
 
     public function indexAdmin()
     {
-    
+
         $books = Books::with('classification')->get();  // fetching all the data from the Books table
         return view('books/booksAdmin', compact('books'));
     }
 
-     /**
+    /**
      * function to get all the genres and display their names in the select box
      *  (+ input table)
      */
@@ -71,9 +118,9 @@ class AllBooksController extends Controller
 
     public function displayTable()
     {
-       // $genres = Classification::all();
-       $genres = Classification::orderBy('name')->get();  
-       return view('books.addBook', compact('genres'));
+        // $genres = Classification::all();
+        $genres = Classification::orderBy('name')->get();
+        return view('books.addBook', compact('genres'));
     }
 
 
@@ -101,8 +148,8 @@ class AllBooksController extends Controller
         $this->validate($request, array(
             'bookName' => 'required',
             'bookAuthor' => 'required',
-           // 'bookDescription' => 'required',
-            //'bookDetails' => 'required',
+            // 'bookDescription' => 'required',
+            //'bookLanguage' => 'required',
             'bookGenre' => 'required',
             'bookPicture' => 'required',
             'bookPrice' => 'required',
@@ -114,7 +161,7 @@ class AllBooksController extends Controller
         $book->name = $request->bookName;
         $book->author = $request->bookAuthor;
         $book->description = $request->bookDescription;
-        $book->language = $request->bookDetails;
+        $book->language = $request->bookLanguage;
         $book->picture = $request->bookPicture;
         $book->price = $request->bookPrice;
         $book->quantity = $request->bookQuantity;
@@ -144,9 +191,9 @@ class AllBooksController extends Controller
      */
     public function edit($id)
     {
-        
-       // $books = Books::with('classification')->get();  // fetching all the data from the Books table
-       
+
+        // $books = Books::with('classification')->get();  // fetching all the data from the Books table
+
         $book = Books::find($id);
         $genres = Classification::all();
         return view('books/editBook', compact('book', 'genres'));
@@ -161,40 +208,40 @@ class AllBooksController extends Controller
      */
     public function update(Request $request, $id)
     {
-       //validam datele de intrare
-       $this->validate($request, array(
-        'bookName' => 'required',
-        'bookAuthor' => 'required',
-       // 'bookDescription' => 'required',
-        //'bookDetails' => 'required',
-        'bookGenre' => 'required',
-        'bookPicture' => 'required',
-        'bookPrice' => 'required',
-        'bookQuantity' => 'required'
-    ));
+        //validam datele de intrare
+        $this->validate($request, array(
+            'bookName' => 'required',
+            'bookAuthor' => 'required',
+            // 'bookDescription' => 'required',
+            //'bookDetails' => 'required',
+            'bookGenre' => 'required',
+            'bookPicture' => 'required',
+            'bookPrice' => 'required',
+            'bookQuantity' => 'required'
+        ));
 
         $book = Books::find($id);
 
         $book->name = $request->bookName;
         $book->author = $request->bookAuthor;
         $book->description = $request->bookDescription;
-        $book->language = $request->bookDetails;
+        $book->language = $request->bookLanguage;
         $book->picture = $request->bookPicture;
         $book->price = $request->bookPrice;
         $book->quantity = $request->bookQuantity;
         $book->classifId = $request->bookGenre;
         $book->save();
 
- 
-        return redirect(route('books'))->with('successMsg','Book successfully updated'); 
+
+        return redirect(route('books'))->with('successMsg', 'Book successfully updated');
     }
 
 
 
     public function delete($id)
     {
-      Books::find($id)->delete(); 
-      return redirect(route('books'))->with('successMsg','Book successfully deleted');   
+        Books::find($id)->delete();
+        return redirect(route('books'))->with('successMsg', 'Book successfully deleted');
     }
 
 

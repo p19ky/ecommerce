@@ -22,6 +22,8 @@ function navbarLinksResizer() {
   }
 }
 
+navbarLinksResizer();
+
 $('[data-toggle="tooltip"]').tooltip({
   template:
     '<div class="tooltip tooltip-custom"><div class="title"></div><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
@@ -43,3 +45,15 @@ function skewer() {
 document
   .getElementById("collapsedToggleButton")
   .addEventListener("click", skewer);
+
+function CheckifWindowScrolled() {
+  if (window.scrollY > 0) {
+    document.getElementById("myMainNavbar").classList.add("top-nav-collapse");
+  } else {
+    document
+      .getElementById("myMainNavbar")
+      .classList.remove("top-nav-collapse");
+  }
+}
+
+CheckifWindowScrolled();

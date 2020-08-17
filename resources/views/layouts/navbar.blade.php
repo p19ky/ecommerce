@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+<nav id="myMainNavbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
   <div id="navContainer" class="container">
 
     <!-- Brand -->
@@ -10,7 +10,7 @@
     <!-- Search -->
     <div class="s130">
       <form action="{{ route('allBooks') }}" method="POST" role="search">
-      {{ csrf_field() }}
+        {{ csrf_field() }}
         <div class="inner-form">
           <div class="input-field first-wrap">
             <div class="svg-wrapper">
@@ -101,7 +101,7 @@
             <div id="moreDropdownMenu" class="dropdown-menu dropdown-primary fade">
 
               <!-- Advanced Search -->
-              <a class="dropdown-item nav-link" data-toggle="modal" data-target="#advancedSearchModal"><span id="advancedSearchSpan">
+              <a class="drosspdown-item nav-link" data-toggle="modal" data-target="#advancedSearchModal"><span id="advancedSearchSpan">
                   Advanced Search <i class="fas fa-search-plus"></i></span></a>
 
               <!-- Wishlist -->

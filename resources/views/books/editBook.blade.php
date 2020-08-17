@@ -74,16 +74,7 @@
             <input type="text" name="bookAuthor" id="bookAuthor" class="form-control" value="{{$book->author}}" placeholder="{{$book->author}}">
         </div>
     </div>
-    <!--div class="form-row mb-4">
-    < Description >
-    <div class="col">
-    <textarea rows=6 type="text" name="bookDescription" id="bookDescription" class="form-control" placeholder="Description" name="description"></textarea>
-    </div>
-    < Details - Publisher, author etc >
-    <div class="col">
-    <textarea rows=6 type="text" name="bookDetails" id="bookDetails" class="form-control" placeholder="Details" name="details"></textarea>
-    </div>
-    </div -->
+
     <div class="form-row mb-4">
     <div class="col">
             <!-- Genre -->
@@ -104,7 +95,7 @@
         </div>
     </div>
     <div class="form-row mb-4">
-    <div class="col">
+         <div class="col">
              <!-- Book Price -->
              <label>Price</label>
              <input type="text" name="bookPrice" id="bookPrice" class="form-control" value="{{$book->price}}" placeholder="{{$book->price}}">
@@ -114,9 +105,18 @@
             <label>Quantity</label>
             <input type="number" name="bookQuantity" id="bookQuantity" class="form-control" value="{{$book->quantity}}" placeholder="{{$book->quantity}}">
         </div>
-    </div>
-
-    
+        <div class="col">
+        <!--Language-->
+        <label>Language</label>
+        <input type="text" name="bookLanguage" id="bookLanguage" class="form-control" placeholder="Language" value="{{ $book->language }}">
+        </div>
+  </div>
+    <div class="form-row mb-4">
+        <div class="col">
+        <label>Description</label>
+        <textarea rows=5 type="text" name="bookDescription" id="bookDescription" class="form-control" placeholder="Description">{{$book->description}}</textarea>
+        </div>
+    </div>    
     <!-- Update to db button -->
     <button class="btn btn-info my-4 btn-block" type="submit">Update Book</button>
 

@@ -1,5 +1,5 @@
 @auth
-<div id="hiddenCheckForAuth"></div>
+<div style="display:none;" id="hiddenCheckForAuth">{{ auth()->user()->id }}</div>
 @endauth
 
 <!-- Start-FeedbackModal -->
@@ -95,32 +95,33 @@
       </div>
       <div class="modal-body">
         <div class="container">
+        <form class="" name="advancedSearchModal" id="advancedSearchModal" action="{{route('allBooks')}}" method="POST">
+         {{ csrf_field() }}
           <div class="row">
             <div class="col-1"></div>
             <div class="col-10">
-              <form class="" action="#!">
-
+            
                 <!-- Title -->
                 <div class="md-form">
-                  <input type="text" id="titleInput" class="form-control advSearchInput">
+                  <input type="text" id="titleInput" name="titleInput" class="form-control advSearchInput">
                   <label class="advSearchLabel" for="titleInput">Title</label>
                 </div>
 
                 <!-- Author -->
                 <div class="md-form">
-                  <input type="text" id="authorInput" class="form-control advSearchInput">
+                  <input type="text" id="authorInput" name="authorInput" class="form-control advSearchInput">
                   <label class="advSearchLabel" for="authorInput">Author</label>
                 </div>
 
                 <!-- Language -->
                 <div class="md-form">
-                  <input type="text" id="languageInput" class="form-control advSearchInput">
+                  <input type="text" id="languageInput" name="languageInput" class="form-control advSearchInput">
                   <label class="advSearchLabel" for="languageInput">Language</label>
                 </div>
 
                 <!-- Tags -->
                 <div class="md-form">
-                  <input onfocusout="labelChangerToDefault()" type="text" id="tagsInput" class="main-input form-control advSearchInput">
+                  <input onfocusout="labelChangerToDefault()" type="text" id="tagsInput" name="tagsInput" class="main-input form-control advSearchInput">
                   <label id="tagsInputLabel" class="advSearchLabel" for="tagsInput">Tags</label>
 
                   <br>
@@ -138,27 +139,31 @@
                   <div class="col-4">
                   </div>
                   <div class="col-4" id="genreSelectContainer">
-                    <h5>Select Genre(s):</h5>
-                    <select id="genreSelect" multiple="multiple">
-                      <option value="Fantasy">Psychological Fiction</option>
-                      <option value="Sci-Fi">Thriller</option>
-                      <option value="Mystery">Crime</option>
-                      <option value="Romance">History</option>
-                    </select>
+                    <h5>Select Genre:</h5>
+                    @php
+                     use App\Classification;
+                      $genres = Classification::all();
+                    @endphp
+                <select class="form-control advSearchInput" id="genreSelect" name="genreSelect">
+                <option value="" disabled="disabled" selected="selected">Choose...</option>
+                @foreach($genres as $genre)
+                <option value="{{ $genre->id}}">{{$genre->name}}</option>
+                @endforeach
+                </select>
                   </div>
                   <div class="col-4"></div>
                 </div>
-
-
-              </form>
-            </div>
+             
             <div class="col-1"></div>
           </div>
         </div>
       </div>
       <div class="modal-footer d-flex justify-content-between">
+        <!-- data-dismiss="modal"  -  am sters de la butoane-->
         <button id="modalCancelButton" type="button" class="btn" data-dismiss="modal">Cancel</button>
-        <button id="modalSearchButton" type="button" class="btn" data-dismiss="modal">Search</button>
+        <button id="modalSearchButton" type="submit" class="btn" >Search</button>
+        </form>
+        </div>
       </div>
     </div>
   </div>
@@ -212,12 +217,7 @@
       <!--Footer-->
       <div class="d-flex justify-content-md-between modal-footer">
         <button id="closeModalWishlistButton" type="button" class="btn" data-dismiss="modal">Close</button>
-        @auth
-        <button id="addAllModalWishlistButton" type="button" class="btn" data-dismiss="modal">Add all to Cart <i class="fas fa-cart-plus"></i></button>
-        @endauth
-        @guest
-        <button id="addAllModalWishlistButtonGuest" onclick="showShoppingCart()" type="button" class="btn" data-dismiss="modal">Add all to Cart <i class="fas fa-cart-plus"></i></button>
-        @endguest
+        <button onclick="window.location.href=`{{  url('/allBooks') }}`" id="seeAllBooks" type="button" class="btn" data-dismiss="modal">Books</button>
       </div>
     </div>
   </div>
@@ -341,3 +341,31 @@
 </div>
 
 <!-- End - Modal - Contact -->
+
+<!--Modal: Start-ConfirmDeleteCheckoutShcart-->
+<div class="modal fade" id="modalConfirmDeleteCheckout" tabindex="-1" role="dialog" aria-labelledby="modalConfirmDeleteCheckout" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure?</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+
+        <i class="fas fa-times fa-4x animated rotateIn"></i>
+
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a id="confirmDeleteCheckoutYes" type="button" class="btn  btn-outline-danger" data-dismiss="modal">Yes</a>
+        <a id="confirmDeleteCheckoutNo" type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: End-ConfirmDeleteCheckoutShcart-->
