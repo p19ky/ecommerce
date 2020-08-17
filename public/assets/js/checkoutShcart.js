@@ -125,6 +125,7 @@ function CreateCheckoutShcartItem(
 
 function AppendTotalToCheckoutShcart() {
   const totalListItem = document.createElement("li");
+  totalListItem.setAttribute("id", "totalFromCheckoutShcart");
   totalListItem.classList.add("list-group-item");
   totalListItem.classList.add("d-flex");
   totalListItem.classList.add("justify-content-between");
@@ -414,6 +415,7 @@ function RefreshRemAddDel() {
 
                   CalculateShcartBadge();
                   CalculateShoppingCartTotal();
+                  CheckIfShcartEmpty();
                 }
               }
             });

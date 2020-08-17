@@ -293,6 +293,25 @@ $(".addToCartMainClass").click(function () {
       JSON.stringify(ARRAYOFUSERSWITHSHOPPINGCART)
     );
 
+    if (
+      document.body.contains(document.getElementById("checkoutShcartBookslist"))
+    ) {
+      $("#totalFromCheckoutShcart").remove();
+      CreateCheckoutShcartItem(
+        infoAboutBookId,
+        infoAboutImage,
+        infoAboutTitle,
+        infoAboutAuthor,
+        infoAboutPrice,
+        infoAboutGenre,
+        "Quantity: 1"
+      );
+      AppendTotalToCheckoutShcart();
+      CalculateTotalCheckoutShcart();
+      CalculateBadgeCheckoutShcart();
+      RefreshRemAddDel();
+    }
+
     createNewShcartItem(
       infoAboutBookId,
       infoAboutImage,
@@ -334,10 +353,12 @@ function ReloadDeleteAndRemAndAdd() {
     ).onclick = function () {
       localEvent.preventDefault();
 
+      let RemovedItem = "";
+
       localThis.parentElement.childNodes.forEach((el) => {
         if (el.tagName === "SPAN") {
           if (el.classList.contains("hiddenBookIdSpan")) {
-            let RemovedItem = el.innerHTML;
+            RemovedItem = el.innerHTML;
 
             ARRAYOFBOOKSINSHCART.forEach((dog) => {
               if ("idBook" in dog) {
@@ -369,6 +390,19 @@ function ReloadDeleteAndRemAndAdd() {
       });
 
       $(localThis).closest(".shcart-item").remove();
+
+      document
+        .getElementById("checkoutShcartBookslist")
+        .childNodes.forEach((list) => {
+          if (list.tagName === "LI") {
+            if ($(list).find(".bookIdDiv").text() === RemovedItem) {
+              $(list).remove();
+
+              CalculateBadgeCheckoutShcart();
+              CalculateTotalCheckoutShcart();
+            }
+          }
+        });
 
       CalculateShoppingCartTotal();
       CalculateShcartBadge();
@@ -737,6 +771,27 @@ function reloadWishlistAddToCartButton() {
               "ARRAYOFUSERSWITHSHOPPINGCART",
               JSON.stringify(ARRAYOFUSERSWITHSHOPPINGCART)
             );
+
+            if (
+              document.body.contains(
+                document.getElementById("checkoutShcartBookslist")
+              )
+            ) {
+              $("#totalFromCheckoutShcart").remove();
+              CreateCheckoutShcartItem(
+                iBookId,
+                iBookImage,
+                iBookTitle,
+                iBookAuthor,
+                iBookPrice,
+                iBookGenre,
+                "Quantity: 1"
+              );
+              AppendTotalToCheckoutShcart();
+              CalculateTotalCheckoutShcart();
+              CalculateBadgeCheckoutShcart();
+              RefreshRemAddDel();
+            }
 
             createNewShcartItem(
               iBookId,
