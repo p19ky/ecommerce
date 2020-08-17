@@ -22,31 +22,65 @@ class AllBooksController extends Controller
         $books = new Books;    
         $classifications = Classification::All();
         $queries = [];
-        $sortingOption = 0;
+        $genreOption = -1;
+        $authorOption = -1;
+        $authors = Books::select('author')->distinct('author')->orderBy('author')->get();
+
+
 
         /**
-         * sortari
+         * ---- filter by author ----
+         */
+
+        if(request()->filled('filterAuthor')){
+            $authorOption = request('filterAuthor');
+            if($authorOption != -1)
+            {
+                $books=$books->where('author', '=', $authorOption );
+                $queries['filterAuthor'] = $authorOption;
+            }   
+        }
+
+
+        /**
+         * ---- filter by genre ----
+         *  */    
+
+         if(request()->filled('filterGenre')){
+         $genreOption=request('filterGenre');
+        if($genreOption != -1)
+        {
+            $books=$books->where('classifId', '=', $genreOption );
+            $queries['filterGenre'] = $genreOption;
+        }
+        }
+
+        /**
+         * ---- sort books ----
          */
         // books from A-Z - default Sort
-        if (request()->filled('sortBooks')) {
          $sortingOption=request('sortBooks');
             if ($sortingOption == 0){
                  $books=$books->orderBy('name');
             }
+        // authors from A-Z
             if ($sortingOption == 1){
                 $books=$books->orderBy('author');
            }
+        // price: low to high
            if ($sortingOption == 2){
             $books=$books->orderBy('price');
           }
+        // price: high to low
           if ($sortingOption == 3){
             $books=$books->orderBy('price', 'desc');
           }
     
-         }
+        $queries['sortBooks']=$sortingOption;
+
        
 
-        /**advanced search
+        /** ---- advanced search ----
          * checking if field is empty. if not -> filter
          */
 
@@ -84,24 +118,36 @@ class AllBooksController extends Controller
             $books = $books->where('classifId', 'LIKE', '%' . $genre . '%');
             $queries['genreSelect'] = request('genreSelect');
         }
-        /** end advanced search */
 
-        /** main search */
+
+        /** ---- main search ---- */
         if (request()->filled('main_search')) {
             $keyword = request('main_search');
             $books = $books->where('name', 'LIKE', '%' . $keyword . '%')->orWhere('author', 'LIKE', '%' . $keyword . '%');
             $queries['main_search'] = request('main_search');
         }
 
+
+         /**
+          * ---- price filter ----
+          */
+
+          $minPriceOption = 0;
+          $maxPriceOption = 200;
         if (request()->filled('min_price')) {
             $books = $books->where('price', '>=', request('min_price'));
             $queries['min_price'] = request('min_price');
+            $minPriceOption = request('min_price');
         }
 
         if (request()->filled('max_price')) {
             $books = $books->where('price', '<=', request('max_price'));
             $queries['max_price'] = request('max_price');
+            $maxPriceOption = request('max_price');
         }
+        /**
+         * ---- end price filter ----
+         */
 
         // if (request()->has('sort')) {
         //     //sort
@@ -109,10 +155,24 @@ class AllBooksController extends Controller
         //     $queries['sort'] = request('sort');
         // }
 
+
+        if(request()->filled('reset')){
+            $authorOption=-1;
+            $genreOption=-1;
+            $maxPriceOption=200;
+            $minPriceOption=0;
+         //   $sortingOption=0;
+
+        }
+
+
+
+
+
         $books = $books->paginate(10)->appends($queries);
 
         //if($booksCopy!=$books){
-        return view('books/allBooks')->with('books', $books)->with('queries', $queries)->with('searchMsg', '')->with('classifications', $classifications);
+        return view('books/allBooks')->with('authorOption', $authorOption)->with('maxPriceOption', $maxPriceOption)->with('minPriceOption', $minPriceOption)->with('genreOption', $genreOption)->with('sortingOption', $sortingOption)->with('authors',$authors)->with('books', $books)->with('queries', $queries)->with('searchMsg', '')->with('classifications', $classifications);
         //  }
         //    else {
         //        $searchMsg='';
@@ -120,7 +180,6 @@ class AllBooksController extends Controller
         //        }
 
     }
-
 
 
     /**Display a listing of the resource - admin!! */
