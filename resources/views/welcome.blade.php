@@ -58,7 +58,7 @@
                     <p class="card-text">{{$genre->description}}</p>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-primary">See books</a>
+                    <a class="btn defaultGradientButton">See books</a>
                 </div>
             </div>
 
