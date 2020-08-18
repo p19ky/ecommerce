@@ -9,8 +9,8 @@
     <div class="bookId">{{$book->id}}</div>
     <div class="bookImage">{{$book->picture}}</div>
     <div class="bookTitle">{{$book->name}}</div>
-    <div class="bookAuthor">{{$book->author}}</div>
-    <div class="bookPrice">{{$book->price}}</div>
+    <div class="bookAuthor">by {{$book->author}}</div>
+    <div class="bookPrice">${{$book->price}}</div>
     <div class="bookGenre">{{ $genres->where('id', '=', $book->classifId)->first()->name }}</div>
   </div>
 
@@ -72,7 +72,7 @@
         @auth
         <a class="btn defaultGradientButton text-white addToCartFromProductPage">Add to Cart <i class="fas fa-cart-plus"></i></a>
         @endauth
-        <a class="btn defaultGradientButton text-white">Add to Wishlist <i class="fas fa-heart"></i></a>
+        <a class="btn defaultGradientButton text-white addToWishlistFromProductPage">Add to Wishlist <i class="fas fa-heart"></i></a>
 
 
       </div>
@@ -105,7 +105,7 @@
   <!--Grid row-->
 
   <div class="text-center wow animate__backInRight">
-    <h4 class="my-4 h4">Others also searched for these Books</h4>
+    <h4 class="my-4 h4">You may also like</h4>
     <br>
   </div>
 

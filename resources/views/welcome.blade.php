@@ -5,7 +5,11 @@
     <div style="opacity: 0.2;" class="parallax-empty-book"></div>
 
     <div id="fillUpWithDiv" class="text-center">
+<<<<<<< HEAD
         <h1 id="fillUpWithDivTitle">FILL UP WITH INSPIRATION AND KNOWLEDGE</h1>
+=======
+        <h1 id="fillUpWithDivTitle">Our Purpose is to ensure you with all the Books you have been thinking of reading. Search for those Books and fill up with Inspiration and Knowledge!</h1>
+>>>>>>> d1b4fd28063e0e2f82a44bc974fb6a3ba4069668
     </div>
 
     <div style="opacity: 1;" class="parallax-empty-book"></div>
@@ -30,10 +34,15 @@
                     <h4 class="card-title">{{$genre->name}}</h4>
                     <p class="card-text">{{$genre->description}}</p>
                 </div>
+<<<<<<< HEAD
                 <div class="card-footer">
                 <form action="{{route('allBooks')}}" method="get">
                 <p class="card-text"><button class="btn defaultGradientButton text-white" type="submit" name="filterGenre" value="{{ $genre->id }}">See Books</button></p>
                  </form>
+=======
+                <div class="card-footer text-center">
+                    <a class="btn defaultGradientButton">See books</a>
+>>>>>>> d1b4fd28063e0e2f82a44bc974fb6a3ba4069668
                 </div>
             </div>
 
@@ -56,9 +65,13 @@
             @foreach($randomBooks as $randie)
 
             <div class="card mb-2 z-depth-2 randomBookCard">
-                <img style="max-height: 300px;" class="card-img-top" src="{{$randie->picture}}" alt="Card image cap">
+                <a href="{{  route('product', $randie->id) }}">
+                    <img style="max-height: 300px;" class="card-img-top imageOpacityChanger" src="{{$randie->picture}}" alt="Card image cap">
+                </a>
                 <div class="card-body">
-                    <h4 class="card-title">{{$randie->name}}</h4>
+                    <a style="color:#212529;" href="{{  route('product', $randie->id) }}">
+                        <h4 class="card-title">{{$randie->name}}</h4>
+                    </a>
                     <p class="card-text">by {{$randie->author}}</p>
                     <p class="text-bold">{{ $classifications->where('id', '=', $randie->classifId)->first()->name }}</p>
                 </div>
