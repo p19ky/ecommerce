@@ -6,7 +6,7 @@ let advancedSearchTagsArray = [];
 addClickEventForTagCloser();
 
 mainInput.addEventListener("keypress", function (e) {
-  if (e.code === "Enter" || e.code === "Comma") {
+  if (e.code === "Comma") {
     let message = mainInput.value;
 
     if (!message.replace(/\s/g, "").length) {
@@ -57,7 +57,7 @@ mainInput.addEventListener("keypress", function (e) {
 
 function labelChanger() {
   document.getElementById("tagsInputLabel").innerText =
-    "Press 'comma' or 'enter' to add tag!";
+    "Press 'comma' to add tag!";
 }
 
 function labelChangerToDefault() {
