@@ -17,6 +17,9 @@
             <div style="padding-top: 38px;">Our Genres</div>
         </div>
 
+    
+
+       
         <div class="card-deck genreCardDeck wow animate__backInRight">
 
             @foreach($classifications as $genre)
@@ -27,8 +30,10 @@
                     <h4 class="card-title">{{$genre->name}}</h4>
                     <p class="card-text">{{$genre->description}}</p>
                 </div>
-                <div class="card-footer text-center">
-                    <a class="btn defaultGradientButton">See books</a>
+                <div class="card-footer">
+                <form action="{{route('allBooks')}}" method="get">
+                <p class="card-text"><button class="btn defaultGradientButton text-white" type="submit" name="filterGenre" value="{{ $genre->id }}">See Books</button></p>
+                 </form>
                 </div>
             </div>
 
@@ -78,8 +83,51 @@
         <br>
         <br>
         <hr>
-        <br>
-        <br>
+
+<h2 style="text-align:center;">GENRES</h2><hr>
+<div style="width:900px; height:600px;" id="carouselExampleControls" class="defaultGradientButton container carousel slide" data-ride="carousel">
+
+  <ol class="carousel-indicators">
+   @foreach( $classifications as $genre )
+      <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+   @endforeach
+  </ol>
+
+  <div style="float:center;" class="carousel-inner" role="listbox">
+  
+    @foreach( $classifications as $genre )
+       <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+       <form action="{{route('allBooks')}}" method="get">
+          <button style="vertical-align:center; margin-top:3%; margin-left:auto; margin-right:auto; display:block;" class="btn defaultGradientButton" type="submit" name="filterGenre" value="{{ $genre->id }}">
+      
+           <img style="vertical-align:center; margin-top:2%; margin-left:auto; margin-right:auto; display:block; max-width:620px; height:500px;" class="d-block img-fluid" src="{{ $genre->picture }}" alt="no img available">
+              <div style=" max-width:auto; border-radius:2px; bottom:0%; opacity:0.8; color:black;" class=" block defaultGradientButton carousel-caption d-none d-md-block">
+                 <h3>{{ $genre->name }}</h3>
+                 <p>{{ $genre->description }}</p>
+              </div>
+              </button>
+        </form>
+       </div>
+    @endforeach
+  </div>  
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+
+<br><br><br><hr.<br><br>
+
+
+
 
     </div>
 </main>
