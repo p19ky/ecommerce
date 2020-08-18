@@ -47,7 +47,7 @@
         <br>
         <div class="d-flex md-form">
           <label class="maxPriceInputLabel" for="filterAuthor">Author: </label><br><br>
-          <input disabled="disabled" id="filterAuthor" name="filterAuthor" type="text" class="form-control"><br>
+          <input disabled="disabled" id="filterAuthorTest" name="filterAuthorTest" type="text" class="form-control"><br>
           <select style="float:left; color:rgb(128,128,128);" class="form-control" name="filterAuthor" id="filterAuthor" value="Filter Author">
             <option selected="selected" id="-1" name="-1" value="-1">All Authors</option>
             @foreach($authors as $author)
@@ -63,7 +63,7 @@
 
         <div class="d-flex md-form">
           <label class="maxPriceInputLabel" for="filterGenre">Genre: </label><br><br>
-          <input disabled="disabled" id="filterGenre" name="filterGenre" type="text" class="form-control"><br>
+          <input disabled="disabled" id="filterGenreTest" name="filterGenreTest" type="text" class="form-control"><br>
           <select style="float:left; color:rgb(128,128,128);" class="form-control" name="filterGenre" id="filterGenre" value="Filter Genre">
             <option selected="selected" id="-1" name="-1" value="-1">All Genres</option>
             @foreach($classifications as $genre)
