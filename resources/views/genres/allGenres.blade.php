@@ -25,7 +25,9 @@
         <h5 class="card-title">{{ $genre->name }}</h5>
         <p class="card-text"> {{ $genre->description }}</p>
         <a href="#!">
-          <p class="card-text"><small class="text-muted"> See Books </small></p>
+        <form action="{{route('allBooks')}}" method="get">
+          <p class="card-text"><small class="text-muted"> <input name="filterGenre" id="filterGenre" value="See Books"> </small></p>
+          </form>
         </a>
       </div>
     </div>

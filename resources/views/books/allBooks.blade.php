@@ -86,8 +86,6 @@
   <div id="booksContainer" class="container">
 
 <!-- sort books --> 
-  <!--form action="{{ route('allBooks') }}" method="get">
-    {{ csrf_field() }} -->
     <div class="d-flex" style="float:right; position:relative;">
         <select class="btn white-text defaultGradientButton" name="sortBooks" id="sortBooks" value="sortBooks" onchange="this.form.submit();">
         <option {{ 0 == $sortingOption ? "selected" : "" }} style="color:black;" name="0" id="0" value="0">Books from A-Z </option>
@@ -111,7 +109,7 @@
       
       <!-- advanced search href -->
     <input data-toggle="modal" data-target="#advancedSearchModal" value="Advanced Search" class="btn text-white reversedGradientButton"></input>
-      
+
 </div>
   @if($books->isEmpty())
   <div class="alert alert-info" role="alert">
