@@ -24,6 +24,7 @@ class AllBooksController extends Controller
         $queries = [];
         $genreOption = -1;
         $authorOption = -1;
+        $keyword = "";
         $authors = Books::select('author')->distinct('author')->orderBy('author')->get();
 
 
@@ -54,31 +55,6 @@ class AllBooksController extends Controller
             $queries['filterGenre'] = $genreOption;
         }
         }
-
-        /**
-         * ---- sort books ----
-         */
-        // books from A-Z - default Sort
-         $sortingOption=request('sortBooks');
-            if ($sortingOption == 0){
-                 $books=$books->orderBy('name');
-            }
-        // authors from A-Z
-            if ($sortingOption == 1){
-                $books=$books->orderBy('author');
-           }
-        // price: low to high
-           if ($sortingOption == 2){
-            $books=$books->orderBy('price');
-          }
-        // price: high to low
-          if ($sortingOption == 3){
-            $books=$books->orderBy('price', 'desc');
-          }
-    
-        $queries['sortBooks']=$sortingOption;
-
-       
 
         /** ---- advanced search ----
          * checking if field is empty. if not -> filter
@@ -145,39 +121,48 @@ class AllBooksController extends Controller
             $queries['max_price'] = request('max_price');
             $maxPriceOption = request('max_price');
         }
+
+
         /**
-         * ---- end price filter ----
+         * ---- sort books ----
          */
+        // books from A-Z - default Sort
+         $sortingOption=request('sortBooks');
+         if ($sortingOption == 0){
+              $books=$books->orderBy('name');
+         }
+        // authors from A-Z
+         if ($sortingOption == 1){
+             $books=$books->orderBy('author');
+        }
+        // price: low to high
+        if ($sortingOption == 2){
+         $books=$books->orderBy('price');
+       }
+        // price: high to low
+        if ($sortingOption == 3){
+         $books=$books->orderBy('price', 'desc');
+       }
+ 
+     $queries['sortBooks']=$sortingOption;
 
-        // if (request()->has('sort')) {
-        //     //sort
-        //     $books = $books->orderBy('price', request('sort'));
-        //     $queries['sort'] = request('sort');
-        // }
-
-
+        /**
+         * reset
+         */
         if(request()->filled('reset')){
             $authorOption=-1;
             $genreOption=-1;
             $maxPriceOption=200;
             $minPriceOption=0;
-         //   $sortingOption=0;
-
+            $sortingOption=0;
+            $queries=[];
         }
-
-
 
 
 
         $books = $books->paginate(10)->appends($queries);
 
-        //if($booksCopy!=$books){
-        return view('books/allBooks')->with('authorOption', $authorOption)->with('maxPriceOption', $maxPriceOption)->with('minPriceOption', $minPriceOption)->with('genreOption', $genreOption)->with('sortingOption', $sortingOption)->with('authors',$authors)->with('books', $books)->with('queries', $queries)->with('searchMsg', '')->with('classifications', $classifications);
-        //  }
-        //    else {
-        //        $searchMsg='';
-        //        return redirect(route('allBooks'))->with('noResults', 'Sorry, no results. Try searching again.');
-        //        }
+        return view('books/allBooks')->with('authorOption', $authorOption)->with('keyword', $keyword)->with('maxPriceOption', $maxPriceOption)->with('minPriceOption', $minPriceOption)->with('genreOption', $genreOption)->with('sortingOption', $sortingOption)->with('authors',$authors)->with('books', $books)->with('queries', $queries)->with('searchMsg', '')->with('classifications', $classifications);
 
     }
 

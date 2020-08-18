@@ -5,6 +5,7 @@
 
 <div id="allBooksMainContainer">
 
+
   <div id="sideFilterContainer">
 
     <div class="container">
@@ -14,7 +15,7 @@
         {{ csrf_field() }}
 
         <div class="d-flex justify-content-center">
-          <input type="submit" value="Filter" class="btn white-text defaultGradientButton">
+          <input type="submit" value="Filter" class="btn white-text defaultGradientButton btn-lg">
         </div>
         <!-- min price -->
         <div class="md-form">
@@ -72,21 +73,8 @@
         </div>
 
 
-        <!-- another filter button -->
-        <div class="d-flex justify-content-center">
-          <input type="submit" value="Filter" class="btn white-text defaultGradientButton">
-        </div>
+        <br>
 
-      </form>
-
-      <br>
-      <form action="{{ route('allBooks') }}" method="get">
-        {{ csrf_field() }}
-        <!-- reset button -->
-        <div style="float:left;" class="d-flex justify-content-center">
-          <input name="reset" id="reset" type="submit" value="Reset" class="btn white-text defaultGradientButton btn-sm">
-        </div>
-      </form>
 
     </div>
 
@@ -98,31 +86,41 @@
   <div id="booksContainer" class="container">
 
     <!-- sort books -->
-    <form action="{{ route('allBooks') }}" method="get">
-      {{ csrf_field() }}
-      <div class="d-flex" style="float:right; position:relative;">
-        <table>
-          <tr>
-            <td style="font-size:100%;"></td>
-            <td>
-              <select class="btn white-text defaultGradientButton" name="sortBooks" id="sortBooks" onchange="this.form.submit();" value="Sort Books">
-                <option {{ 0 == $sortingOption ? "selected" : "" }} style="color:black;" name="0" id="0" value="0">Books from A-Z</option></button>
-                <option {{ 1 == $sortingOption ? "selected" : "" }} style="color:black;" name="1" id="1" value="1">Authors from A-Z</option>
-                <option {{ 2 == $sortingOption ? "selected" : "" }} style="color:black;" name="2" id="2" value="2">Price: Low to High</option>
-                <option {{ 3 == $sortingOption ? "selected" : "" }} style="color:black;" name="3" id="3" value="3">Price: High to Low</option>
-              </select>
-            </td>
-          </tr>
-        </table>
-      </div>
+    <!--form action="{{ route('allBooks') }}" method="get">
+    {{ csrf_field() }} -->
+    <div class="d-flex" style="float:right; position:relative;">
+      <select class="btn white-text defaultGradientButton" name="sortBooks" id="sortBooks" value="sortBooks" onchange="this.form.submit();">
+        <option {{ 0 == $sortingOption ? "selected" : "" }} style="color:black;" name="0" id="0" value="0">Books from A-Z </option>
+        <option {{ 1 == $sortingOption ? "selected" : "" }} style="color:black;" name="1" id="1" value="1">Authors from A-Z </option>
+        <option {{ 2 == $sortingOption ? "selected" : "" }} style="color:black;" name="2" id="2" value="2">Price: Low to High </option>
+        <option {{ 3 == $sortingOption ? "selected" : "" }} style="color:black;" name="3" id="3" value="3">Price: High to Low </option>
+      </select>
+    </div>
     </form>
-    <br><br><br>
-    <!-- end sort -->
+
+    <!-- reset button -->
+    <div class="d-flex justify-content-start">
+      <form action="{{ route('allBooks') }}" method="get">
+        {{ csrf_field() }}
+        <div style="float:left;" class="d-flex justify-content-center">
+          <input name="reset" id="reset" type="submit" value="Reset Filters" class="btn text-white reversedGradientButton">
+        </div>
+        <br><br><br>
+      </form>
 
 
+      <!-- advanced search href -->
+      <input data-toggle="modal" data-target="#advancedSearchModal" value="Advanced Search" class="btn text-white reversedGradientButton"></input>
+
+    </div>
     @if($books->isEmpty())
     <div class="alert alert-info" role="alert">
       No results. Please try searching again. </div>
+    @else
+    @if($keyword!= "")
+    <div class="alert alert-info" role="alert">
+      {{count($books)}} result(s) found. </div>
+    @endif
     @endif
 
     @if (session('noResults'))
