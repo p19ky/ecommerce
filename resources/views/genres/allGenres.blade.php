@@ -24,11 +24,11 @@
       <div class="card-body">
         <h5 class="card-title">{{ $genre->name }}</h5>
         <p class="card-text"> {{ $genre->description }}</p>
-        <a href="#!">
+      </div>
+      <div class="card-footer">
         <form action="{{route('allBooks')}}" method="get">
-          <p class="card-text"><button type="submit" name="filterGenre" value="{{ $genre->id }}"><small class="text-muted"> See Books</small></button></p>
-          </form>
-        </a>
+          <p class="card-text"><button class="btn defaultGradientButton text-white" type="submit" name="filterGenre" value="{{ $genre->id }}">See Books</button></p>
+        </form>
       </div>
     </div>
     @endforeach
