@@ -229,7 +229,7 @@ $(".addToCartMainClass").click(function () {
           }
           if (element.tagName === "P") {
             if (element.classList.contains("c-a")) {
-              infoAboutAuthor = element.innerHTML;
+              infoAboutAuthor = element.innerText;
             }
           }
           if (element.tagName === "P") {
@@ -393,18 +393,24 @@ function ReloadDeleteAndRemAndAdd() {
 
       $(localThis).closest(".shcart-item").remove();
 
-      document
-        .getElementById("checkoutShcartBookslist")
-        .childNodes.forEach((list) => {
-          if (list.tagName === "LI") {
-            if ($(list).find(".bookIdDiv").text() === RemovedItem) {
-              $(list).remove();
+      if (
+        document.body.contains(
+          document.getElementById("checkoutShcartBookslist")
+        )
+      ) {
+        document
+          .getElementById("checkoutShcartBookslist")
+          .childNodes.forEach((list) => {
+            if (list.tagName === "LI") {
+              if ($(list).find(".bookIdDiv").text() === RemovedItem) {
+                $(list).remove();
 
-              CalculateBadgeCheckoutShcart();
-              CalculateTotalCheckoutShcart();
+                CalculateBadgeCheckoutShcart();
+                CalculateTotalCheckoutShcart();
+              }
             }
-          }
-        });
+          });
+      }
 
       CalculateShoppingCartTotal();
       CalculateShcartBadge();

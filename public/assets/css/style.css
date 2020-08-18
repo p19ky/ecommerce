@@ -22,7 +22,7 @@ body {
   background-image: url("empty-book.png");
 
   /* Set a specific height */
-  height: 800px;
+  height: 320px;
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
@@ -33,7 +33,7 @@ body {
 
 #fillUpWithDiv {
   background: transparent;
-  height: 125px;
+  height: 200px;
   font-size: 36px;
   position: relative;
   opacity: 1;
@@ -86,5 +86,9 @@ body {
 }
 
 .randomProductImage:hover {
+  opacity: 0.8;
+}
+
+.imageOpacityChanger:hover {
   opacity: 0.8;
 }
