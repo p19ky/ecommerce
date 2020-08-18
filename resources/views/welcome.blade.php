@@ -5,11 +5,7 @@
     <div style="opacity: 0.2;" class="parallax-empty-book"></div>
 
     <div id="fillUpWithDiv" class="text-center">
-<<<<<<< HEAD
-        <h1 id="fillUpWithDivTitle">FILL UP WITH INSPIRATION AND KNOWLEDGE</h1>
-=======
         <h1 id="fillUpWithDivTitle">Our Purpose is to ensure you with all the Books you have been thinking of reading. Search for those Books and fill up with Inspiration and Knowledge!</h1>
->>>>>>> d1b4fd28063e0e2f82a44bc974fb6a3ba4069668
     </div>
 
     <div style="opacity: 1;" class="parallax-empty-book"></div>
@@ -34,15 +30,10 @@
                     <h4 class="card-title">{{$genre->name}}</h4>
                     <p class="card-text">{{$genre->description}}</p>
                 </div>
-<<<<<<< HEAD
                 <div class="card-footer">
                 <form action="{{route('allBooks')}}" method="get">
                 <p class="card-text"><button class="btn defaultGradientButton text-white" type="submit" name="filterGenre" value="{{ $genre->id }}">See Books</button></p>
                  </form>
-=======
-                <div class="card-footer text-center">
-                    <a class="btn defaultGradientButton">See books</a>
->>>>>>> d1b4fd28063e0e2f82a44bc974fb6a3ba4069668
                 </div>
             </div>
 
