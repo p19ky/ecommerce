@@ -25,7 +25,7 @@
         <h5 class="card-title">{{ $genre->name }}</h5>
         <p class="card-text"> {{ $genre->description }}</p>
       </div>
-      <div class="card-footer">
+      <div class="card-footer text-center">
         <form action="{{route('allBooks')}}" method="get">
           <p class="card-text"><button class="btn defaultGradientButton text-white" type="submit" name="filterGenre" value="{{ $genre->id }}">See Books</button></p>
         </form>
