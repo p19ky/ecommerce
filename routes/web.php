@@ -45,8 +45,7 @@ Route::get('/createBook', 'AllBooksController@displayTable')->name('displayTable
 Route::get('/editB/{id}', 'AllBooksController@edit')->name('editB');             // edit book page
 Route::post('/updateB/{id}', 'AllBooksController@update')->name('updateB');       // update book page
 Route::delete('/deleteB/{id}', 'AllBooksController@delete')->name('deleteB');       // delete book route
-
-//Route::any('/allBooksf', 'AllBooksController@indexf')->name('allBooksf');   
+Route::get('autocomplete', 'AllBooksController@autocompleteAuthor')->name('autocompleteAuthor');  // autocomplete authors filter 
 
 Auth::routes();
 
