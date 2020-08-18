@@ -117,7 +117,7 @@
     @else
     @if($keyword!= "")
     <div class="alert alert-info" role="alert">
-      {{count($books)}} result(s) found. </div>
+      {{$books->total()}} result(s) found for "{{$keyword}}" </div>
     @endif
     @endif
 
