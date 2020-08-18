@@ -27,13 +27,13 @@
         <table class="table table-bordered table-striped">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>First Name</th>
                 <th>Action</th>
             </tr>
             @foreach($users as $user)
                 <tr>
                     <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->firstName }}</td>
                     <td><a href="{{ route('admin.edit', $user->id)}}" class="btn btn-info">Edit</a> 
 
                    <form method="POST" id="delete-form-{{ $user->id }}" action="{{ route('admin.delete', $user->id) }}" style="display:none; ">
