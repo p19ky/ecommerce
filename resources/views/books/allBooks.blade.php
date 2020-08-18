@@ -19,7 +19,7 @@
         </div>
         <!-- min price -->
         <div class="md-form">
-          <input id="minPriceFilterInput" type="text" class="form-control"> 
+          <input id="minPriceFilterInput" type="text" class="form-control">
           <label class="minPriceInputLabel" for="minPriceFilterInput">Min. Price</label>
         </div>
         <div class="d-flex justify-content-center my-4">
@@ -46,35 +46,35 @@
         <!-- look for authors -->
         <br>
         <div class="d-flex md-form">
-        <label class="maxPriceInputLabel" for="filterAuthor">Author: </label><br><br>
-        <input disabled="disabled" id="filterAuthor" name="filterAuthor" type="text" class="form-control"><br>
-        <select style="float:left; color:rgb(128,128,128);" class="form-control" name="filterAuthor" id="filterAuthor" value="Filter Author">
-        <option selected="selected" id="-1" name="-1" value="-1">All Authors</option>
-        @foreach($authors as $author)
-        <option {{ $authorOption == $author['author'] ? "selected" : "" }} style="color:rgb(128,128,128);" name="{{$author['author']}}" value="{{$author['author']}}" id="{{$author['author']}}">{{$author['author']}}</option>
-        @endforeach
-        </select>
-      </div>
+          <label class="maxPriceInputLabel" for="filterAuthor">Author: </label><br><br>
+          <input disabled="disabled" id="filterAuthor" name="filterAuthor" type="text" class="form-control"><br>
+          <select style="float:left; color:rgb(128,128,128);" class="form-control" name="filterAuthor" id="filterAuthor" value="Filter Author">
+            <option selected="selected" id="-1" name="-1" value="-1">All Authors</option>
+            @foreach($authors as $author)
+            <option {{ $authorOption == $author['author'] ? "selected" : "" }} style="color:rgb(128,128,128);" name="{{$author['author']}}" value="{{$author['author']}}" id="{{$author['author']}}">{{$author['author']}}</option>
+            @endforeach
+          </select>
+        </div>
 
 
 
         <br>
         <!-- filter by genre -->
 
-      <div class="d-flex md-form">
-        <label class="maxPriceInputLabel" for="filterGenre">Genre: </label><br><br>
-        <input disabled="disabled" id="filterGenre" name="filterGenre" type="text" class="form-control"><br>
-        <select style="float:left; color:rgb(128,128,128);" class="form-control" name="filterGenre" id="filterGenre" value="Filter Genre">
-        <option selected="selected" id="-1" name="-1" value="-1">All Genres</option>
-        @foreach($classifications as $genre)
-        <option {{ $genreOption == $genre->id ? "selected" : "" }} style="color:rgb(128,128,128);" name="{{$genre->id}}" value="{{$genre->id}}" id="{{$genre->id}}">{{$genre->name}}</option>
-        @endforeach
-        </select>
-      </div>
+        <div class="d-flex md-form">
+          <label class="maxPriceInputLabel" for="filterGenre">Genre: </label><br><br>
+          <input disabled="disabled" id="filterGenre" name="filterGenre" type="text" class="form-control"><br>
+          <select style="float:left; color:rgb(128,128,128);" class="form-control" name="filterGenre" id="filterGenre" value="Filter Genre">
+            <option selected="selected" id="-1" name="-1" value="-1">All Genres</option>
+            @foreach($classifications as $genre)
+            <option {{ $genreOption == $genre->id ? "selected" : "" }} style="color:rgb(128,128,128);" name="{{$genre->id}}" value="{{$genre->id}}" id="{{$genre->id}}">{{$genre->name}}</option>
+            @endforeach
+          </select>
+        </div>
 
 
-      <br>
-    
+        <br>
+
 
     </div>
 
@@ -87,39 +87,39 @@
 
 <!-- sort books --> 
     <div class="d-flex" style="float:right; position:relative;">
-        <select class="btn white-text defaultGradientButton" name="sortBooks" id="sortBooks" value="sortBooks" onchange="this.form.submit();">
+      <select class="btn white-text defaultGradientButton" name="sortBooks" id="sortBooks" value="sortBooks" onchange="this.form.submit();">
         <option {{ 0 == $sortingOption ? "selected" : "" }} style="color:black;" name="0" id="0" value="0">Books from A-Z </option>
-        <option {{ 1 == $sortingOption ? "selected" : "" }} style="color:black;" name="1" id="1" value="1">Authors from A-Z </option> 
-        <option {{ 2 == $sortingOption ? "selected" : "" }} style="color:black;" name="2" id="2" value="2">Price: Low to High </option> 
-        <option {{ 3 == $sortingOption ? "selected" : "" }} style="color:black;" name="3" id="3" value="3">Price: High to Low </option> 
-        </select>
+        <option {{ 1 == $sortingOption ? "selected" : "" }} style="color:black;" name="1" id="1" value="1">Authors from A-Z </option>
+        <option {{ 2 == $sortingOption ? "selected" : "" }} style="color:black;" name="2" id="2" value="2">Price: Low to High </option>
+        <option {{ 3 == $sortingOption ? "selected" : "" }} style="color:black;" name="3" id="3" value="3">Price: High to Low </option>
+      </select>
     </div>
-</form>
+    </form>
 
-<!-- reset button -->
-<div class="d-flex justify-content-start">
-  <form action="{{ route('allBooks') }}" method="get">
+    <!-- reset button -->
+    <div class="d-flex justify-content-start">
+      <form action="{{ route('allBooks') }}" method="get">
         {{ csrf_field() }}
-       <div style="float:left;" class="d-flex justify-content-center">
+        <div style="float:left;" class="d-flex justify-content-center">
           <input name="reset" id="reset" type="submit" value="Reset Filters" class="btn text-white reversedGradientButton">
         </div>
         <br><br><br>
-    </form>
+      </form>
 
-      
+
       <!-- advanced search href -->
-    <input data-toggle="modal" data-target="#advancedSearchModal" value="Advanced Search" class="btn text-white reversedGradientButton"></input>
+      <input data-toggle="modal" data-target="#advancedSearchModal" value="Advanced Search" class="btn text-white reversedGradientButton"></input>
 
-</div>
-  @if($books->isEmpty())
-  <div class="alert alert-info" role="alert">
-  No results. Please try searching again. </div>
-  @else
+    </div>
+    @if($books->isEmpty())
+    <div class="alert alert-info" role="alert">
+      No results. Please try searching again. </div>
+    @else
     @if($keyword!= "")
     <div class="alert alert-info" role="alert">
-    {{count($books)}}  result(s) found. </div>
+      {{count($books)}} result(s) found. </div>
     @endif
-  @endif
+    @endif
 
     @if (session('noResults'))
     <div class="alert alert-info" role="alert">
@@ -140,7 +140,7 @@
     @endif
     <!-- Card deck -->
     <div id="booksCardDeck" class="card-deck">
-    
+
       @foreach($books as $key => $value)
       <!-- Card -->
       <div class="card mb-4">
@@ -162,7 +162,7 @@
 
         <!--Card content-->
         <div class="card-body">
-        
+
 
           <!--Title-->
           <h4 class="card-title">{{ $value->name }}</h4>

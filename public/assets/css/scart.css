@@ -174,3 +174,7 @@ ul.shopping-cart-items li {
 #shcartCheckout:hover {
   color: #fff;
 }
+
+.imageFromShcart:hover {
+  opacity: 0.8;
+}
