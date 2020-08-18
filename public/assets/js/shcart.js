@@ -200,15 +200,17 @@ function CheckIfShcartEmpty() {
 CheckIfShcartEmpty();
 
 function CheckHeightImage() {
-  document.getElementById("shoppingCartItems").childNodes.forEach((child) => {
-    if (child.clientHeight > 95) {
-      child.childNodes.forEach((youngster) => {
-        if (youngster.tagName === "IMG") {
-          youngster.setAttribute("style", "margin-top:7px;");
-        }
-      });
-    }
-  });
+  if (document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
+    document.getElementById("shoppingCartItems").childNodes.forEach((child) => {
+      if (child.clientHeight > 95) {
+        child.childNodes.forEach((youngster) => {
+          if (youngster.tagName === "IMG") {
+            youngster.setAttribute("style", "margin-top:7px;");
+          }
+        });
+      }
+    });
+  }
 }
 
 CheckHeightImage();

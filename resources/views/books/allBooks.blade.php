@@ -84,7 +84,7 @@
             <span class="heartClicker d-flex justify-content-center"></span>
           </span>
           <img class="card-img-top" src="{{ $value->picture }}" alt="Card image cap" height="200px">
-          <a href="#!">
+          <a href="{{  route('product', $value->id) }}">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
