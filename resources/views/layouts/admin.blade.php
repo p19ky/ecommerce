@@ -170,7 +170,7 @@
           <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <a href="#" class="d-block">{{ Auth::user()->firstName }}</a>
         </div>
       </div>
 
@@ -208,7 +208,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{ route('admin.password.change') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Reset password</p>
                 </a>

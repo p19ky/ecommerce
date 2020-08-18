@@ -16,7 +16,8 @@ class UsersTableSeeder extends Seeder
         // if (DB::table('users')->where('email', 'admin@example.com')->count() == 0) {
             DB::table('users')->insert([
                 'role_id'     => '1',
-                'name'        => 'Admin',
+                'firstName'        => 'Admin',
+                'lastName'        => 'Test',
                 'username'    => 'Demo Admin',
                 'email'    => 'admin@example.com',
                 'password' => bcrypt('admin'),
@@ -24,7 +25,8 @@ class UsersTableSeeder extends Seeder
 
             DB::table('users')->insert([
                 'role_id'     => '2',
-                'name'        => 'User',
+                'firstName'        => 'User',
+                'lastName'        => 'Test',
                 'username'    => 'Demo User',
                 'email'    => 'user@example.com',
                 'password' => bcrypt('user'),

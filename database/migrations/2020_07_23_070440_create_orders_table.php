@@ -26,8 +26,8 @@ class CreateOrdersTable extends Migration
             $table->string('city');
             $table->string('county');
             $table->string('orderStatus')->default('processing');
-            $table->integer('customerId')->unsigned();
-            $table->foreign('customerId')->references('customerId')->on('customers');
+            $table->integer('id')->unsigned();
+            $table->foreign('id')->references('id')->on('users');
             $table->integer('paymentId')->unsigned();
             $table->foreign('paymentId')->references('paymentId')->on('payment');
             $table->timestamps();

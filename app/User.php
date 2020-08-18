@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'role_id', 'name', 'username', 'email', 'password',
+        'role_id', 'firstName', 'lastName', 'username', 'email', 'password', 'street', 'number', 'building', 'apartment', 'city', 'county', 'cartId',
     ];
 
     /**
@@ -33,6 +33,11 @@ class User extends Authenticatable
 
     public function role(){
         return $this->belongsTo('App\Role','role_id');
+    }
+
+    public function cart()
+    {
+        return $this->belongsTo('App\Cart', 'cartId'); 
     }
 
     public function setPasswordAttribute($value){

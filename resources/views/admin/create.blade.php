@@ -53,18 +53,24 @@
         
         <div class="col">
             <!-- Name -->
-            <input type="text" id="defaultRegisterFormLastName" class="form-control" name="name" placeholder="Name">
+            <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="firstName" placeholder="First Name">
         </div>
         <div class="col">
-            <input type="text" id="defaultRegisterFormUserame" class="form-control" name="username" placeholder="Username">
+            <input type="text" id="defaultRegisterLastName" class="form-control" name="lastName" placeholder="Last Name">
         </div>
     </div>
 
    
-
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" name="email" placeholder="E-mail">
+    <div class="form-row">
     
+        <div class="col">
+            <input type="text" id="defaultRegisterFormUserame" class="form-control" name="username" placeholder="Username">
+        </div>
 
+        <div class="col">
+            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" name="email" placeholder="E-mail">
+        </div>
+    </div>
     <!-- Password -->
     <input type="password" id="defaultRegisterFormPassword" class="form-control" name="password" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">

@@ -49,21 +49,30 @@
                     <!-- <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Role"> -->
                 </select>
             </div>
+    
     <div class="form-row mb-4">
         
         <div class="col">
             <!-- Name -->
-            <input type="text" id="defaultRegisterFormLastName" class="form-control" value="{{ $user->name }}" name="name" placeholder="Name">
+            <input type="text" id="defaultRegisterFormFirstName" class="form-control" value="{{ $user->firstName }}" name="firstName" placeholder="First Name">
         </div>
         <div class="col">
-            <input type="text" id="defaultRegisterFormUserame" class="form-control" value="{{ $user->username }}" name="username" placeholder="Username">
+            <input type="text" id="defaultRegisterLastName" class="form-control" value="{{ $user->lastName }}" name="lastName" placeholder="Last Name">
         </div>
     </div>
 
    
-
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" value="{{ $user->email }}" name="email" placeholder="E-mail">
+    <div class="form-row">
     
+        <div class="col">
+        <input type="text" id="defaultRegisterFormUserame" class="form-control" value="{{ $user->username }}" name="username" placeholder="Username">
+        </div>
+
+        <div class="col">
+        <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" value="{{ $user->email }}" name="email" placeholder="E-mail">
+        </div>
+    </div>
+       
 
     <!-- Password -->
     <input type="password" id="defaultRegisterFormPassword" class="form-control" value="{{ $user->password }}" name="password" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
