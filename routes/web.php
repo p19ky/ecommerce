@@ -65,6 +65,13 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::post('update/{id}', 'AdminController@update')->name('update');
     Route::delete('delete/{id}', 'AdminController@delete')->name('delete');
     Route::get('myaccount', 'CustomersController@create')->name('myaccount');
+   
+
+});
+
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Auth', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('change-password', 'ChangePasswordController@index')->name('password.change');
+    Route::post('change-password', 'ChangePasswordController@changepassword')->name('password.update');
 });
 
 
