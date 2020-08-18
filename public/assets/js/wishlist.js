@@ -646,6 +646,11 @@ function CreateWishlistItem(
   bookImage.setAttribute("alt", titleForTheBook);
   bookImage.setAttribute("width", "60");
   bookImage.setAttribute("height", "60");
+  bookImage.classList.add("imageFromShcart");
+  bookImage.setAttribute(
+    "onclick",
+    "window.location.href= '/ecommerce/public/product/" + infoIdBook + "'"
+  );
   imageTableData.appendChild(bookImage);
 
   const titleAndAuthorTableData = document.createElement("td");

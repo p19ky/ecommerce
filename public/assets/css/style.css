@@ -84,3 +84,7 @@ body {
 
   border-radius: 10px;
 }
+
+.randomProductImage:hover {
+  opacity: 0.8;
+}

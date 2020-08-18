@@ -595,6 +595,11 @@ function createNewShcartItem(
   const bookImage = document.createElement("img");
   bookImage.setAttribute("src", dataAboutImage);
   bookImage.setAttribute("alt", dataAboutTitle);
+  bookImage.classList.add("imageFromShcart");
+  bookImage.setAttribute(
+    "onclick",
+    "window.location.href= '/ecommerce/public/product/" + dataAboutBookId + "'"
+  );
 
   //Book Title
   const bookTitle = document.createElement("span");
@@ -639,12 +644,6 @@ function createNewShcartItem(
   bookHiddenAuthor.setAttribute("style", "display:none;");
   bookHiddenAuthor.innerHTML = dataAboutAuthor;
 
-  //Book Quantity hidden Div
-  const bookHiddenQuantity = document.createElement("div");
-  bookHiddenQuantity.classList.add("hiddenBookQuantityDiv");
-  bookHiddenQuantity.setAttribute("style", "display:none;");
-  bookHiddenQuantity.innerHTML = dataAboutQuantity;
-
   //Book Genre hidden Div
   const bookHiddenGenre = document.createElement("div");
   bookHiddenGenre.classList.add("hiddenBookGenreDiv");
@@ -658,7 +657,6 @@ function createNewShcartItem(
   mainListItem.append(bookQuantityMinus, bookQuantityPlus);
   mainListItem.appendChild(bookHiddenId);
   mainListItem.appendChild(bookHiddenAuthor);
-  mainListItem.appendChild(bookHiddenQuantity);
   mainListItem.appendChild(bookHiddenGenre);
 
   document.getElementById("shoppingCartItems").appendChild(mainListItem);

@@ -27,6 +27,13 @@ function CreateCheckoutShcartItem(
   imageFirstDiv.setAttribute("height", "100");
   imageFirstDiv.setAttribute("src", informationImage);
   imageFirstDiv.setAttribute("alt", informationTitle);
+  imageFirstDiv.classList.add("imageFromShcart");
+  imageFirstDiv.setAttribute(
+    "onclick",
+    "window.location.href= '/ecommerce/public/product/" +
+      informationBookId +
+      "'"
+  );
 
   firstDivWithContent.appendChild(imageFirstDiv);
 

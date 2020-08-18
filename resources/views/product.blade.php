@@ -5,13 +5,22 @@
 
 <div style="padding-top:50px;" class="container dark-grey-text mt-5">
 
+  <div style="display:none;" class="hiddenDivWithInformations">
+    <div class="bookId">{{$book->id}}</div>
+    <div class="bookImage">{{$book->picture}}</div>
+    <div class="bookTitle">{{$book->name}}</div>
+    <div class="bookAuthor">{{$book->author}}</div>
+    <div class="bookPrice">{{$book->price}}</div>
+    <div class="bookGenre">{{ $genres->where('id', '=', $book->classifId)->first()->name }}</div>
+  </div>
+
   <!--Grid row-->
   <div class="row">
 
     <!--Grid column-->
-    <div class="wow animate__backInLeft col-md-6 mb-4">
+    <div class="text-center wow animate__backInLeft col-md-6 mb-4">
 
-      <img src="{{$book->picture}}" style="border-radius:10px;" class="img-fluid z-depth-3" alt="{{$book->name}}">
+      <img src="{{$book->picture}}" style="border-radius:10px; min-height:400px;" class="img-fluid z-depth-3" alt="{{$book->name}}">
 
     </div>
     <!--Grid column-->
