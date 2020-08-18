@@ -1,0 +1,27 @@
+#allGenresContainer .card-deck {
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+@media screen and (max-width: 599px) {
+  #allGenresContainer .card-deck {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  #allGenresContainer .card-deck {
+    margin-bottom: 10px;
+  }
+
+  #allGenresContainer .card {
+    margin-left: 16px;
+  }
+}
+
+@media screen and (max-width: 492px) {
+  #allGenresContainer .card-deck {
+    margin-top: 130px;
+  }
+}

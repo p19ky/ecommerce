@@ -200,15 +200,17 @@ function CheckIfShcartEmpty() {
 CheckIfShcartEmpty();
 
 function CheckHeightImage() {
-  document.getElementById("shoppingCartItems").childNodes.forEach((child) => {
-    if (child.clientHeight > 95) {
-      child.childNodes.forEach((youngster) => {
-        if (youngster.tagName === "IMG") {
-          youngster.setAttribute("style", "margin-top:7px;");
-        }
-      });
-    }
-  });
+  if (document.body.contains(document.getElementById("hiddenCheckForAuth"))) {
+    document.getElementById("shoppingCartItems").childNodes.forEach((child) => {
+      if (child.clientHeight > 95) {
+        child.childNodes.forEach((youngster) => {
+          if (youngster.tagName === "IMG") {
+            youngster.setAttribute("style", "margin-top:7px;");
+          }
+        });
+      }
+    });
+  }
 }
 
 CheckHeightImage();
@@ -227,7 +229,7 @@ $(".addToCartMainClass").click(function () {
           }
           if (element.tagName === "P") {
             if (element.classList.contains("c-a")) {
-              infoAboutAuthor = element.innerHTML;
+              infoAboutAuthor = element.innerText;
             }
           }
           if (element.tagName === "P") {
@@ -391,18 +393,24 @@ function ReloadDeleteAndRemAndAdd() {
 
       $(localThis).closest(".shcart-item").remove();
 
-      document
-        .getElementById("checkoutShcartBookslist")
-        .childNodes.forEach((list) => {
-          if (list.tagName === "LI") {
-            if ($(list).find(".bookIdDiv").text() === RemovedItem) {
-              $(list).remove();
+      if (
+        document.body.contains(
+          document.getElementById("checkoutShcartBookslist")
+        )
+      ) {
+        document
+          .getElementById("checkoutShcartBookslist")
+          .childNodes.forEach((list) => {
+            if (list.tagName === "LI") {
+              if ($(list).find(".bookIdDiv").text() === RemovedItem) {
+                $(list).remove();
 
-              CalculateBadgeCheckoutShcart();
-              CalculateTotalCheckoutShcart();
+                CalculateBadgeCheckoutShcart();
+                CalculateTotalCheckoutShcart();
+              }
             }
-          }
-        });
+          });
+      }
 
       CalculateShoppingCartTotal();
       CalculateShcartBadge();
@@ -593,6 +601,11 @@ function createNewShcartItem(
   const bookImage = document.createElement("img");
   bookImage.setAttribute("src", dataAboutImage);
   bookImage.setAttribute("alt", dataAboutTitle);
+  bookImage.classList.add("imageFromShcart");
+  bookImage.setAttribute(
+    "onclick",
+    "window.location.href= '/ecommerce/public/product/" + dataAboutBookId + "'"
+  );
 
   //Book Title
   const bookTitle = document.createElement("span");
@@ -637,12 +650,6 @@ function createNewShcartItem(
   bookHiddenAuthor.setAttribute("style", "display:none;");
   bookHiddenAuthor.innerHTML = dataAboutAuthor;
 
-  //Book Quantity hidden Div
-  const bookHiddenQuantity = document.createElement("div");
-  bookHiddenQuantity.classList.add("hiddenBookQuantityDiv");
-  bookHiddenQuantity.setAttribute("style", "display:none;");
-  bookHiddenQuantity.innerHTML = dataAboutQuantity;
-
   //Book Genre hidden Div
   const bookHiddenGenre = document.createElement("div");
   bookHiddenGenre.classList.add("hiddenBookGenreDiv");
@@ -656,7 +663,6 @@ function createNewShcartItem(
   mainListItem.append(bookQuantityMinus, bookQuantityPlus);
   mainListItem.appendChild(bookHiddenId);
   mainListItem.appendChild(bookHiddenAuthor);
-  mainListItem.appendChild(bookHiddenQuantity);
   mainListItem.appendChild(bookHiddenGenre);
 
   document.getElementById("shoppingCartItems").appendChild(mainListItem);
