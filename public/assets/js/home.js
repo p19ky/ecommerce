@@ -1,3 +1,5 @@
+new WOW().init();
+
 function HomepageMarginizer() {
   if (document.body.contains(document.getElementById("homepageMain"))) {
     document.body.setAttribute("style", "margin:auto 0px");

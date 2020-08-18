@@ -18,7 +18,7 @@
   <!-- Material Design Bootstrap -->
   <link href="{{  URL::asset('/mdb/css/mdb.min.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <!-- Your custom styles (optional) -->
-  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
   <link rel="stylesheet" href="{{  URL::asset('/assets/css/bootstrap-multiselect.css') }}?v=<?php echo time(); ?>" type="text/css" />
   <link href="{{  URL::asset('/assets/css/style.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
   <link href="{{  URL::asset('/assets/css/navbar.css') }}?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
@@ -57,6 +57,7 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="{{  URL::asset('/mdb/js/mdb.min.js') }}?v=<?php echo time(); ?>"></script>
   <!-- Your custom scripts (optional) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/home.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/navScript.js') }}?v=<?php echo time(); ?>"></script>
   <script type="text/javascript" src="{{  URL::asset('/assets/js/searchModal.js') }}?v=<?php echo time(); ?>"></script>
@@ -71,9 +72,6 @@
   <script type="text/javascript" src="{{  URL::asset('/assets/js/checkoutShcart.js') }}?v=<?php echo time(); ?>"></script>
 
   <script type="text/javascript">
-    // $(window).on('load', function() {
-    //   $('#modalContact').modal('toggle');
-    // });
   </script>
 
 

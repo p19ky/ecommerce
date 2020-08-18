@@ -41,7 +41,7 @@
 
         <!-- All Books -->
         <li class="nav-item">
-          <a class="nav-link" href="{{  url('/allBooks') }}"><span class="navbarText">All Books</span></a>
+          <a class="nav-link" href="{{  url('/allBooks') }}"><span class="navbarText">Books</span></a>
         </li>
 
         <!-- Genres -->

@@ -12,8 +12,8 @@
       <div class="col-md-6 mt-md-0 mt-3">
 
         <!-- Content -->
-        <h5 class="text-uppercase">Footer Content</h5>
-        <p>Whatever</p>
+        <h5 class="text-uppercase">EmKrAn</h5>
+        <p>Your source of Inspiration and Knowledge.</p>
 
       </div>
       <!-- Grid column -->
@@ -24,20 +24,20 @@
       <div class="col-md-3 mb-md-0 mb-3">
 
         <!-- Links -->
-        <h5 class="text-uppercase">Links</h5>
+        <h5 class="text-uppercase">Get to Know Us</h5>
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Link 1</a>
+            <a href="#!">Team</a>
           </li>
           <li>
-            <a href="#!">Link 2</a>
+            <a href="#!">Collaborators</a>
           </li>
           <li>
-            <a href="#!">Link 3</a>
+            <a href="#!">Affiliates</a>
           </li>
           <li>
-            <a href="#!">Link 4</a>
+            <a href="#!">About EmKrAn</a>
           </li>
         </ul>
 
@@ -48,20 +48,20 @@
       <div class="col-md-3 mb-md-0 mb-3">
 
         <!-- Links -->
-        <h5 class="text-uppercase">Links</h5>
+        <h5 class="text-uppercase">Help</h5>
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Link 1</a>
+            <a href="#!">Your Account</a>
           </li>
           <li>
-            <a href="#!">Link 2</a>
+            <a href="#!">EmKrAn Assistant</a>
           </li>
           <li>
-            <a href="#!">Link 3</a>
+            <a href="#!">Returns & Replacements</a>
           </li>
           <li>
-            <a href="#!">Link 4</a>
+            <a href="#!">Shipping Rates & Policies</a>
           </li>
         </ul>
 

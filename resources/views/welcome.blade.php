@@ -1,36 +1,6 @@
 @extends('layouts.main')
 @section('content')
 
-<!-- <div id="mainBody">
-
-    <h1 style="color: #3061e2;display:flex; justify-content:center">Home page</h1>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-
-</div> -->
-
 <main id="homepageMain">
     <div style="opacity: 0.2;" class="parallax-empty-book"></div>
 
@@ -43,11 +13,11 @@
     <div id="homepageContentContainer">
 
 
-        <div class="text-center groupOfCardsTitle">
+        <div class="text-center groupOfCardsTitle wow animate__backInLeft">
             <div style="padding-top: 38px;">Our Genres</div>
         </div>
 
-        <div class="card-deck genreCardDeck">
+        <div class="card-deck genreCardDeck wow animate__backInRight">
 
             @foreach($classifications as $genre)
 
@@ -70,17 +40,17 @@
         <br>
         <hr style="margin:0px;">
 
-        <div class="text-center groupOfCardsTitle">
+        <div class="text-center groupOfCardsTitle wow animate__backInRight">
             <div style="padding-top: 38px;">Some of our Books
             </div>
         </div>
 
 
-        <div class="card-deck randomBooksCardDeck">
+        <div class="card-deck randomBooksCardDeck wow animate__backInLeft">
 
             @foreach($randomBooks as $randie)
 
-            <div class="card mb-2 z-depth-2">
+            <div class="card mb-2 z-depth-2 randomBookCard">
                 <img style="max-height: 300px;" class="card-img-top" src="{{$randie->picture}}" alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-title">{{$randie->name}}</h4>
@@ -89,7 +59,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="row">
-                        <div style="padding:0px;" class="col-7"><a data-toggle="tooltip" data-placement="bottom" title="See book details" class="btn defaultGradientButton text-left"><i class="fas fa-book-open"></i></a></div>
+                        <div style="padding:0px;" class="col-7"><a href="{{  route('product', $randie->id) }}" data-toggle="tooltip" data-placement="bottom" title="See book details" class="btn defaultGradientButton text-left"><i class="fas fa-book-open"></i></a></div>
                         <div style="padding-top:15px;" class="col-5 text-right">
                             <small class="card-text">${{$randie->price}}</small>
                         </div>
@@ -104,6 +74,8 @@
         <br>
         <br>
         <hr>
+        <br>
+        <br>
 
     </div>
 </main>
