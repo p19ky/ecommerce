@@ -5,7 +5,7 @@
     <div style="opacity: 0.2;" class="parallax-empty-book"></div>
 
     <div id="fillUpWithDiv" class="text-center">
-        <h1 id="fillUpWithDivTitle" class=" wow animate__zoomInDown">Our Purpose is to ensure you with all the Books you have been thinking of reading. Search for those Books and fill up with Inspiration and Knowledge!</h1>
+        <div id="fillUpWithDivTitle" class=" wow animate__zoomInDown">Our Purpose is to ensure you with all the Books you have been thinking of reading. Search for those Books and fill up with Inspiration and Knowledge!</div>
     </div>
 
     <div style="opacity: 1;" class="parallax-empty-book"></div>
