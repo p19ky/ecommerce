@@ -49,8 +49,6 @@ $(document).ready(function () {
 
 CheckIfWishlistIsEmpty();
 
-console.log(window.innerWidth);
-
 function allBooksUpperFilterButtons() {
   if (window.innerWidth < 902) {
   }

@@ -5,7 +5,7 @@
     <div style="opacity: 0.2;" class="parallax-empty-book"></div>
 
     <div id="fillUpWithDiv" class="text-center">
-        <h1 id="fillUpWithDivTitle" class=" wow animate__zoomInDown">Our Purpose is to ensure you with all the Books you have been thinking of reading. Search for those Books and fill up with Inspiration and Knowledge!</h1>
+        <div id="fillUpWithDivTitle" class=" wow animate__zoomInDown">Our Purpose is to ensure you with all the Books you have been thinking of reading. Search for those Books and fill up with Inspiration and Knowledge!</div>
     </div>
 
     <div style="opacity: 1;" class="parallax-empty-book"></div>
@@ -28,7 +28,7 @@
                     <h4 class="card-title">{{$genre->name}}</h4>
                     <p class="card-text">{{$genre->description}}</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer d-flex justify-content-center">
                     <form action="{{route('allBooks')}}" method="get">
                         <p class="card-text"><button class="btn defaultGradientButton text-white" type="submit" name="filterGenre" value="{{ $genre->id }}">See Books</button></p>
                     </form>

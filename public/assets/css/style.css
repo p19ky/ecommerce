@@ -92,3 +92,24 @@ body {
 .imageOpacityChanger:hover {
   opacity: 0.8;
 }
+
+@media screen and (max-width: 1450px) {
+  #fillUpWithDiv {
+    font-size: 27px;
+    height: 175px;
+  }
+}
+
+@media screen and (max-width: 978px) {
+  #fillUpWithDiv {
+    font-size: 27px;
+    height: 225px;
+  }
+}
+
+@media screen and (max-width: 671px) {
+  #fillUpWithDiv {
+    font-size: 18px;
+    height: 150px;
+  }
+}
