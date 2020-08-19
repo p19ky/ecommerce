@@ -2,6 +2,8 @@
 
 namespace App;
 use Alert;
+use Illuminate\Support\Facades\Hash;
+
 // use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 // use Illuminate\Notifications\Notifiable;
@@ -40,10 +42,18 @@ class User extends Authenticatable
         return $this->belongsTo('App\Cart', 'cartId'); 
     }
 
-    public function setPasswordAttribute($value){
-        $this->attributes['password'] = bcrypt($value);
-    }
+    // public function setPasswordAttribute($value){
+        //$this->attributes['password'] = bcrypt($value);
+    //     if(Hash::needsRehash($value)) 
+    //     $password = Hash::make($value);
 
+    //     $this->attributes['password'] = $value;
+    // }
+
+    public function setPasswordAttribute($value)
+{
+    return $this->attributes['password'] = Hash::needsRehash($value) ? Hash::make($value) : $value;
+}
     // public function save(array $options = [])
     // {
     //     if (app('env') == 'production' &&

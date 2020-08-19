@@ -27,4 +27,18 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+
+    // ResetsPasswords.php
+protected function resetPassword($user, $password)
+{
+    // First round of hashing happens here.
+    $user->password = Hash::make($password);
+
+    $user->setRememberToken(Str::random(60));
+
+    // Second round of hashing happens here.
+    $user->save();
+
+    
+}
 }
