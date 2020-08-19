@@ -46,7 +46,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'a
     Route::get('editG/{id}', 'GenreController@edit')->name('editG');             // edit genre page
     Route::post('updateG/{id}', 'GenreController@update')->name('updateG');       // update genre page
     Route::delete('deleteG/{id}', 'GenreController@delete')->name('deleteG');       // delete genre route
-
+    
+    //orders
+    Route::get('allOrders', 'AllBooksController@indexOrders')->name('orders');
    
 });
 Route::any('/allBooks', 'AllBooksController@index')->name('allBooks');    //  books page - USER

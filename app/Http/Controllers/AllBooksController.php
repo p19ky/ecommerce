@@ -275,6 +275,15 @@ class AllBooksController extends Controller
     }
 
 
+
+    public function indexOrders(){
+        $orders=Orders::all();
+        return view('admin/orders');
+    }
+
+
+
+
     /**
      * Display the specified resource.
      *
