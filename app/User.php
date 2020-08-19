@@ -2,16 +2,16 @@
 
 namespace App;
 use Alert;
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
+// use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+// use Illuminate\Notifications\Notifiable;
 
 
 class User extends Authenticatable
 {
     
-    use CrudTrait;
-    use Notifiable;
+    // use CrudTrait;
+    // use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -44,16 +44,16 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
-    public function save(array $options = [])
-    {
-        if (app('env') == 'production' &&
-            !app()->runningInConsole() &&
-            !app()->runningUnitTests()) {
-            Alert::warning('User editing is disabled in the demo.');
+    // public function save(array $options = [])
+    // {
+    //     if (app('env') == 'production' &&
+    //         !app()->runningInConsole() &&
+    //         !app()->runningUnitTests()) {
+    //         Alert::warning('User editing is disabled in the demo.');
 
-            return true;
-        }
+    //         return true;
+    //     }
 
-        return parent::save($options);
-    }
+    //     return parent::save($options);
+    // }
 }

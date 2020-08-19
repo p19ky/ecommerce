@@ -75,7 +75,7 @@ class GenreController extends Controller
 
         $genre->save();
  
-        return redirect(route('genres'))->with('successMsg','Genre successfully added to the database'); 
+        return redirect(route('admin.genres'))->with('successMsg','Genre successfully added to the database'); 
         
 
     }
@@ -129,7 +129,7 @@ class GenreController extends Controller
 
         $genre->save();
  
-        return redirect(route('genres'))->with('successMsg','Genre successfully updated'); 
+        return redirect(route('admin.genres'))->with('successMsg','Genre successfully updated'); 
     }
 
     /**
@@ -141,6 +141,6 @@ class GenreController extends Controller
     public function delete($id)
     {
       Classification::find($id)->delete(); 
-      return redirect(route('genres'))->with('successMsg','Genre successfully deleted');   
+      return redirect(route('admin.genres'))->with('successMsg','Genre successfully deleted');   
     }
 }

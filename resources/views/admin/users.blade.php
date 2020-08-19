@@ -20,6 +20,11 @@
 <!-- /.content-header -->
 
 <section class="content">
+@if (session('successMsg'))
+<div class="alert alert-success" role="alert">
+{{ session('successMsg') }}
+</div>
+@endif
     <div class="container-fluid">
         <p>
             <a href="{{ route('admin.create')}}" class="btn btn-primary">Add new user</a>
