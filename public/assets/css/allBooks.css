@@ -1,5 +1,5 @@
 #allBooksMainContainer {
-  margin-top: 100px;
+  /* margin-top: 100px; */
   display: grid;
   grid-template-columns: 20% 3% 77%;
   margin-bottom: 15px;
@@ -8,12 +8,6 @@
 @media screen and (max-width: 599px) {
   #allBooksMainContainer {
     margin-bottom: 25px;
-  }
-}
-
-@media screen and (max-width: 492px) {
-  #allBooksMainContainer {
-    margin-top: 220px;
   }
 }
 
@@ -77,4 +71,28 @@
   margin: 8px 0 8px 0;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
+}
+
+select#sortBooks::-ms-expand {
+  display: none;
+}
+select#sortBooks {
+  width: 190px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+#allBooksUpperButtons {
+  margin-top: 100px;
+  max-height: 70px;
+  display: grid;
+  grid-template-columns: 33% 34% 33%;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 492px) {
+  #allBooksUpperButtons {
+    margin-top: 220px;
+  }
 }

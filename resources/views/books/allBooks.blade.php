@@ -2,6 +2,32 @@
 
 @section('content')
 
+<div id="allBooksUpperButtons">
+  <!-- reset button -->
+  <div class="d-flex justify-content-center">
+    <form style="max-width:130px;" action="{{ route('allBooks') }}" method="get">
+      {{ csrf_field() }}
+      <input readonly="readonly" name="reset" id="reset" type="submit" value="Reset Filters" class="btn btn-sm text-white reversedGradientButton">
+    </form>
+  </div>
+
+  <!-- advanced search href -->
+  <div class="d-flex justify-content-center" style="min-width:auto;">
+    <input readonly="readonly" data-toggle="modal" data-target="#advancedSearchModal" value="Advanced Search" class="btn btn-sm text-white reversedGradientButton">
+  </div>
+  <!-- sort books -->
+  <div class="d-flex justify-content-center">
+    <form style="max-width:160px;">
+      <select class="btn btn-sm white-text defaultGradientButton" style="padding:auto 30px;max-width:150px;" name="sortBooks" id="sortBooks" value="sortBooks" onchange="this.form.submit();">
+        <option {{ 0 == $sortingOption ? "selected" : "" }} style="color:black;" name="0" id="0" value="0">Books from A-Z </option>
+        <option {{ 1 == $sortingOption ? "selected" : "" }} style="color:black;" name="1" id="1" value="1">Authors from A-Z </option>
+        <option {{ 2 == $sortingOption ? "selected" : "" }} style="color:black;" name="2" id="2" value="2">Price: Low to High </option>
+        <option {{ 3 == $sortingOption ? "selected" : "" }} style="color:black;" name="3" id="3" value="3">Price: High to Low </option>
+      </select>
+    </form>
+  </div>
+
+</div>
 
 <div id="allBooksMainContainer">
 
@@ -15,7 +41,7 @@
         {{ csrf_field() }}
 
         <div class="d-flex justify-content-center">
-          <input type="submit" value="Filter" class="btn white-text defaultGradientButton btn-lg">
+          <input type="submit" value="Filter" class="btn white-text defaultGradientButton">
         </div>
         <!-- min price -->
         <div class="md-form">
@@ -85,32 +111,8 @@
 
   <div id="booksContainer" class="container">
 
-    <!-- sort books -->
-    <div class="d-flex" style="float:right; position:relative;">
-      <select class="btn white-text defaultGradientButton" name="sortBooks" id="sortBooks" value="sortBooks" onchange="this.form.submit();">
-        <option {{ 0 == $sortingOption ? "selected" : "" }} style="color:black;" name="0" id="0" value="0">Books from A-Z </option>
-        <option {{ 1 == $sortingOption ? "selected" : "" }} style="color:black;" name="1" id="1" value="1">Authors from A-Z </option>
-        <option {{ 2 == $sortingOption ? "selected" : "" }} style="color:black;" name="2" id="2" value="2">Price: Low to High </option>
-        <option {{ 3 == $sortingOption ? "selected" : "" }} style="color:black;" name="3" id="3" value="3">Price: High to Low </option>
-      </select>
-    </div>
-    </form>
-
-    <!-- reset button -->
-    <div class="d-flex justify-content-start">
-      <form action="{{ route('allBooks') }}" method="get">
-        {{ csrf_field() }}
-        <div style="float:left;" class="d-flex justify-content-center">
-          <input readonly="readonly" name="reset" id="reset" type="submit" value="Reset Filters" class="btn text-white reversedGradientButton">
-        </div>
-        <br><br><br>
-      </form>
 
 
-      <!-- advanced search href -->
-      <input readonly="readonly" data-toggle="modal" data-target="#advancedSearchModal" value="Advanced Search" class="btn text-white reversedGradientButton"></input>
-
-    </div>
     @if($books->isEmpty())
     <div class="alert alert-info" role="alert">
       No results. Please try searching again. </div>
