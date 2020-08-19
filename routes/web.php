@@ -60,6 +60,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'user']], function () {
     Route::get('index', 'UsersController@index')->name('index');
+    Route::get('profile', 'UsersController@show')->name('profile');
+    Route::post('profile/update', 'UsersController@update')->name('profile.update');
+
+    
 });
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
@@ -76,6 +80,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 });
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Auth', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('change-password', 'ChangePasswordController@index')->name('password.change');
+    Route::post('change-password', 'ChangePasswordController@changepassword')->name('password.update');
+});
+
+Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'Auth', 'middleware' => ['auth', 'user']], function () {
     Route::get('change-password', 'ChangePasswordController@index')->name('password.change');
     Route::post('change-password', 'ChangePasswordController@changepassword')->name('password.update');
 });

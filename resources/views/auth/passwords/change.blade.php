@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends(Auth::user()->role->id == 1 ? 'layouts.admin' : 'layouts.app');
 
 @section('content')
 <!-- Content Header (Page header) -->
@@ -10,8 +10,12 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href=" {{ route('admin.index')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"> 
+                    @if(Auth::user()->role->id == 1 ) <a href=" {{ route('admin.index')}}">Dashboard</a></li>
                     <li class="breadcrumb-item active">My account</li>
+                    @else <a href=" {{ route('user.index')}}">Dashboard</a>
+                    <li class="breadcrumb-item active">Reset password</li>
+                    @endif
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,8 +37,13 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
+                @if(Auth::user()->role->id == 1)
                     <form method="POST" action="{{ route('admin.password.update') }}">
                         @csrf
+                    @else 
+                    <form method="POST" action="{{ route('user.password.update') }}">
+                        @csrf
+                @endif
 
                         <div class="form-group row">
                             <label for="oldpassword" class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>
