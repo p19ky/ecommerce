@@ -56,7 +56,7 @@
     <tr>
 
       
-      <td>{{$order->totalPrice}}</td>
+      <td>${{$order->totalPrice}}</td>
       <td>{{$order->firstName}} {{$order->lastName}}</td>
       <td>{{$order->street}}</td>
       <td>{{$order->number}}</td>
