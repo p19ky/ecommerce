@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Books;
 use Illuminate\Support\Facades\DB;
 use Illuminate\html;
 use App\Classification;
+use App\Orders;
 
 
 class AllBooksController extends Controller
@@ -235,6 +236,42 @@ class AllBooksController extends Controller
         $book->save();
 
         return redirect(route('admin.books'))->with('successMsg', 'Book successfully added to the database');
+    }
+
+
+    public function storeOrder(Request $request){
+         //validam datele de intrare
+         $this->validate($request, array(
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'street' => 'required',
+            'number' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'county' => 'required',
+        ));
+
+        $order = new Orders;
+        $mytime = Carbon::now();
+        $mytime=$mytime->toDateTimeString();
+
+        $order->totalPrice = 176.9;
+        $order->date=$mytime;
+        $order->firstName=$request->firstName;
+        $order->lastName=$request->lastName;
+        $order->street=$request->street;
+        $order->number=$request->number;
+        $order->building=$request->building;
+        $order->apartment=$request->apartment;
+        $order->city=$request->city;
+        $order->county=$request->county;
+        $order->orderStatus="in process";
+        $order->id=3;
+        $order->paymentId=1;
+
+        $order->save();
+
+        return redirect(route('allBooks'))->with('orderSuccess', ' Thank you for your order! You will shortly be contacted if necessary. Stay safe!');
     }
 
 

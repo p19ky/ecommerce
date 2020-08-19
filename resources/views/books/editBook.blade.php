@@ -28,7 +28,7 @@
 </div>
 @endforeach
 @endif
-<!-- register genre form -->
+<!-- edit book form -->
 
 <form class="text-center border border-light p-5" action="{{ route('admin.updateB', $book->id) }}" method = "POST">
 {{ csrf_field() }}

@@ -30,7 +30,7 @@
 @endif
 <!-- register genre form -->
 
-<form class="text-center border border-light p-5" action="{{ route('storeG') }}" method = "POST">
+<form class="text-center border border-light p-5" action="{{ route('admin.storeG') }}" method = "POST">
 {{ csrf_field() }}
     <div class="form-row mb-4">
         <div class="col">

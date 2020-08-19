@@ -30,7 +30,7 @@
 @endif
 <!-- edit genre form -->
 
-<form class="text-center border border-light p-5" action="{{ route('updateG', $genre->id) }}" method = "POST">
+<form class="text-center border border-light p-5" action="{{ route('admin.updateG', $genre->id) }}" method = "POST">
 {{ csrf_field() }}
     <div class="form-row mb-4">
         <div class="col">

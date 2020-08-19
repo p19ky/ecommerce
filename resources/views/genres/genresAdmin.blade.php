@@ -55,7 +55,7 @@
       
       <a class="btn btn-raised btn-primary btn-sm" href="{{ route('admin.editG', $genre->id)  }}"><i class="fa fa-edit" aria-hidden="true"></i>
       </a>
-      <form method="POST" id="deleteG-form-{{ $genre->id }}" action="{{ route('admin.delete', $genre->id) }}" style="display:none; ">
+      <form method="POST" id="deleteG-form-{{ $genre->id }}" action="{{ route('admin.deleteG', $genre->id) }}" style="display:none; ">
      {{  csrf_field() }}
      {{  method_field('delete') }}
       </form>

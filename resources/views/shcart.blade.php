@@ -22,6 +22,14 @@ Shopping Cart coming soon...
     <!-- Heading -->
     <h2 style="color:#3061E2;" class="my-5 h2 text-center">Checkout</h2>
 
+    @if($errors->any())
+    @foreach($errors->all() as $error)
+    <div class="alert alert-danger" role="alert">
+    {{$error}}
+    </div>
+    @endforeach
+    @endif
+
     <!--Grid row-->
     <div class="row">
 
@@ -32,8 +40,8 @@ Shopping Cart coming soon...
         <div class="card z-depth-2">
 
           <!--Card content-->
-          <form class="card-body">
-
+          <form class="card-body" action="{{ route ('storeO', $user->id) }}" method="POST">
+          {{ csrf_field() }}
             <!--Grid row-->
             <div class="row">
 
@@ -42,7 +50,7 @@ Shopping Cart coming soon...
 
                 <!--firstName-->
                 <div class="md-form ">
-                  <input type="text" id="firstName" class="form-control" required>
+                  <input type="text" id="firstName" name="firstName" class="form-control" required>
                   <label for="firstName" class="">First name</label>
                 </div>
 
@@ -54,7 +62,7 @@ Shopping Cart coming soon...
 
                 <!--lastName-->
                 <div class="md-form">
-                  <input type="text" id="lastName" class="form-control" required>
+                  <input type="text" id="lastName" name="lastName" class="form-control" required>
                   <label for="lastName" class="">Last name</label>
                 </div>
 
@@ -66,23 +74,33 @@ Shopping Cart coming soon...
 
             <!--email-->
             <div class="md-form mb-5">
-              <input type="text" id="email" class="form-control">
+              <input type="text" id="email" name="email" class="form-control">
               <label for="email" class="">Email (optional)</label>
             </div>
             <!--email-->
 
 
-            <!--address-->
+            <!--address - street name, number -->
             <div class="md-form mb-5">
-              <input type="text" id="address" class="form-control" placeholder="Location, 1234 Main St" required>
-              <label for="address" class="">Address</label>
-            </div>
+              <div class="col">
+              <input type="text" id="street" name="street" class="form-control" placeholder="Location, Main St" required>
+              <label for="street" class="">Street Name</label>
+              </div>
+              <div class="col">
+              <input type="text" id="number" name="number" class="form-control" placeholder="1234" required>
+              <label for="number" class="">No.</label>
+            </div></div>
 
-            <!--address-2-->
-            <div class="md-form mb-5">
-              <input type="text" id="address-2" class="form-control" placeholder="Apartment or suite">
-              <label for="address-2" class="">Address 2 (optional)</label>
-            </div>
+             <!--address - building, apartment-->
+             <div class="md-form mb-5">
+              <div class="col">
+              <input type="text" id="building" name="building" class="form-control" placeholder="A6B" required>
+              <label for="building" class="">Building</label>
+              </div>
+              <div class="col">
+              <input type="text" id="apartment" name="apartment" class="form-control" placeholder="1234" required>
+              <label for="apartment" class="">Apartment</label>
+            </div></div>
 
             <!--Grid row-->
             <div class="row">
@@ -90,8 +108,8 @@ Shopping Cart coming soon...
               <!--Grid column-->
               <div class="col-lg-4 col-md-6 mb-4">
 
-                <label for="zip">Country</label>
-                <input type="text" class="form-control" id="country" placeholder="" required>
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="" required>
                 <div class="invalid-feedback">
                   Country required.
                 </div>
@@ -102,8 +120,8 @@ Shopping Cart coming soon...
               <!--Grid column-->
               <div class="col-lg-4 col-md-6 mb-4">
 
-                <label for="zip">City</label>
-                <input type="text" class="form-control" id="city" placeholder="" required>
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="" required>
                 <div class="invalid-feedback">
                   City required.
                 </div>
@@ -114,10 +132,10 @@ Shopping Cart coming soon...
               <!--Grid column-->
               <div class="col-lg-4 col-md-6 mb-4">
 
-                <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <label for="county">County/Region</label>
+                <input type="text" class="form-control" id="county" name="county" placeholder="" required>
                 <div class="invalid-feedback">
-                  Zip code required.
+                  County/Region required.
                 </div>
 
               </div>
@@ -129,7 +147,7 @@ Shopping Cart coming soon...
             <hr>
 
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="same-address">
+              <input type="checkbox" class="custom-control-input" id="same-address" checked>
               <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
             </div>
             <div class="custom-control custom-checkbox">

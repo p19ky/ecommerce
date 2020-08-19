@@ -38,16 +38,20 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'a
     Route::get('editB/{id}', 'AllBooksController@edit')->name('editB');             // edit book page
     Route::post('updateB/{id}', 'AllBooksController@update')->name('updateB');       // update book page
     Route::delete('deleteB/{id}', 'AllBooksController@delete')->name('deleteB');       // delete book route
-    Route::get('autocomplete', 'AllBooksController@autocompleteAuthor')->name('autocompleteAuthor');  // autocomplete authors filter 
+    //Route::get('autocomplete', 'AllBooksController@autocompleteAuthor')->name('autocompleteAuthor');  // autocomplete authors filter 
     // genres
     Route::get('genres', 'GenreController@indexAdmin')->name('genres');             // genres page - ADMIN
     Route::post('createGenre', 'GenreController@store')->name('storeG');       // add genre to db method
     Route::get('createGenre', 'GenreController@displayTable')->name('displayTableG'); // add genre to db input
     Route::get('editG/{id}', 'GenreController@edit')->name('editG');             // edit genre page
     Route::post('updateG/{id}', 'GenreController@update')->name('updateG');       // update genre page
-    Route::delete('delete/{id}', 'GenreController@delete')->name('deleteG');       // delete genre route
+    Route::delete('deleteG/{id}', 'GenreController@delete')->name('deleteG');       // delete genre route
+
+   
 });
 Route::any('/allBooks', 'AllBooksController@index')->name('allBooks');    //  books page - USER
+// orders
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -81,4 +85,5 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Auth', 'mid
 // });
 
 Route::get('/shcart/{id}', 'ShoppingCartController@index')->name('shcart');    // shopping cart page
+Route::post('/order{id}', 'AllBooksController@storeOrder')->name('storeO');  // add order to db
 Route::get('/product/{id}', 'ProductController@index')->name('product');    // shopping cart page

@@ -111,7 +111,11 @@
 
   <div id="booksContainer" class="container">
 
-
+  @if (session('orderSuccess'))
+    <div class="alert alert-success" role="alert">
+      {{ session('orderSuccess') }}
+    </div>
+  @endif
 
     @if($books->isEmpty())
     <div class="alert alert-info" role="alert">
