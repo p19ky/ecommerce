@@ -234,7 +234,7 @@ class AllBooksController extends Controller
         $book->classifId = $request->bookGenre;
         $book->save();
 
-        return redirect(route('books'))->with('successMsg', 'Book successfully added to the database');
+        return redirect(route('admin.books'))->with('successMsg', 'Book successfully added to the database');
     }
 
 
@@ -299,7 +299,7 @@ class AllBooksController extends Controller
         $book->save();
 
 
-        return redirect(route('books'))->with('successMsg', 'Book successfully updated');
+        return redirect(route('admin.books'))->with('successMsg', 'Book successfully updated');
     }
 
 
@@ -307,7 +307,7 @@ class AllBooksController extends Controller
     public function delete($id)
     {
         Books::find($id)->delete();
-        return redirect(route('books'))->with('successMsg', 'Book successfully deleted');
+        return redirect(route('admin.books'))->with('successMsg', 'Book successfully deleted');
     }
 
 

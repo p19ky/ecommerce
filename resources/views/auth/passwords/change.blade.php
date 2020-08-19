@@ -20,12 +20,11 @@
 <!-- /.content-header -->
 <div class="container">
 
-@if($errors->any())
-@foreach($errors->all() as $error)
+@if (session('errorMsg'))
 <div class="alert alert-danger" role="alert">
- {{$error}}
+{{ session('errorMsg') }}
 </div>
-@endforeach
+
 @endif
 
     <div class="row justify-content-center">
@@ -41,7 +40,7 @@
                             <label for="oldpassword" class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="oldpassword" type="password" class="form-control @error('name') is-invalid @enderror" name="oldpassword" required autocomplete="oldpassword" autofocus>
+                                <input id="oldpassword" type="password" class="form-control @error('oldpassword') is-invalid @enderror" name="oldpassword" required autocomplete="oldpassword" autofocus>
 
                                 @error('oldpassword')
                                     <span class="invalid-feedback" role="alert">
@@ -51,14 +50,13 @@
                             </div>
                         </div>
 
-                       
-
+                  
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                                    
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

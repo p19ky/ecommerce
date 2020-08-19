@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\User;
+use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,8 @@ class AdminController extends Controller
     {
         $this->validate($request,[
             'usertype' => 'required',
-            'name' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
             'username' => 'required',
             'email' => 'required',
             'password' => 'required',
@@ -57,7 +59,8 @@ class AdminController extends Controller
         $user= new User;
             
             $user->role_id= $request->usertype;
-            $user->name= $request->name;
+            $user->firstName= $request->firstName;
+            $user->lastName= $request->lastName;
             $user->username= $request->username;
             $user->email= $request->email;
             $user->password= $request->password;
@@ -87,7 +90,8 @@ class AdminController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.edit',compact('user'));
+        $roles = Role::all();
+        return view('admin.edit',compact('user', 'roles'));
     }
 
     /**
@@ -101,10 +105,11 @@ class AdminController extends Controller
     {
         $this->validate($request,[
             'usertype' => 'required',
-            'name' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
             'username' => 'required',
             'email' => 'required',
-            'password' => 'required',
+            // 'password' => 'required',
 
         ]);
 
@@ -112,13 +117,14 @@ class AdminController extends Controller
         $user= User::find($id);
             
             $user->role_id= $request->usertype;
-            $user->name= $request->name;
+            $user->firstName= $request->firstName;
+            $user->lastName= $request->lastName;
             $user->username= $request->username;
             $user->email= $request->email;
-            $user->password= $request->password;
+            // $user->password= $request->password;
             $user->save();
 
-            return redirect(route('admin.create'))->with('successMsg', 'User successfully updated to the database');
+            return redirect(route('admin.users'))->with('successMsg', 'User successfully updated to the database');
 
     }
 
@@ -131,7 +137,7 @@ class AdminController extends Controller
     public function delete($id)
     {
         User::find($id)->delete();
-        return redirect(route('admin.create'))->with('successMsg', 'User successfully deleted from the database');
+        return redirect(route('admin.users'))->with('successMsg', 'User successfully deleted from the database');
 
     }
 }

@@ -42,14 +42,22 @@
 
     <div class="form-group">
             <label>Give Role</label>
-                <select value="{{ $user->role_id }}" name="usertype">
+            
+          <select class="form-control" name="usertype" id="usertype" value="{{ $user->roles['name'] }}">
+            <!--option disabled="disabled" selected="selected">{{$user->roles['name']}}</option-->
+
+            <option value="{{ $user->roles['id'] }}" {{ $user->role_id == $user->roles['id'] ? 'selected' : '' }}>{{ $user->roles['name'] }}</option>
+           @foreach($roles as $role)
+           <option id="{{ $role->id }} " value="{{ $role->id }}">{{ $role->name }}</option>
+           @endforeach
+          </select>
+                <!-- <select value="{{ $user->role_id }}" name="usertype">
                     <option value="1">Admin</option>
                     <option value="2">User</option>
-                    <!-- Role -->
-                    <!-- <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Role"> -->
+                   
                 </select>
             </div>
-    
+     -->
     <div class="form-row mb-4">
         
         <div class="col">
@@ -74,11 +82,7 @@
     </div>
        
 
-    <!-- Password -->
-    <input type="password" id="defaultRegisterFormPassword" class="form-control" value="{{ $user->password }}" name="password" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-        At least 8 characters
-    </small>
+   
 
     <!-- Sign up button -->
     <button class="btn btn-info my-4 btn-block" type="submit">Update</button>

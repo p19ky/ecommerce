@@ -22,31 +22,32 @@ Route::get('/', 'EcommerceController@index')->name('home');
 
 // Rute admmin:
 
-Route::get('/dashboard', 'AdminCrudController@index')->name('dashboard');       // dashboard provizoriu..
 
 // genres
 Route::get('/allGenres', 'GenreController@index')->name('allGenres');             // genres page - USER
-Route::get('/genres', 'GenreController@indexAdmin')->name('genres');             // genres page - ADMIN
-Route::post('/createGenre', 'GenreController@store')->name('storeG');       // add genre to db method
-Route::get('/createGenre', 'GenreController@displayTable')->name('displayTableG'); // add genre to db input
-Route::get('/editG/{id}', 'GenreController@edit')->name('editG');             // edit genre page
-Route::post('/updateG/{id}', 'GenreController@update')->name('updateG');       // update genre page
-Route::delete('/delete/{id}', 'GenreController@delete')->name('deleteG');       // delete genre route
 
 // genres route for the advanced search
 //Route::get('/', 'GenreController@getGenre')->name('adS');
 
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
 
-// books
-Route::get('/books', 'AllBooksController@indexAdmin')->name('books');      // books page - ADMIN
+    // books
+    Route::get('books', 'AllBooksController@indexAdmin')->name('books');      // books page - ADMIN
+    Route::post('createBook', 'AllBooksController@store')->name('storeB');       // add book to db method
+    Route::get('createBook', 'AllBooksController@displayTable')->name('displayTableB'); // add book to db input
+    Route::get('editB/{id}', 'AllBooksController@edit')->name('editB');             // edit book page
+    Route::post('updateB/{id}', 'AllBooksController@update')->name('updateB');       // update book page
+    Route::delete('deleteB/{id}', 'AllBooksController@delete')->name('deleteB');       // delete book route
+    Route::get('autocomplete', 'AllBooksController@autocompleteAuthor')->name('autocompleteAuthor');  // autocomplete authors filter 
+    // genres
+    Route::get('genres', 'GenreController@indexAdmin')->name('genres');             // genres page - ADMIN
+    Route::post('createGenre', 'GenreController@store')->name('storeG');       // add genre to db method
+    Route::get('createGenre', 'GenreController@displayTable')->name('displayTableG'); // add genre to db input
+    Route::get('editG/{id}', 'GenreController@edit')->name('editG');             // edit genre page
+    Route::post('updateG/{id}', 'GenreController@update')->name('updateG');       // update genre page
+    Route::delete('delete/{id}', 'GenreController@delete')->name('deleteG');       // delete genre route
+});
 Route::any('/allBooks', 'AllBooksController@index')->name('allBooks');    //  books page - USER
-Route::post('/createBook', 'AllBooksController@store')->name('storeB');       // add book to db method
-Route::get('/createBook', 'AllBooksController@displayTable')->name('displayTableB'); // add book to db input
-Route::get('/editB/{id}', 'AllBooksController@edit')->name('editB');             // edit book page
-Route::post('/updateB/{id}', 'AllBooksController@update')->name('updateB');       // update book page
-Route::delete('/deleteB/{id}', 'AllBooksController@delete')->name('deleteB');       // delete book route
-Route::get('autocomplete', 'AllBooksController@autocompleteAuthor')->name('autocompleteAuthor');  // autocomplete authors filter 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
