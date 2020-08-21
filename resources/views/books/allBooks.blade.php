@@ -15,9 +15,11 @@
   <div class="d-flex justify-content-center" style="min-width:auto;">
     <input readonly="readonly" data-toggle="modal" data-target="#advancedSearchModal" value="Advanced Search" class="btn btn-sm text-white reversedGradientButton">
   </div>
+
+
   <!-- sort books -->
-  <div class="d-flex justify-content-center">
-    <form style="max-width:160px;">
+  <!--div class="d-flex justify-content-center">
+    <form action="{{ route('allBooks')}}" style="max-width:160px;" method="GET">
       <select class="btn btn-sm white-text defaultGradientButton" style="padding:auto 30px;max-width:150px;" name="sortBooks" id="sortBooks" value="sortBooks" onchange="this.form.submit();">
         <option {{ 0 == $sortingOption ? "selected" : "" }} style="color:black;" name="0" id="0" value="0">Books from A-Z </option>
         <option {{ 1 == $sortingOption ? "selected" : "" }} style="color:black;" name="1" id="1" value="1">Authors from A-Z </option>
@@ -25,20 +27,39 @@
         <option {{ 3 == $sortingOption ? "selected" : "" }} style="color:black;" name="3" id="3" value="3">Price: High to Low </option>
       </select>
     </form>
-  </div>
+  </div-->
 
 </div>
 
+
 <div id="allBooksMainContainer">
+<form action="{{ route('allBooks')}}" style="max-width:160px;" method="GET">
+{{ csrf_field() }}
+
+
+
+<!--div class="d-flex justify-content-center"-->
+<div class="justify-content-center d-flex">
+    <!--form action="{{ route('allBooks')}}" style="max-width:160px;" method="GET"-->
+      <select class="btn btn-sm white-text defaultGradientButton" style="padding:auto 30px;max-width:150px;" name="sortBooks" id="sortBooks" value="sortBooks" onchange="this.form.submit();">
+        <option {{ 0 == $sortingOption ? "selected" : "" }} style="color:black;" name="0" id="0" value="0">Books from A-Z </option>
+        <option {{ 1 == $sortingOption ? "selected" : "" }} style="color:black;" name="1" id="1" value="1">Authors from A-Z </option>
+        <option {{ 2 == $sortingOption ? "selected" : "" }} style="color:black;" name="2" id="2" value="2">Price: Low to High </option>
+        <option {{ 3 == $sortingOption ? "selected" : "" }} style="color:black;" name="3" id="3" value="3">Price: High to Low </option>
+      </select>
+    
+</div>
+
+
 
 
   <div id="sideFilterContainer">
 
     <div class="container">
 
-      <form action="{{ route('allBooks') }}" method="get">
+      <!--form action="{{ route('allBooks') }}" method="get">
 
-        {{ csrf_field() }}
+        {{ csrf_field() }}  -->
 
         <div class="d-flex justify-content-center">
           <input type="submit" value="Filter" class="btn white-text defaultGradientButton">
@@ -103,7 +124,7 @@
 
 
     </div>
-
+    </form>
   </div>
 
 

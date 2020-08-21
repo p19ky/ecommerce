@@ -159,8 +159,6 @@ class AllBooksController extends Controller
             $queries=[];
         }
 
-
-
         $books = $books->paginate(10)->appends($queries);
 
         return view('books/allBooks')->with('authorOption', $authorOption)->with('keyword', $keyword)->with('maxPriceOption', $maxPriceOption)->with('minPriceOption', $minPriceOption)->with('genreOption', $genreOption)->with('sortingOption', $sortingOption)->with('authors',$authors)->with('books', $books)->with('queries', $queries)->with('searchMsg', '')->with('classifications', $classifications);
